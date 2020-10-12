@@ -1,0 +1,8 @@
+{
+  "name": "cinemoon",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
