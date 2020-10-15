@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chứng thực Email</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>
+    Kiểm tra email của bạn và nhấp vào đường link để chứng thực địa chỉ email.
+  </p>
+  <p>
+    Nhấn vào nút dưới nếu chưa nhận được mail.
+  </p>
+  <ion-button type="submit" (click)="authService.SendVerificationMail()" expand="block">
+    Gửi yêu cầu chứng thực
+  </ion-button>
+</ion-content>
