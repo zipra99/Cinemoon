@@ -76,6 +76,58 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
+  /*
+   * ADD CUSTOM
+   * -------------------------------------------
+   */
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../assets/fonts/Roboto/Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../assets/fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@media(min-height: 319px){
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-49%, -49%);
+    transform: translate(-49%,-49%);
+    width: 90%;
+  }
+}
+
+@media(min-height: 735px) {
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-49%, -49%);
+    transform: translate(-49%,-49%);
+    width: 90%;
+  }
+}
+
+@media(min-height: 812px) {
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-49%, -49%);
+    transform: translate(-49%,-49%);
+    width: 90%;
+  }
+}
+
+  /*
+   * END CUSTOM
+   * -------------------------------------------
+   */
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
