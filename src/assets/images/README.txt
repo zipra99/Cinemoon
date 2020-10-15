@@ -1,0 +1,1 @@
+Hình ảnh các thứ bỏ hết vào folder này.
