@@ -15,11 +15,9 @@ export class AuthenticationService {
   constructor(public afStore: AngularFirestore, public ngFireAuth: AngularFireAuth, public router: Router, public ngZone: NgZone) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
-        console.log(user);
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
-        console.log(JSON.parse(localStorage.getItem('user')));
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
