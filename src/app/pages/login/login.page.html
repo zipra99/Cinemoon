@@ -27,5 +27,7 @@
         <ion-button type="submit" color="secondary" expand="block" [routerLink]="['/registration']">Đăng ký</ion-button>
       </ion-col>
     </ion-row>
+    <ion-button type="submit" color="danger" (click)="authService.GoogleAuth()" expand="block">Đăng nhập bằng Google</ion-button>
+    <ion-button type="submit" color="primary" (click)="authService.SignInWithFacebook()" expand="block">Đăng nhập bằng Facebook</ion-button>
   </form>
 </ion-content>

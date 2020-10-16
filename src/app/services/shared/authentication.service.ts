@@ -18,6 +18,7 @@ export class AuthenticationService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
+        router.navigate(['home']);
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -69,12 +70,27 @@ export class AuthenticationService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
+  // Sign in with Facebook
+  SignInWithFacebook() {
+    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
+  }
+
+  // Sign in with Github
+  SignInWighGithub() {
+    return this.AuthLogin(new firebase.auth.GithubAuthProvider());
+  }
+
+  // Sign in with Github
+  SignInWighTwitter() {
+    return this.AuthLogin(new firebase.auth.TwitterAuthProvider());
+  }
+
   // Auth providers
   AuthLogin(provider) {
     return this.ngFireAuth.signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['home']);
         })
         this.SetUserData(result.user);
       }).catch((error) => {

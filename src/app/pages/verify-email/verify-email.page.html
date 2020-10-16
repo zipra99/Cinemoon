@@ -15,7 +15,7 @@
     Nhấn vào nút dưới nếu chưa nhận được mail.
   </p>
   <ion-button id="go-to-login" type="submit" (click)="navLoginPage()" color="success" expand="block">
-    Quay lại trang đăng nhập ({{time}})
+    Quay lại trang đăng nhập {{counter.displayValue}}
   </ion-button>
   <ion-button type="submit" (click)="authService.SendVerificationMail()" expand="block">
     Gửi lại yêu cầu chứng thực

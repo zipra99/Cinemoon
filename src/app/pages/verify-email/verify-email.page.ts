@@ -8,20 +8,26 @@ import { AuthenticationService } from "src/app/services/shared/authentication.se
   styleUrls: ['./verify-email.page.scss'],
 })
 export class VerifyEmailPage implements OnInit {
-  time: number;
+  TIME: number = 15;
+  counter = {
+    time: 0,
+    displayValue: `(${this.TIME})`
+  }
 
   constructor(public authService: AuthenticationService, public navCtrl: NavController) { }
 
   ngOnInit() {
     let btnGoToLogin = (document.getElementById('go-to-login') as HTMLInputElement);
     btnGoToLogin.disabled = true;
-    this.time = 5;
+    this.counter.time = this.TIME;
     setInterval(() => {
-      if(this.time === 0){
+      if(this.counter.time === 0){
         btnGoToLogin.disabled = false;
+        this.counter.displayValue = '';
         return;
       }
-      this.time--;
+      //this.counter.time--;
+      this.counter.displayValue = `(${--this.counter.time})`;
     }, 1000);
   }
 
