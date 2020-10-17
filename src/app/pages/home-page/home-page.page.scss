@@ -1,3 +1,45 @@
+ion-header {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+
+.login-header {
+  position: relative;
+  border-radius: 0em;
+}
+
+.logo-img {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.icon-header {
+  position: absolute;
+  top: 40%;
+  right: 3%;
+}
+
+.hot-content{
+  background: url(../../../assets/images/MaskGroup.png);
+  background-size: 100% 250px;
+  background-repeat: no-repeat;
+}
+
+.hot-title{
+  display: flex;
+}
+
+p{
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 40px;
+  padding-left: 10px;
+  font-family: "Roboto-Light";
+  font-size: 18px;
+}
+
 ion-segment {
     margin: 0 10px;
     width: 100%;

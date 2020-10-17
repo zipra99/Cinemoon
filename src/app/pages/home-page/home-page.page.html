@@ -1,21 +1,14 @@
-<ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar>
-
-    <img class="logo-img" src="../../../assets/images/logo.png" style= "width:135px; height: 50px; "/>
-
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="start" name="search"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    
-  </ion-toolbar>
+<ion-header>
+  <div class="login-header">
+    <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; "/>
+    <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   
 
-  <ion-segment scrollable="true" value="all">
+  <!-- <ion-segment scrollable="true" value="all">
     <ion-segment-button value="1">
       <ion-label>Recent Movies</ion-label>
     </ion-segment-button>
@@ -52,8 +45,13 @@
       </ion-row>
     </ion-grid>
 
+  </div> -->
+<div class="hot-content">
+  <div class="hot-title">
+    <p>PHIM ĐANG CHIẾU</p>
+    <img>
   </div>
-
+  
   <ion-slides [options]="options">
     
     <ion-slide>
@@ -150,5 +148,6 @@
   </ion-slide>
 
 </ion-slides>
+</div>
   
 </ion-content>
