@@ -1,0 +1,35 @@
+<ion-header>
+  <div class="login-header ion-padding">
+    <img class="logo-img" src="assets/images/logo.png" style="width:185px; height: 100px; " />
+  </div>
+</ion-header>
+
+<ion-content class="no-scroll" fullscreen="true">
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <div class="center">
+      <div class="account">
+        <div heading-column-lr>
+          <h1 big-heading>ĐĂNG NHẬP</h1>
+        </div>
+        <ion-item transparent>
+          <img icon-small src="assets/images/user.png" style="margin-top: 5px;" />
+          <ion-input id="email" type="text" placeholder="Email" value="" #email required></ion-input>
+        </ion-item>
+        <ion-item transparent>
+          <img icon-small src="assets/images/pass.png" style="margin-top: 5px;" />
+          <ion-input id="password" type="password" placeholder="Mật khẩu" value="" #password required></ion-input>
+        </ion-item>
+        <ion-label class="forget-password"><span class="link-button" (click)="ForgetPass()">Quên mật khẩu?</span>
+        </ion-label>
+
+        <div linespace></div>
+        <ion-button class="ion-button-class" size="large" expand="block" (click)="logIn(email, password)">Đăng nhập
+        </ion-button>
+        <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.GoogleAuth()">Đăng nhập bằng Google</ion-button>
+        <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignInWithFacebook()">Đăng nhập bằng Facebook</ion-button>
+        <ion-label class="ion-text-center">Bạn chưa có tài khoản?<br> <span class="link-button"
+          (click)="navRegistrationPage()"> Đăng kí</span> tài khoản CineMoon</ion-label>
+      </div>
+    </div>
+  </form>
+</ion-content>

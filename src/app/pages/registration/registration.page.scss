@@ -1,0 +1,108 @@
+ion-header {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+.login-header {
+    position: relative;
+    border-radius: 0em;
+}
+
+.logo-img {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+[heading-column-lr] {
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+[big-heading] {
+    font-weight: bold;
+    font-family: "Roboto-Regular";
+    font-size: 30px !important;
+    color:  #ddd;
+}
+
+[small-heading] {
+    margin-left: auto;
+    font-size: 15px;
+}
+
+ion-lable{
+    color:  #000;
+    opacity: .8;
+    font-size: 13px;
+    display: block;
+}
+
+ion-content{
+    --background: url(../../../assets/images/background5.jpg) center/cover fixed;
+}
+
+.center{
+    padding-top: 6vh;
+}
+.no-scroll {
+    --overflow: hidden;
+}
+
+[transparent] {
+    --background: transparent;
+}
+
+ion-input{
+    --color:white;
+    --padding-button: 15px;
+    --padding-top: 15px;
+    --padding-start: 5px;
+    font-family: "Roboto-Regular";
+    font-size: 20px;
+    text-indent: 1px;
+    padding-left: 10px!important;
+}
+
+
+[icon-small]{
+    width: 27px;
+}
+
+.forget-password{
+    float: right;
+    padding: 13px 5px 0 0;
+}
+
+ion-item{
+    --highlight-color-focused: transparent;
+    --hight-height:0;
+    --hightlight-color-invalid: #000;
+    --hightlight-color-valie: #ddd;
+    --min-height: 65px;
+    --padding-start:0;
+    --border-color: rgb(255, 255, 255);
+}
+
+[linespace]{
+    height: 30px;
+}
+
+ion-label{
+    color: rgb(255, 255, 255);
+    font-family: "Roboto-Regular";
+    opacity: .8px;
+    font-size: 15px;
+    display: block;
+}
+
+ion-button{
+    padding-top: 10px;
+   --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
+   border-radius: 10px;
+   --background-activated:-webkit-linear-gradient(30deg,#94182d,#e43926);
+   --background-focused:-webkit-linear-gradient(30deg,#94182d,#e43926);
+   font-family: "Roboto-Light";
+}
