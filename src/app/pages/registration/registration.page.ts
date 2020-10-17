@@ -19,6 +19,10 @@ export class RegistrationPage implements OnInit {
 
   ngOnInit() { }
 
+  navRegistrationPage(){
+    this.navCtrl.navigateBack('/registration');
+  }
+
   signUp() {
     this.authService.RegisterUser(this.email, this.password)
       .then((res) => {
