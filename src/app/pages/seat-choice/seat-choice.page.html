@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>seat-choice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>{{ticketInfo.totalMoney}}</h1>
+  <h4>DS ghế: {{listBookingSeatString}}</h4>
+  <ion-row *ngFor="let row of rowList">
+    <ion-col class="col" *ngFor="let col of colList">
+      <ion-button id="{{row}}{{col}}" class="seat" color="primary" (click)="press(row,col)">{{row}}{{col}}</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

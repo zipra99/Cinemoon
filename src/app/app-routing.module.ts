@@ -23,9 +23,10 @@ const routes: Routes = [
     path: 'verify-email',
     loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
   },
-
-
-
+  {
+    path: 'seat-choice',
+    loadChildren: () => import('./pages/seat-choice/seat-choice.module').then( m => m.SeatChoicePageModule)
+  }
 ];
 
 @NgModule({
