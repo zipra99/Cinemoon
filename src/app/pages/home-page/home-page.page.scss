@@ -1,17 +1,18 @@
 ion-header {
-  --background: transparent;
-  --ion-color-base: transparent !important;
+
 }
 
 .login-header {
   position: relative;
   border-radius: 0em;
+  background: rgb(0, 0, 0);
 }
 
 .logo-img {
   display: block;
   margin: auto;
-  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 3px;
   text-align: center;
 }
 
@@ -31,14 +32,19 @@ ion-header {
   display: flex;
 }
 
-p{
+.ht-sm{
   margin-bottom: 0px;
   margin-top: 0px;
   padding-top: 40px;
   padding-left: 10px;
-  font-family: "Roboto-Light";
+  font-family: "Roboto-Thin";
   font-size: 18px;
 }
+
+p{
+  font-family: "Roboto-Thin";
+}
+
 
 ion-segment {
     margin: 0 10px;
@@ -71,20 +77,12 @@ ion-segment {
     border-bottom: 4px solid #333;
   
   }
-  
-  ion-badge {
-    padding: 8px 0;
-    border-radius: 18px;
-    color: #8c8c8c;
-    border: 1px solid #8c8c8c;
-    width: 100%;
-    text-align: center;
-  }
+
   
   .poster-col {
-    height: 400px;
+    height: 350px;
     img {
-      border-radius: 40px;
+      border-radius: 10px;
     }
   }
   
@@ -101,18 +99,61 @@ ion-segment {
     margin-top: 4px;
   }
   
-  
-  
-  .swiper-slide-prev {
+  // Phim moi
+  .slides .swiper-slide-prev {
     opacity: .5;
-    transform: rotate(-8deg);
+    transform: rotate(-4deg);
   }
   
-  .swiper-slide-next {
+  .slides .swiper-slide-next {
     opacity: .5;
-    transform: rotate(8deg);
+    transform: rotate(4deg);
   }
   
   .swiper-slide {
     transition: .4s all;
+  }
+
+  // Title-Phim dang chieu
+  .title{
+    display: block;
+    height: 30px;
+    margin-top: 20px;
+  }
+
+ .nt-b{
+    position: absolute;
+    font-family: "Roboto-Bold";
+    font-size: 40px;
+    line-height: 0px;
+    text-align: center;
+    letter-spacing: -0.24px;
+    color: #A71D31;
+    opacity: 0.25;
+    margin: 25px 0px 0px 4px;
+  }
+
+  .nt-sm{
+    font-size: 23px;
+    font-family: 'Roboto-Thin';
+    margin: -9px 0px 0px 13px;
+  }
+
+  //Phim sap chieu
+  .st-sm{
+    font-size: 23px;
+    font-family: 'Roboto-Thin';
+    margin: -18px 0px 0px 13px;
+  }
+
+  // Phim dang chieu
+  .slides1 ion-slide {
+    font-size: 23px;
+    font-family: 'Roboto-Thin';
+  }
+
+  ion-card {
+    width: 100%;
+    box-shadow: none;
+    background: rgb(39 39 39 / 49%);
   }
