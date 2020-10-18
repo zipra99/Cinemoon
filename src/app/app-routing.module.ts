@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'seat-choice',
     loadChildren: () => import('./pages/seat-choice/seat-choice.module').then( m => m.SeatChoicePageModule)
+  },
+  {
+    path: 'food-choice',
+    loadChildren: () => import('./pages/food-choice/food-choice.module').then( m => m.FoodChoicePageModule)
   }
 ];
 
