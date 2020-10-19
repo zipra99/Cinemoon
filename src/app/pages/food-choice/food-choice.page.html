@@ -5,5 +5,12 @@
 </ion-header>
 
 <ion-content>
-
+  {{foodMoneyString}}
+  <ion-item no-lines *ngFor='let name of foodNameList; let foodIndex = index'>
+    <p>{{name}}---</p>
+    <p>{{foodPriceListString[foodIndex]}}</p> 
+    <ion-button id="minus{{foodIndex}}" color='dark' shape='round' (click)="minus(foodIndex)">-</ion-button>
+    <p>{{foodNumberList[foodIndex]}}</p>                   
+    <ion-button shape='round' (click)="plus(foodIndex)">+</ion-button>
+ </ion-item>
 </ion-content>
