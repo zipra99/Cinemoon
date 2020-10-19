@@ -157,6 +157,115 @@
       </ion-card>
     </ion-slide>
 
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>
+
+<div class="slides1">
+  <ion-slides [options]="options1">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+
   </ion-slides>
 </div>
 
@@ -206,4 +315,21 @@
   
     </ion-slides>
   </div>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="tabs">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="onTabSelected('popular')">
+        <img class="icon-tab" src="../../../assets/images/tab-list.png" style= "height: 20px; "/>
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="onTabSelected('top')">
+        <img class="icon-tab" src="../../../assets/images/tab-home.png" style= "height: 22px; "/>
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="onTabSelected('upcoming')">
+        <img class="icon-tab" src="../../../assets/images/tab-review.png" style= "height: 24px; "/>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

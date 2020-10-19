@@ -5,7 +5,8 @@ ion-header {
 .login-header {
   position: relative;
   border-radius: 0em;
-  background: rgb(0, 0, 0);
+  background: #000000;
+  border-radius: 0 0 14px 14px;
 }
 
 .logo-img {
@@ -157,3 +158,16 @@ ion-segment {
     box-shadow: none;
     background: rgb(39 39 39 / 49%);
   }
+
+  ion-toolbar{
+    --background: #000000;
+    .tabs {
+    display: flex;
+    justify-content: center;
+    .tab {
+      margin-top: 3px;
+      text-align: center;
+      width: calc(100% / 3);
+    }
+  }
+}
