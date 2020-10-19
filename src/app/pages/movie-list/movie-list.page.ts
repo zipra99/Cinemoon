@@ -15,7 +15,8 @@ export class MovieListPage implements OnInit {
   detail(id:String){
     id = id.trim();
     alert(id);
-    // this.router.navigateByUrl('movie-list')
+    // chuyển đến trang detail bằng id
+    // this.router.navigateByUrl('details/' + id)
   }
 
   switchdate(date:String){
