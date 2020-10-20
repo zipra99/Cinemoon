@@ -101,7 +101,7 @@ ion-label{
 ion-button{
     padding-top: 10px;
    --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
-   border-radius: 10px;
+   --border-radius: 10px;
    --background-activated:-webkit-linear-gradient(30deg,#94182d,#e43926);
    --background-focused:-webkit-linear-gradient(30deg,#94182d,#e43926);
    font-family: "Roboto-Light";

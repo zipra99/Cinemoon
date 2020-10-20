@@ -22,7 +22,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.router.navigateByUrl('/home-page');
+      this.router.navigateByUrl('/food-choice');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

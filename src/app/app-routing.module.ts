@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'login-page',
     loadChildren: () => import('./pages/login-page/login-page.module').then( m => m.LoginPagePageModule)
   },
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'movie-list',
     loadChildren: () => import('./pages/movie-list/movie-list.module').then( m => m.MovieListPageModule)
+  },
+  {
+    path: 'food-choice',
+    loadChildren: () => import('./pages/food-choice/food-choice.module').then( m => m.FoodChoicePageModule)
   },
 
 ];
