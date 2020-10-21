@@ -6,7 +6,7 @@
 <ion-content>
 
   <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-    <ion-slide *ngFor="let date of date,index as i" style="width: 105px; height: 100px;">
+    <ion-slide *ngFor="let date of dates,index as i" style="width: 105px; height: 100px;">
       <ion-col>
         <ion-card button="true" style="height: 70px" (click)="switchdate(date)">
           <ion-card-content>{{date}}</ion-card-content>

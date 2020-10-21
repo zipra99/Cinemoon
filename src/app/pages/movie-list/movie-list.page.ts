@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./movie-list.page.scss'],
 })
 export class MovieListPage implements OnInit {
-  date: Array<string> = ["19/10","20/10","21/10","22/10","23/10"]
+  dates: Array<string> = ["19/10","20/10","21/10","22/10","23/10"]
   movieslist: any;
   constructor(
     private router:Router,
