@@ -1,0 +1,25 @@
+<ion-header>
+  <div class="login-header ion-padding">
+    <img class="logo-img" src="../../../assets/images/logo.png" style="width:185px; height: 100px; " />
+  </div>
+</ion-header>
+
+<ion-content class="no-scroll" fullscreen="true">
+  <form #form="ngForm" (ngSubmit)="register(form)">
+    <div class="center">
+      <div class="account">
+        <div heading-column-lr>
+          <h1 big-heading>CHỨNG THỰC EMAIL</h1>
+        </div>
+        <p>Kiểm tra email của bạn và nhấp vào đường link được gửi kèm theo trong email để xác thực địa chỉ email của
+          bạn.</p>
+        <p>Nhấn vào nút dưới nếu vẫn chưa nhận được mail.</p>
+
+        <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SendVerificationMail()">
+          Gửi lại mail</ion-button>
+        <ion-button id="go-to-login" class="ion-button-class" size="large" expand="block" (click)="navLoginPage()">Về
+          trang đăng nhập {{counter.displayValue}}</ion-button>
+      </div>
+    </div>
+  </form>
+</ion-content>
