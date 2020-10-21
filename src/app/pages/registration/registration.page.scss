@@ -16,9 +16,8 @@ ion-header {
 }
 
 [heading-column-lr] {
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
+    -ms-flex-align: left;
+    text-align: left;
 }
 
 [big-heading] {
@@ -45,8 +44,15 @@ ion-content{
 }
 
 .center{
-    padding-top: 6vh;
+    background-color: #80808017;
+    border-radius: 15px;
+    margin: 15vh 0px 0px 0px;
 }
+
+.account{
+    margin: 10px 10px;
+}
+
 .no-scroll {
     --overflow: hidden;
 }
@@ -66,15 +72,10 @@ ion-input{
     padding-left: 10px!important;
 }
 
-
 [icon-small]{
-    width: 27px;
+    width: 25px;
 }
 
-.forget-password{
-    float: right;
-    padding: 13px 5px 0 0;
-}
 
 ion-item{
     --highlight-color-focused: transparent;
@@ -96,17 +97,21 @@ ion-item{
 
 ion-label{
     color: rgb(255, 255, 255);
-    font-family: "Roboto-Regular";
+    font-family: "Roboto-Light";
     opacity: .8px;
     font-size: 15px;
     display: block;
 }
 
 ion-button{
-    padding-top: 10px;
+    padding-top: 5px;
    --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
    border-radius: 10px;
    --background-activated:-webkit-linear-gradient(30deg,#94182d,#e43926);
    --background-focused:-webkit-linear-gradient(30deg,#94182d,#e43926);
    font-family: "Roboto-Light";
+}
+
+.ion-text-center{
+    padding-top: 5px;
 }

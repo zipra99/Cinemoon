@@ -1,6 +1,6 @@
 <ion-header>
   <div class="login-header ion-padding">
-    <img class="logo-img" src="../../../assets/images/logo.png" style="width:215px; height: 120px;" />
+    <img class="logo-img" src="../../../assets/images/logo.png" style="height: 120px;" />
   </div>
 </ion-header>
 
@@ -14,7 +14,7 @@
         <ion-item transparent>
           <img icon-small src="../../../assets/images/user.png" style="margin-top: 5px;" />
           <ion-input id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text"
-            placeholder="Tên được hiển thị" value=""></ion-input>
+            placeholder="Tên người dùng" value=""></ion-input>
         </ion-item>
         <ion-item transparent>
           <img icon-small src="../../../assets/images/email.png" style="margin-top: 5px;" />
@@ -29,8 +29,8 @@
 
         <div linespace></div>
         <ion-button class="ion-button-class" size="large" expand="block" (click)="signUp()">Đăng kí</ion-button>
-        <ion-label class="ion-text-center">Bạn đã có tài khoản?<br> <span class="link-button"
-          (click)="navLoginPage()">Quay lại trang Đăng nhập</span></ion-label>
+        <ion-label class="ion-text-center">Bạn đã có tài khoản?  <span class="link-button"
+          (click)="navLoginPage()">Đăng nhập</span></ion-label>
       </div>
     </div>
   </form>
