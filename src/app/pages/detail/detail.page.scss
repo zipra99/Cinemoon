@@ -1,0 +1,99 @@
+.poster {
+    width: 100%;
+    object-fit: cover;
+    margin-top: -50px;
+}
+
+.content {
+    box-sizing: border-box;
+    padding: 15px;
+    line-height: 40px;
+    margin: -150px 0 50px 0;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    border: 5px solid black;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    background: #000;
+
+    .movietitle {
+        margin-top: 10px;
+        font-size: 40px;
+        font-family: 'Roboto';
+        font-weight: bold;
+    }
+
+    .title {
+        margin-top: 15px;
+        font-size: 20px;
+        font-family: 'Roboto';
+        font-weight: bold;
+    }
+
+    .time {
+        margin: 10px 10px 0 0;
+        font-size: 12px;
+        padding: 0 10px 0 10px;
+        border-radius: 10px;
+        background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
+        color: #fff;
+    }
+
+    .comment {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .overview {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .rating {
+        line-height: 25px;
+        font-size: 15px;
+    }
+
+    .dot {
+        margin-top: 14px;
+        height: 60px;
+        width: 60px;
+        background-color: cyan;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .avatar {
+        margin-top: 5px;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #000;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.bookticket {
+    margin-top: 10px;
+    width: 100%;
+
+    ion-button {
+        --background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
+        --border-radius: 8px;
+        --background-activated: -webkit-linear-gradient(30deg, #94182d, #e43926);
+        --background-focused: -webkit-linear-gradient(30deg, #94182d, #e43926);
+        font-family: "Roboto-Light";
+    }
+}
+
+.ion-color-red {
+    --ion-color-base: #d82e35;
+    --ion-color-base-rgb: 216, 46, 53;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255, 255, 255;
+    --ion-color-shade: #d82e35;
+    --ion-color-tint: #d82e35;
+}
