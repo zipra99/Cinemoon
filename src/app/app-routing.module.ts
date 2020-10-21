@@ -39,10 +39,6 @@ const routes: Routes = [
     path: 'ticket-information',
     loadChildren: () => import('./pages/ticket-information/ticket-information.module').then( m => m.TicketInformationPageModule)
   },
-  {
-    path: 'home-tab',
-    loadChildren: () => import('./pages/home-tab/home-tab.module').then( m => m.HomeTabPageModule)
-  },
 
 ];
 
