@@ -1,161 +1,328 @@
-<ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar>
-
-    <img class="logo-img" src="assets/images/logo.png" style="width: 13vh; padding: 7px 7px 1px 7px;" />
-
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="start" name="search"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-  </ion-toolbar>
+<ion-header>
+  <div class="login-header">
+    <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; "/>
+    <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
+  </div>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-
-
-  <ion-segment scrollable="true" value="all">
-    <ion-segment-button value="1">
-      <ion-label>Recent Movies</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="2">
-      <ion-label>Coming Soon</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="3">
-      <ion-label>Box Office</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="4">
-      <ion-label>TV Shows</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="5">
-      <ion-label>TV Shows</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-  <div class="ion-padding">
-
+  
+<div class="hot-content">
+  <div class="hot-title">
+    <p class="ht-sm">PHIM ĐANG CHIẾU <img src="../../../assets/images/100.png" style= "height: 25px; "></p>
+  </div>
+  
+  <div class="slides">
+  <ion-slides [options]="options">
+    
+    <ion-slide>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="poster-col">
+            <img class="poster" src="../../../assets/images/star-war.jpg" alt="">
+          </ion-col>
+          <ion-col size="12">
+            <h5 class="ion-no-margin">Movie Title</h5>
+            <p class="ion-no-margin rate">
+              <ion-icon name="star"></ion-icon> 8.5
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+    </ion-slide>
+    
+    <ion-slide>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="poster-col">
+            <img class="poster" src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg" alt="">
+          </ion-col>
+          <ion-col size="12">
+            <h5 class="ion-no-margin">Movie Title</h5>
+            <p class="ion-no-margin rate">
+              <ion-icon name="star"></ion-icon> 8.5
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+    </ion-slide>
+    
+    <ion-slide>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="poster-col">
+            <img class="poster" src="https://www.komar.de/media/catalog/product/cache/4/image/9df78eab33525d08d6e5fb8d27136e95/v/d/vd-046-star-wars-official-poster-ep7.jpg" alt="">
+          </ion-col>
+          <ion-col size="12">
+            <h5 class="ion-no-margin">Movie Title</h5>
+            <p class="ion-no-margin rate">
+              <ion-icon name="star"></ion-icon> 8.5
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+    </ion-slide>
+    
+    <ion-slide>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="poster-col">
+            <img class="poster" src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg" alt="">
+          </ion-col>
+          <ion-col size="12">
+            <h5 class="ion-no-margin">Movie Title</h5>
+            <p class="ion-no-margin rate">
+              <ion-icon name="star"></ion-icon> 8.5
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  <ion-slide>
     <ion-grid>
       <ion-row>
-        <ion-col size="3">
-          <ion-badge color="light">Action</ion-badge>
+        <ion-col size="12" class="poster-col">
+          <img class="poster" src="../../../assets/images/project-power.jpg" alt="">
         </ion-col>
-        <ion-col size="3">
-          <ion-badge color="light">Crime</ion-badge>
-        </ion-col>
-        <ion-col size="3">
-          <ion-badge color="light">Horror</ion-badge>
-        </ion-col>
-        <ion-col size="3">
-          <ion-badge color="light">Drama</ion-badge>
+        <ion-col size="12">
+          <h5 class="ion-no-margin">Movie Title</h5>
+          <p class="ion-no-margin rate">
+            <ion-icon name="star"></ion-icon> 8.5
+          </p>
         </ion-col>
       </ion-row>
     </ion-grid>
-
-  </div>
-
-  <ion-slides [options]="options">
-
+    
+  </ion-slide>
+</ion-slides>
+</div>
+</div>
+<div class="title">
+<p class="nt-b">PHIM ĐANG CHIẾU</p>
+<p class="nt-sm">PHIM ĐANG CHIẾU</p>
+</div>
+<div class="slides1">
+  <ion-slides [options]="options1">
     <ion-slide>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" class="poster-col">
-            <img class="poster" src="assets/images/star-war.jpg" alt="">
-          </ion-col>
-          <ion-col size="12">
-            <h5 class="ion-no-margin">Movie Title</h5>
-            <p class="ion-no-margin rate">
-              <ion-icon name="star"></ion-icon> 8.5
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
     </ion-slide>
 
     <ion-slide>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" class="poster-col">
-            <img class="poster"
-              src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg"
-              alt="">
-          </ion-col>
-          <ion-col size="12">
-            <h5 class="ion-no-margin">Movie Title</h5>
-            <p class="ion-no-margin rate">
-              <ion-icon name="star"></ion-icon> 8.5
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
     </ion-slide>
 
     <ion-slide>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" class="poster-col">
-            <img class="poster"
-              src="https://www.komar.de/media/catalog/product/cache/4/image/9df78eab33525d08d6e5fb8d27136e95/v/d/vd-046-star-wars-official-poster-ep7.jpg"
-              alt="">
-          </ion-col>
-          <ion-col size="12">
-            <h5 class="ion-no-margin">Movie Title</h5>
-            <p class="ion-no-margin rate">
-              <ion-icon name="star"></ion-icon> 8.5
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
     </ion-slide>
 
     <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>
 
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" class="poster-col">
-            <img class="poster"
-              src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg"
-              alt="">
-          </ion-col>
-          <ion-col size="12">
-            <h5 class="ion-no-margin">Movie Title</h5>
-            <p class="ion-no-margin rate">
-              <ion-icon name="star"></ion-icon> 8.5
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
+<div class="slides1">
+  <ion-slides [options]="options1">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
     </ion-slide>
 
     <ion-slide>
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" class="poster-col">
-            <img class="poster" src="assets/images/project-power.jpg" alt="">
-          </ion-col>
-          <ion-col size="12">
-            <h5 class="ion-no-margin">Movie Title</h5>
-            <p class="ion-no-margin rate">
-              <ion-icon name="star"></ion-icon> 8.5
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
     </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+            <img class="files" src="../../../assets/images/project-power.jpg">
+        </ion-card-header>
+            <ion-card-content class="ion-text-left">
+              <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+              <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+              <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+            </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
 
   </ion-slides>
+</div>
 
-  <ion-button type="submit" (click)="authService.SignOut()" expand="block">Đăng xuất</ion-button>
+<div class="title">
+  <p class="st-sm">PHIM SẮP CHIẾU</p>
+  </div>
+  <div class="slides1">
+    <ion-slides [options]="options1">
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+              <img class="files" src="../../../assets/images/project-power.jpg">
+          </ion-card-header>
+              <ion-card-content class="ion-text-left">
+                <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+                <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+                <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+              </ion-card-content>
+        </ion-card>
+      </ion-slide>
+  
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+              <img class="files" src="../../../assets/images/project-power.jpg">
+          </ion-card-header>
+              <ion-card-content class="ion-text-left">
+                <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+                <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+                <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+              </ion-card-content>
+        </ion-card>
+      </ion-slide>
+  
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+              <img class="files" src="../../../assets/images/project-power.jpg">
+          </ion-card-header>
+              <ion-card-content class="ion-text-left">
+                <ion-card-title class="ion-margin-bottom">Movie Title</ion-card-title>
+                <ion-card-subtitle class="ion-text-left">C18</ion-card-subtitle>
+                <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+              </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button type="submit" (click)="authService.SignOut()" expand="block">Đăng xuất</ion-button>
+    <div class="tabs">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="onTabSelected('popular')">
+        <img class="icon-tab" src="../../../assets/images/tab-list.png" style= "height: 20px; "/>
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="onTabSelected('top')">
+        <img class="icon-tab" src="../../../assets/images/tab-home.png" style= "height: 22px; "/>
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="onTabSelected('upcoming')">
+        <img class="icon-tab" src="../../../assets/images/tab-review.png" style= "height: 24px; "/>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>
