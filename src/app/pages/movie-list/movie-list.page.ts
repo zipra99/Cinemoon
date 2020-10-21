@@ -10,6 +10,7 @@ export class MovieListPage implements OnInit {
   dates: any;
   currDate: Date;
   movieslist: any;
+  colorName: string;
   constructor(
     private router:Router,
     private db: MovieListService
@@ -23,7 +24,7 @@ export class MovieListPage implements OnInit {
   switchDate(date: any, index: number){
     this.currDate = date.date;
     for(let i = 0; i < 7; i++){
-      (document.getElementById(`date-${i}`) as HTMLScriptElement).style.backgroundColor = '#1e1e1e';
+      (document.getElementById(`date-${i}`) as HTMLScriptElement).style.backgroundColor = this.colorName;
     }
     (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'aliceblue';
   }
@@ -35,6 +36,7 @@ export class MovieListPage implements OnInit {
   }
 
   ngAfterViewInit(){
+    this.colorName = (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor;
     (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'aliceblue';
   }
 
