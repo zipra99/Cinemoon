@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { AuthenticationService } from "src/app/services/shared/authentication.service";
+import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +10,22 @@ import { AuthenticationService } from "src/app/services/shared/authentication.se
 })
 export class LoginPage implements OnInit {
 
-  constructor(public authService: AuthenticationService, public router: Router) { }
+  constructor(
+    private navCtrl: NavController,
+    public authService: AuthenticationService
+    ) { }
 
   ngOnInit() { }
 
+  navRegistrationPage(){
+    this.navCtrl.navigateForward('/registration');
+  }
+
   logIn(email, password) {
-    this.authService.SignIn(email.value, password.value)
+    this.authService.SignIn(email.value.trim(), password.value.trim())
       .then((res) => {
         if (res.user.emailVerified) {
-          this.router.navigate(['home']);
+          this.navCtrl.navigateBack(['home']);
         } else {
           window.alert('Email chưa được chứng thực')
           return false;

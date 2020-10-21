@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import { NavController, Platform } from '@ionic/angular';
-import { AuthenticationService } from "src/app/services/shared/authentication.service";
-//import { VerifyEmailPage } from '../verify-email/verify-email.page';
+import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,8 +8,17 @@ import { AuthenticationService } from "src/app/services/shared/authentication.se
   styleUrls: ['./registration.page.scss'],
 })
 export class RegistrationPage implements OnInit {
+  username: string;
+  email: string;
+  password: string;
 
-  constructor(public authService: AuthenticationService, public router: Router, public navCtrl: NavController, public platform: Platform) { }
+  constructor(
+    public authService: AuthenticationService,
+    public navCtrl: NavController,
+    public platform: Platform
+  ) { }
+
+  ngOnInit() { }
 
   async initializeApp(): Promise<void> {
     await this.platform.ready();
@@ -19,13 +26,14 @@ export class RegistrationPage implements OnInit {
     this.platform.backButton.subscribeWithPriority(1, () => {});
   }
 
-  ngOnInit() { }
+  navLoginPage(){
+    this.navCtrl.navigateBack('/login');
+  }
 
-  signUp(email, password) {
-    this.authService.RegisterUser(email.value, password.value)
+  signUp() {
+    this.authService.RegisterUser(this.email, this.password)
       .then((res) => {
         this.authService.SendVerificationMail();
-        this.navCtrl.navigateBack('verify-email');
       }).catch((error) => {
         window.alert(error.message)
       })

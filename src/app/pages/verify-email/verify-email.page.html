@@ -1,23 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Chứng thực Email</ion-title>
-  </ion-toolbar>
+  <div class="login-header ion-padding">
+    <img class="logo-img" src="../../../assets/images/logo.png" style="width:185px; height: 100px; " />
+  </div>
 </ion-header>
 
-<ion-content>
-  <p>
-    Kiểm tra email của bạn và nhấp vào đường link để chứng thực địa chỉ email.
-  </p>
-  <p>
-    Nhấn vào nút dưới nếu chưa nhận được mail.
-  </p>
-  <ion-button id="go-to-login" type="submit" (click)="navLoginPage()" color="success" expand="block">
-    Quay lại trang đăng nhập {{counter.displayValue}}
-  </ion-button>
-  <ion-button type="submit" (click)="authService.SendVerificationMail()" expand="block">
-    Gửi lại yêu cầu chứng thực
-  </ion-button>
+<ion-content class="no-scroll" fullscreen="true">
+  <form #form="ngForm" (ngSubmit)="register(form)">
+    <div class="center">
+      <div class="account">
+        <div heading-column-lr>
+          <h1 big-heading>CHỨNG THỰC EMAIL</h1>
+        </div>
+        <p>Kiểm tra email của bạn và nhấp vào đường link được gửi kèm theo trong email để xác thực địa chỉ email của
+          bạn.</p>
+        <p>Nhấn vào nút dưới nếu vẫn chưa nhận được mail.</p>
+
+        <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SendVerificationMail()">
+          Gửi lại mail</ion-button>
+        <ion-button id="go-to-login" class="ion-button-class" size="large" expand="block" (click)="navLoginPage()">Về
+          trang đăng nhập {{counter.displayValue}}</ion-button>
+      </div>
+    </div>
+  </form>
 </ion-content>

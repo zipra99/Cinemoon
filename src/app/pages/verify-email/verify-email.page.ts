@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { AuthenticationService } from "src/app/services/shared/authentication.service";
+import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
 @Component({
   selector: 'app-verify-email',
@@ -14,7 +14,10 @@ export class VerifyEmailPage implements OnInit {
     displayValue: `(${this.TIME})`
   }
 
-  constructor(public authService: AuthenticationService, public navCtrl: NavController) { }
+  constructor(
+    public authService: AuthenticationService,
+    public navCtrl: NavController
+  ) { }
 
   ngOnInit() {
     let btnGoToLogin = (document.getElementById('go-to-login') as HTMLInputElement);
