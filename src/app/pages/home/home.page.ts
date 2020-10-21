@@ -17,7 +17,12 @@ export class HomePage implements OnInit {
   options = {
     centeredSlides: true,
     loop: true,
-    spaceBetween: -100,
+    spaceBetween: -140,
   };
+
+  options1 = {
+    slidesPerView: 2
+  };
+
 
 }
