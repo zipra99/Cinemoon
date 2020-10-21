@@ -106,3 +106,14 @@ ion-toolbar{
       font-family: "Roboto-Light";
     }
   }
+  .list-page{
+
+    ion-item{
+        --background: none;
+        img{
+            background: #101010;
+            border-radius: 15px;
+            border: 2px solid #ff2222bf;
+        }
+    }
+}
