@@ -57,23 +57,6 @@
     }
   }
 }
-
-.seat-choice{
-    --ion-grid-column-padding: 2px;
-    margin: 2px -4px 16px -3px;
-    padding: 4px 8px 16px -3px;
-    padding-right: 11px;
-    
-    ion-item{
-        font-size: 15px;
-        font-family: "Roboto-Light";
-
-        ion-grid{
-            background: rgb(16 16 16 / 95%);
-            border-bottom: 2px solid #f22;
-        }
-    }
-}
 .next-btn {
     padding: 0px 16px 11px 15px;
 
