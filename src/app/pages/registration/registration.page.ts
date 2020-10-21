@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
 @Component({
@@ -14,10 +14,17 @@ export class RegistrationPage implements OnInit {
 
   constructor(
     public authService: AuthenticationService,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public platform: Platform
   ) { }
 
   ngOnInit() { }
+
+  async initializeApp(): Promise<void> {
+    await this.platform.ready();
+
+    this.platform.backButton.subscribeWithPriority(1, () => {});
+  }
 
   navLoginPage(){
     this.navCtrl.navigateBack('/login');
