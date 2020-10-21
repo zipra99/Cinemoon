@@ -3,14 +3,43 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registration',
+    loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
+  },
+  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+  },
+  {
+    path: 'seat-choice',
+    loadChildren: () => import('./pages/seat-choice/seat-choice.module').then( m => m.SeatChoicePageModule)
+  },
+  {
+    path: 'movie-list',
+    loadChildren: () => import('./pages/movie-list/movie-list.module').then( m => m.MovieListPageModule)
+  },
+  {
+    path: 'food-choice',
+    loadChildren: () => import('./pages/food-choice/food-choice.module').then( m => m.FoodChoicePageModule)
+  },
+  {
+    path: 'ticket-information',
+    loadChildren: () => import('./pages/ticket-information/ticket-information.module').then( m => m.TicketInformationPageModule)
+  },
+
 ];
 
 @NgModule({
