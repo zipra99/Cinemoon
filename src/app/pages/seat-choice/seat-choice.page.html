@@ -41,13 +41,6 @@
     </ion-card-content>
   </ion-card>
   </div>
-  <h1>{{seatMoneyString}}</h1>
-  <h4>DS ghế: {{listBookingSeatString}}</h4>
-  <ion-row *ngFor="let row of rowList">
-    <ion-col class="col" *ngFor="let col of colList">
-      <ion-button id="{{row}}{{col}}" class="seat" color="primary" (click)="press(row,col)">{{row}}{{col}}</ion-button>
-    </ion-col>
-  </ion-row>
   <div class="seat-bill">
     <ion-item lines="none">
       <ion-grid>
@@ -68,7 +61,6 @@
       </ion-grid>
     </ion-item>
     </div>
-
     <div class= "seat-choice">
       <ion-item class="title" lines="none">
         <ion-grid>
@@ -85,6 +77,13 @@
           </ion-row>
         </ion-grid>
       </ion-item>
+      <h1>{{seatMoneyString}}</h1>
+  <h4>DS ghế: {{listBookingSeatString}}</h4>
+  <ion-row *ngFor="let row of rowList">
+    <ion-col class="col" *ngFor="let col of colList">
+      <ion-button id="{{row}}{{col}}" class="seat" color="primary" (click)="press(row,col)">{{row}}{{col}}</ion-button>
+    </ion-col>
+  </ion-row>
     
     <div class="next-btn">
       <ion-button class="ion-button-class" size="large" expand="block" (click)="Next()">Tiếp tục</ion-button>
