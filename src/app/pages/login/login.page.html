@@ -24,19 +24,15 @@
 
         <div linespace></div>
         <ion-button class="ion-button-class" size="large" expand="block" (click)="logIn(email, password)">Đăng nhập</ion-button>
-<!--         <ion-label class="or">Hoặc</ion-label> -->
         <div class="login-with">
           <ion-item lines="none" background="none">
             <ion-grid>
               <ion-row class="ion-align-items-center">
                 <ion-col >
-                  <img src="../../../assets/images/fb.png" style="height: 45px;">
+                  <img src="../../../assets/images/fb.png" (click)="authService.SignInWithFacebook()" style="height: 45px;">
                 </ion-col>
                 <ion-col>
-                  <img src="../../../assets/images/google.png" style="height: 50px;">
-                </ion-col>
-                <ion-col>
-                  <img src="../../../assets/images/ins.png" style="height: 45px;">
+                  <img src="../../../assets/images/google.png" (click)="authService.GoogleAuth()" style="height: 50px;">
                 </ion-col>
               </ion-row>
             </ion-grid>
