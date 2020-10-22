@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.page.html',
@@ -9,33 +10,62 @@ import { MovieListService } from 'src/app/services/movie-list.service';
 export class MovieListPage implements OnInit {
   dates: any;
   currDate: Date;
-  movieslist: any;
+  listMovie: any[];
+  listHotMovie: any[];
+  colorName: string;
+
   constructor(
-    private router:Router,
-    private db: MovieListService
+    public ticketInfo: TicketInfoService,
+    public db: MovieListService,
+    private navCtrl: NavController
   ) { }
 
-  detail(id:String){
-    id = id.trim();
-    alert(id);
+  navMovieDetail(name: string){
+    name = name.trim();
+    this.db.keyName = name;
+    this.db.chosenTime = this.currDate;
+    this.navCtrl.navigateForward('detail');
+  }
+
+  navSeatChoice(movieDetail: any, time: string){
+    this.ticketInfo.time = time;
+    this.ticketInfo.movieDetail = movieDetail;
+    this.ticketInfo.day = this.currDate;
+    this.navCtrl.navigateForward('seat-choice');
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
   }
 
   switchDate(date: any, index: number){
     this.currDate = date.date;
     for(let i = 0; i < 7; i++){
-      (document.getElementById(`date-${i}`) as HTMLScriptElement).style.backgroundColor = '#1e1e1e';
+      (document.getElementById(`date-${i}`) as HTMLScriptElement).style.backgroundColor = this.colorName;
     }
-    (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'aliceblue';
+    (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
   }
 
   ngOnInit() {
-    this.movieslist = this.db.getListMovie();
+    this.ticketInfo.refreshListSoldSeat();
+    this.listMovie = this.db.listMovie;
+    this.listHotMovie = this.db.listHotMovie;
     this.dates = this.db.generateDateArray();
     this.currDate = new Date();
   }
 
   ngAfterViewInit(){
-    (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'aliceblue';
+    this.colorName = (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor;
+    (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
   }
 
   isPicked(time: string){

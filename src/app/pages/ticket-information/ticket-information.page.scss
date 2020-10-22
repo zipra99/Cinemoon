@@ -37,40 +37,77 @@
     }
 }
 
-.movie-info {
+.movie-info{
 
     ion-card {
-        background: rgb(16 16 16 / 95%);
-        margin-top: 6px;
-        margin-bottom: 6px;
-        font-family: "Roboto-Light";
+      background: rgb(16 16 16 / 95%);
+      margin-top: 6px;
+      margin-bottom: 6px;
+      font-family: "Roboto-Light";
     }
-}
+  }
 
 .customer-info {
-    margin:15px 10px 15px 10px;
-    font-size: 15px;
-    line-height: 25px;
+    margin:15px 16px;
+    background: rgb(16 16 16 / 95%);
+    border-radius: 8px;
+        ion-item-divider{
+            font-size: 17px;
+            padding-left: 0px;
+        }
+        ion-label{
+            line-height:30px;
+            padding-left: 9px;
+            font-family: "Roboto-Light";
+        }
+}
+
+
+.noted{
+
     ion-card {
-        background: rgb(16 16 16 / 95%);
-        font-family: "Roboto-Light";
+      background: rgb(16 16 16 / 95%);
+      margin-top: 6px;
+      margin-bottom: 6px;
+      font-family: "Roboto-Light";
+
+      ion-item-divider{
+font-size: 20px;
+    padding-left: 12px;
+    margin-top: 14px;
+    color: #ed3d36;
     }
+
+      ion-label{
+        line-height:30px;
+        padding-left: 9px;
+    }
+    ion-card-content{
+        padding: 10px;
+    }
+    }
+  }
+
+ion-label{
+    color: rgb(255, 255, 255);
+    font-family: "Roboto-Light";
+    opacity: .8px;
+    font-size: 15px;
+    display: block;
 }
 
-.title p {
-    font-size: 18px;
+.next-btn{
+    padding: 4px 16px 11px 15px;
+    margin-top: 10px;
 }
 
-.next-btn {
-    padding: 0px 16px 11px 15px;
 
-    ion-button {
-        --background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
-        --border-radius: 8px;
-        --background-activated: -webkit-linear-gradient(30deg, #94182d, #e43926);
-        --background-focused: -webkit-linear-gradient(30deg, #94182d, #e43926);
-        font-family: "Roboto-Light";
-    }
+ion-button {
+    --background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
+    --border-radius: 8px;
+    --background-activated: -webkit-linear-gradient(30deg, #94182d, #e43926);
+    --background-focused: -webkit-linear-gradient(30deg, #94182d, #e43926);
+    font-family: "Roboto-Light";
 }
 
 ion-toolbar {

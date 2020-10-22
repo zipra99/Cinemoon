@@ -1,4 +1,10 @@
-ion-header { }
+ion-header{
+    --background: #000;
+  }
+  
+  ion-content{
+    --background: #000;
+  }
 
 .login-header {
     position: relative;
@@ -37,7 +43,7 @@ ion-header { }
     padding-top: 40px;
     padding-left: 10px;
     font-family: "Roboto-Thin";
-    font-size: 18px;
+    font-size: 20px;
 }
 
 p{
