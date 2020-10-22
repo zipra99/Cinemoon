@@ -1,0 +1,105 @@
+<ion-content>
+  <div class="header">
+    <img class="poster" src="{{ listMovie.posterImage }}" alt="Lỗi">
+  </div>
+  <div class="content">
+    <ion-grid>
+      <!-- Tiêu đề -->
+      <ion-row style="padding-top: 20px">
+        <ion-label class="movietitle">{{ listMovie.name }}</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label>Thể loại: {{ listMovie.categories.join(', ') }}</ion-label>
+      </ion-row>
+      <!-- Thời gian chiếu -->
+      <ion-row>
+        <div class="bookticket">
+          <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of listMovie.listTicket">{{ time }}</ion-button>
+        </div>
+      </ion-row>
+      <!-- Nội dung / Tóm tắt -->
+      <ion-row>
+        <ion-label class="title">Nội dung phim</ion-label>
+        <ion-row>
+          <ion-label class="comment">{{ listMovie.summary }}</ion-label>
+        </ion-row>
+      </ion-row>
+      <!-- Trailer -->
+      <ion-row>
+        <ion-row>
+          <ion-label class="title">Trailer</ion-label>
+        </ion-row>
+        <ion-col size="12">
+          <ion-row>
+            <iframe width="560" height="315" [src]="listMovie.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+          </ion-row>
+          <ion-row>
+            <div class="bookticket">
+              <ion-button class="ion-button-class" size="large" expand="block" [disabled]="isDisableTicketButton" (click)="showTicketTime()">Đặt vé</ion-button>
+            </div>
+          </ion-row>
+          <ion-row [hidden]="isHiddenTicketTime">
+            <div class="bookticket">
+              <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of listMovie.listTicket">{{ time }}</ion-button>
+            </div>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <!-- Đánh giá -->
+      <ion-row>
+        <ion-label class="title">Đánh giá</ion-label>
+      </ion-row>
+      <!-- Comment 1 -->
+      <ion-row>
+        <ion-col size="3">
+          <!-- <span class="dot"></span> -->
+          <img class="avatar" src="../../../assets/images/avatar.png">
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-label class="overview">Overview</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="rating">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, eveniet sunt maiores sapiente quos id. Debitis dolorum sequi, nesciunt velit eum est beatae, id ex provident sit reiciendis eaque optio.
+            </ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <!-- Comment 2 -->
+      <ion-row>
+        <ion-col size="3">
+          <!-- <span class="dot"></span> -->
+          <img class="avatar" src="../../../assets/images/avatar.png">
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-label class="overview">Overview</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="rating">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, eveniet sunt maiores sapiente quos id. Debitis dolorum sequi, nesciunt velit eum est beatae, id ex provident sit reiciendis eaque optio.
+            </ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- Nút nổi -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="red">
+      <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="red" (click)="navigate('movie')">
+        <ion-icon src="assets/icon/tickets.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="navigate('home')">
+        <ion-icon src="assets/icon/home.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="test3()">
+        <ion-icon src="assets/icon/movie-list.svg"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
