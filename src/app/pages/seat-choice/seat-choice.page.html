@@ -32,8 +32,13 @@
   <div class="movie-info">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Tên Phim</ion-card-title>
-        <ion-card-subtitle>Thể Loại</ion-card-subtitle>
+        <ion-card-title>{{ ticketInfo.movieDetail.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <p style="margin: 2px 0px;">{{ movieDetail[0] }}</p>
+          <strong style="margin: 2px 0px;">{{ movieDetail[1] }}</strong>
+          <p style="margin: 2px 0px;">{{ movieDetail[2] }}</p>
+          <strong style="margin: 2px 0px;">{{ movieDetail[3] }} {{ listBookingSeatString }}</strong>
+        </ion-card-subtitle>
       </ion-card-header>
       <ion-content>Đây là tóm tắt phim
       </ion-content>
@@ -44,7 +49,6 @@
       <ion-card-header>
         <ion-card-title>Tổng Tiền </ion-card-title>
           <ion-card-title><h1>{{seatMoneyString}}</h1></ion-card-title>
-          <ion-card-title><h4>Số ghế: {{listBookingSeatString}}</h4> </ion-card-title>
       </ion-card-header>
     </ion-card>
     </div>
@@ -63,21 +67,21 @@
   </div>
 <div class="seat-situation"></div>
   <div class="next-btn">
-    <ion-button class="ion-button-class" size="large" expand="block" (click)="Next()">Tiếp Tục</ion-button>
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp Tục</ion-button>
   </div>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
     <div class="tabs">
-      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="onTabSelected('popular')">
-        <img class="icon-tab" src="../../../assets/images/tab-list.png" style= "height: 20px; "/>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="navigate('movie')">
+        <img class="icon-tab" src="../../../assets/images/tab-list.png" style="height: 20px; " />
       </div>
-      <div class="tab" [ngClass]="{'active' : segment == 'top' }" (click)="onTabSelected('top')">
-        <img class="icon-tab" src="../../../assets/images/tab-home.png" style= "height: 22px; "/>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
+        <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="onTabSelected('upcoming')">
-        <img class="icon-tab" src="../../../assets/images/tab-review.png" style= "height: 24px; "/>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
+        <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
       </div>
     </div>
   </ion-toolbar>

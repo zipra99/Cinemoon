@@ -74,7 +74,7 @@ export class MovieListService {
 
   formatDateString(date: Date) {
     return {
-      dateStr: `${date.getDate()}/${date.getMonth()}`,
+      dateStr: `${date.getDate()}/${date.getMonth() + 1}`,
       dayOfWeek: this.days[date.getDay()],
       date: date
     };

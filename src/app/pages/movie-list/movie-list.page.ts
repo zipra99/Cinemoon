@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.page.html',
@@ -14,6 +15,7 @@ export class MovieListPage implements OnInit {
   colorName: string;
 
   constructor(
+    public ticketInfo: TicketInfoService,
     public db: MovieListService,
     private navCtrl: NavController
   ) { }
@@ -25,15 +27,36 @@ export class MovieListPage implements OnInit {
     this.navCtrl.navigateForward('detail');
   }
 
+  navSeatChoice(movieDetail: any, time: string){
+    this.ticketInfo.time = time;
+    this.ticketInfo.movieDetail = movieDetail;
+    this.ticketInfo.day = this.currDate;
+    this.navCtrl.navigateForward('seat-choice');
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
+  }
+
   switchDate(date: any, index: number){
     this.currDate = date.date;
     for(let i = 0; i < 7; i++){
       (document.getElementById(`date-${i}`) as HTMLScriptElement).style.backgroundColor = this.colorName;
     }
-    (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'aliceblue';
+    (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
   }
 
   ngOnInit() {
+    this.ticketInfo.refreshListSoldSeat();
     this.listMovie = this.db.listMovie;
     this.listHotMovie = this.db.listHotMovie;
     this.dates = this.db.generateDateArray();
@@ -42,7 +65,7 @@ export class MovieListPage implements OnInit {
 
   ngAfterViewInit(){
     this.colorName = (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor;
-    (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'aliceblue';
+    (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
   }
 
   isPicked(time: string){

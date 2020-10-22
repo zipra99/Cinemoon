@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { NavComponentWithProps, NavController, ToastController } from '@ionic/angular';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
@@ -20,24 +20,44 @@ export class SeatChoicePage implements OnInit {
   maxBookingSeat: number;
   seatMoney: number;
   seatMoneyString: string;
+  movieDetail: string[];
 
-  constructor(public ticketInfo: TicketInfoService, public toastController: ToastController) {
+  constructor(
+    public ticketInfo: TicketInfoService,
+    public toastController: ToastController,
+    private navCtrl: NavController
+    ) {
     this.ticketPrice = 50000;
     this.maxBookingSeat = 8;
     this.bookingSeatList = new Array<string>();
-    this.bookedSeatList = new Array<string>('C4', 'D4', 'A7');
     this.seatMoney = 0;
     this.seatMoneyString = '0đ';
   }
 
   ngOnInit() {
-
+    this.movieDetail = this.ticketInfo.getStringMovieInfo();
+    this.bookedSeatList = this.ticketInfo.getListSoldSeatName();
   }
 
   ngAfterViewInit() {
-    this.bookedSeatList.forEach(item => {
-      document.getElementById(item).setAttribute('color', 'dark');
-    })
+    if(this.bookedSeatList) {
+      this.bookedSeatList.forEach(item => {
+        document.getElementById(item).setAttribute('color', 'dark');
+      })
+    }
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
   }
 
   async press(row, col) {
@@ -100,5 +120,12 @@ export class SeatChoicePage implements OnInit {
     let money = this.bookingSeatList.length * this.ticketPrice;
     this.seatMoney = money;
     this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
+  }
+
+  btnNext(){
+    if(this.bookingSeatList) {
+      this.ticketInfo.listSeatSoldName = this.bookedSeatList.concat(this.bookingSeatList);
+    }
+    this.navCtrl.navigateForward('food-choice');
   }
 }

@@ -9,12 +9,12 @@
         <ion-label class="movietitle">{{ movieDetail.name }}</ion-label>
       </ion-row>
       <ion-row>
-        <ion-label>Thể loại: {{ movieDetail.categories.join(', ') }}</ion-label>
+        <ion-label class="moviesmtl">Thể loại: {{ movieDetail.categories.join(', ') }}</ion-label>
       </ion-row>
       <!-- Thời gian chiếu -->
       <ion-row>
         <div class="bookticket">
-          <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of movieDetail.listTicket">{{ time }}</ion-button>
+          <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
         </div>
       </ion-row>
       <!-- Nội dung / Tóm tắt -->
@@ -31,7 +31,7 @@
         </ion-row>
         <ion-col size="12">
           <ion-row>
-            <iframe width="560" height="315" [src]="movieDetail.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+            <iframe id="video-trailer" [src]="movieDetail.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
           </ion-row>
           <ion-row>
             <div class="bookticket">
@@ -40,7 +40,7 @@
           </ion-row>
           <ion-row [hidden]="isHiddenTicketTime">
             <div class="bookticket">
-              <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of movieDetail.listTicket">{{ time }}</ion-button>
+              <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
             </div>
           </ion-row>
         </ion-col>
@@ -50,7 +50,7 @@
         <ion-label class="title">Đánh giá</ion-label>
       </ion-row>
       <!-- Comment 1 -->
-      <ion-row>
+      <ion-row style="padding-top:10px;">
         <ion-col size="3">
           <!-- <span class="dot"></span> -->
           <img class="avatar" src="../../../assets/images/avatar.png">
@@ -67,7 +67,7 @@
         </ion-col>
       </ion-row>
       <!-- Comment 2 -->
-      <ion-row>
+      <ion-row style="padding-top:10px;">
         <ion-col size="3">
           <!-- <span class="dot"></span> -->
           <img class="avatar" src="../../../assets/images/avatar.png">
