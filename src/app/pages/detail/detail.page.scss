@@ -109,3 +109,14 @@ ion-header{
     --ion-color-shade: #d82e35;
     --ion-color-tint: #d82e35;
 }
+
+#trailer {
+    position: relative; 
+    height: auto;
+    width: 100%;
+}
+
+#video-trailer {
+    height: calc(100vw / 16 * 9);
+    width: 100vw;
+}

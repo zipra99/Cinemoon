@@ -30,19 +30,21 @@ export class SeatChoicePage implements OnInit {
     this.ticketPrice = 50000;
     this.maxBookingSeat = 8;
     this.bookingSeatList = new Array<string>();
-    this.bookedSeatList = new Array<string>('C4', 'D4', 'A7');
     this.seatMoney = 0;
     this.seatMoneyString = '0đ';
   }
 
   ngOnInit() {
     this.movieDetail = this.ticketInfo.getStringMovieInfo();
+    this.bookedSeatList = this.ticketInfo.getListSoldSeatName();
   }
 
   ngAfterViewInit() {
-    this.bookedSeatList.forEach(item => {
-      document.getElementById(item).setAttribute('style', '--background:rgb(12 12 12 / 58%)');
-    })
+    if(this.bookedSeatList) {
+      this.bookedSeatList.forEach(item => {
+        document.getElementById(item).setAttribute('style', '--background:rgb(12 12 12 / 58%)');
+      })
+    }
   }
 
   navigate(page){
@@ -120,7 +122,17 @@ export class SeatChoicePage implements OnInit {
     this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
   }
 
-  btnNext(){
-    this.navCtrl.navigateForward('food-choice');
+  async btnNext(){
+    if(this.bookingSeatList.length) {
+      this.ticketInfo.listSeatSoldName = this.bookedSeatList.concat(this.bookingSeatList);
+      this.navCtrl.navigateForward('food-choice');
+    } else {
+      const maxToast = await this.toastController.create({
+        message: 'Vui lòng chọn ghế để tiếp tục!',
+        duration: 1000,
+        position: 'middle'
+      });
+      maxToast.present();
+    }
   }
 }

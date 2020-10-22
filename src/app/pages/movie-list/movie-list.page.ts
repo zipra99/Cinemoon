@@ -56,6 +56,7 @@ export class MovieListPage implements OnInit {
   }
 
   ngOnInit() {
+    this.ticketInfo.refreshListSoldSeat();
     this.listMovie = this.db.listMovie;
     this.listHotMovie = this.db.listHotMovie;
     this.dates = this.db.generateDateArray();

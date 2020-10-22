@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
   selector: 'app-food-choice',
@@ -15,7 +16,8 @@ export class FoodChoicePage implements OnInit {
   foodMoneyString: string;
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public ticketInfo: TicketInfoService
   ) {
     this.foodNameList = new Array<string>('Bắp', 'Nước', 'Kẹo', 'Gấu');
     this.foodPriceList = new Array<number>(5000, 2000, 3000, 500000);
