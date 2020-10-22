@@ -50,7 +50,7 @@ export class TicketInfoService {
           output = 'Thứ bảy, ';
           break;
       }
-      output += `${day.getDate}/${day.getMonth}`;
+      output += `${day.getDate()}/${day.getMonth()}`;
     }
     return output;
   }
