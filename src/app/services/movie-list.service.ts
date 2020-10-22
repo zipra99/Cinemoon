@@ -9,17 +9,31 @@ import { stringify } from 'querystring';
 export class MovieListService {
   private days = ['CN', 'Th 2', 'Th 3', 'Th 4', 'Th 5', 'Th 6', 'Th 7'];
   public keyName: string = '';
+  public chosenTime: Date;
   public listMovie: any[];
+  public listHotMovie: any[];
 
   constructor(
     private afs: AngularFirestore
   ) {
     this.listMovie = this.getListMovie();
+    this.listHotMovie = this.getListMovieByListName('hotMovies');
   }
 
   getListMovie() {
     let output = new Array();
     let snapshot = this.afs.collection('movies').snapshotChanges();
+    snapshot.subscribe(data => {
+      data.forEach(item => {
+        output.push(item.payload.doc.data());
+      })
+    })
+    return output;
+  }
+
+  getListMovieByListName(listName: string) {
+    let output = new Array();
+    let snapshot = this.afs.collection(listName).snapshotChanges();
     snapshot.subscribe(data => {
       data.forEach(item => {
         output.push(item.payload.doc.data());

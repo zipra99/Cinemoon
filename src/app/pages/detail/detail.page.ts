@@ -10,14 +10,13 @@ import { MovieListService } from 'src/app/services/movie-list.service';
 })
 export class DetailPage implements OnInit {
   listMovie: any;
-  url: any;
+  currDate: Date;
   isHiddenTicketTime: boolean = true;
   isDisableTicketButton: boolean = false;
 
   constructor(
     public db: MovieListService,
-    private navCtrl: NavController,
-    private sanitizer: DomSanitizer
+    private navCtrl: NavController
   ) { }
 
   test3(){
@@ -26,7 +25,7 @@ export class DetailPage implements OnInit {
 
   ngOnInit() {
     this.listMovie = this.db.getMovieDetail();
-    this.url = this.sanitizer.bypassSecurityTrustUrl(this.listMovie.videoTrailer);
+    this.currDate = this.db.chosenTime;
     if(!this.listMovie) {
       this.navCtrl.navigateBack('movie-list');
     }
@@ -51,6 +50,11 @@ export class DetailPage implements OnInit {
   }
 
   isPicked(time: string){
+    let toDay = new Date();
+    if(toDay.getDate() !== this.currDate.getDate() || toDay.getMonth() !== this.currDate.getMonth() || toDay.getFullYear() !== this.currDate.getFullYear()) {
+      return false;
+    }
+
     let now = new Date();
     let minute = Number(time.split(':')[0]);
     let second = Number(time.split(':')[1]);

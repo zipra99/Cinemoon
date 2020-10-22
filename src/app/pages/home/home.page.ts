@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { MovieListService } from 'src/app/services/movie-list.service';
 import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
 @Component({
@@ -8,13 +9,19 @@ import { AuthenticationService } from 'src/app/services/shared/authentication.se
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  public listMovie: any[];
+  public listHotMovie: any[];
 
   constructor(
     public authService: AuthenticationService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public db: MovieListService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.listMovie = this.db.listMovie;
+    this.listHotMovie = this.db.listHotMovie;
+  }
 
   navigate(page){
     switch(page){
