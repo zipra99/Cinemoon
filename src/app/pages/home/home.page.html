@@ -1,6 +1,6 @@
 <ion-header>
   <div class="login-header">
-    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px;" (click)="db.test1()"/>
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px;" (click)="navigate('home')"/>
     <img class="icon-header" src="../../../assets/images/acc1.png" style="height: 30px;" />
   </div>
 </ion-header>
@@ -14,7 +14,7 @@
 
     <div class="slides">
       <ion-slides [options]="options">
-        <ion-slide *ngFor="let movie of listHotMovie">
+        <ion-slide *ngFor="let movie of listHotMovie" (click)="navMovieDetail(movie.asciiName)">
           <ion-grid>
             <ion-row>
               <ion-col size="12" class="poster-col">
@@ -39,7 +39,20 @@
   </div>
   <div class="slides1">
     <ion-slides [options]="options1">
-      <ion-slide *ngFor="let movie of listMovie">
+      <ion-slide *ngFor="let movie of listMovie" (click)="navMovieDetail(movie.asciiName)">
+        <ion-card>
+          <ion-card-header>
+            <img class="files" src="{{ movie.posterImage }}" alt="Lỗi ảnh">
+          </ion-card-header>
+          <ion-card-content class="ion-text-left">
+            <ion-card-title class="ion-margin-bottom">{{ movie.name }}</ion-card-title>
+            <ion-card-subtitle class="ion-text-left">{{ movie.ageLimit }}</ion-card-subtitle>
+            <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide *ngFor="let movie of listHotMovie" (click)="navMovieDetail(movie.asciiName)">
         <ion-card>
           <ion-card-header>
             <img class="files" src="{{ movie.posterImage }}" alt="Lỗi ảnh">
@@ -60,7 +73,7 @@
   </div>
   <div class="slides1">
     <ion-slides [options]="options1">
-      <ion-slide *ngFor="let movie of listMovie">
+      <ion-slide *ngFor="let movie of listComingSoonMovie" (click)="navMovieDetail(movie.asciiName)">
         <ion-card>
           <ion-card-header>
             <img class="files" src="{{ movie.posterImage }}" alt="Lỗi ảnh">

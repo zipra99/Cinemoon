@@ -11,6 +11,7 @@ import { AuthenticationService } from 'src/app/services/shared/authentication.se
 export class HomePage implements OnInit {
   public listMovie: any[];
   public listHotMovie: any[];
+  public listComingSoonMovie: any[];
 
   constructor(
     public authService: AuthenticationService,
@@ -21,6 +22,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.listMovie = this.db.listMovie;
     this.listHotMovie = this.db.listHotMovie;
+    this.listComingSoonMovie = this.db.listComingSoonMovie;
   }
 
   navigate(page){
@@ -34,6 +36,13 @@ export class HomePage implements OnInit {
       default:
         break;
     }
+  }
+
+  navMovieDetail(name: string){
+    name = name.trim();
+    this.db.keyName = name;
+    this.db.chosenTime = new Date();
+    this.navCtrl.navigateForward('detail');
   }
 
   options = {
