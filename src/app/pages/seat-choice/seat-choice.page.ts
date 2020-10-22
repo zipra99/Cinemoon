@@ -41,7 +41,7 @@ export class SeatChoicePage implements OnInit {
 
   ngAfterViewInit() {
     this.bookedSeatList.forEach(item => {
-      document.getElementById(item).setAttribute('color', 'dark');
+      document.getElementById(item).setAttribute('style', '--background:rgb(12 12 12 / 58%)');
     })
   }
 
@@ -79,10 +79,10 @@ export class SeatChoicePage implements OnInit {
         maxToast.present();
         return;
       case 'added':
-        seat.setAttribute('color', 'danger');
+        seat.setAttribute('style', '--background:#ff4961');
         break;
       case 'removed':
-        seat.setAttribute('color', 'primary');
+        seat.setAttribute('style', '--background:rgb(128 67 67 / 38%)');
         break;
     }
     this.listBookingSeatString = this.bookingSeatListToString();
