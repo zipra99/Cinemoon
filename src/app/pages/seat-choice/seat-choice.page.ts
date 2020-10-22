@@ -46,7 +46,7 @@ export class SeatChoicePage implements OnInit {
     switch (result) {
       case 'booked':
         const bookedToast = await this.toastController.create({
-          message: 'Ghế này đã có người đặt !!!',
+          message: 'Ghế này đã có người đặt.',
           duration: 1000,
           position: 'middle'
         });
