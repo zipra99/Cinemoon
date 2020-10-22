@@ -61,10 +61,24 @@
     </ion-col>
   </ion-row>
   </div>
-<div class="seat-situation">
-  <ion-item></ion-item>
-</div>
+<div class="seat-situation"></div>
   <div class="next-btn">
     <ion-button class="ion-button-class" size="large" expand="block" (click)="Next()">Tiếp Tục</ion-button>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="tabs">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="onTabSelected('popular')">
+        <img class="icon-tab" src="../../../assets/images/tab-list.png" style= "height: 20px; "/>
+      </div>
+      <div class="tab" [ngClass]="{'active' : segment == 'top' }" (click)="onTabSelected('top')">
+        <img class="icon-tab" src="../../../assets/images/tab-home.png" style= "height: 22px; "/>
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="onTabSelected('upcoming')">
+        <img class="icon-tab" src="../../../assets/images/tab-review.png" style= "height: 24px; "/>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>
