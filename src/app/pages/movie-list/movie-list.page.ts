@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.page.html',
@@ -14,6 +15,7 @@ export class MovieListPage implements OnInit {
   colorName: string;
 
   constructor(
+    public ticketInfo: TicketInfoService,
     public db: MovieListService,
     private navCtrl: NavController
   ) { }
@@ -23,6 +25,13 @@ export class MovieListPage implements OnInit {
     this.db.keyName = name;
     this.db.chosenTime = this.currDate;
     this.navCtrl.navigateForward('detail');
+  }
+
+  navSeatChoice(movieDetail: any, time: string){
+    this.ticketInfo.time = time;
+    this.ticketInfo.movieDetail = movieDetail;
+    this.ticketInfo.day = this.currDate;
+    this.navCtrl.navigateForward('seat-choice');
   }
 
   switchDate(date: any, index: number){

@@ -20,6 +20,7 @@ export class SeatChoicePage implements OnInit {
   maxBookingSeat: number;
   seatMoney: number;
   seatMoneyString: string;
+  movieDetail: string[];
 
   constructor(public ticketInfo: TicketInfoService, public toastController: ToastController) {
     this.ticketPrice = 50000;
@@ -31,7 +32,7 @@ export class SeatChoicePage implements OnInit {
   }
 
   ngOnInit() {
-
+    this.movieDetail = this.ticketInfo.getStringMovieInfo();
   }
 
   ngAfterViewInit() {

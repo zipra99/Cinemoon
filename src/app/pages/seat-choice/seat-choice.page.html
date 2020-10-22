@@ -32,8 +32,13 @@
   <div class="movie-info">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Tên Phim</ion-card-title>
-        <ion-card-subtitle>Thể Loại</ion-card-subtitle>
+        <ion-card-title>{{ ticketInfo.movieDetail.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <p style="margin: 2px 0px;">{{ movieDetail[0] }}</p>
+          <strong style="margin: 2px 0px;">{{ movieDetail[1] }}</strong>
+          <p style="margin: 2px 0px;">{{ movieDetail[2] }}</p>
+          <strong style="margin: 2px 0px;">{{ movieDetail[3] }} {{ listBookingSeatString }}</strong>
+        </ion-card-subtitle>
       </ion-card-header>
       <ion-content>Đây là tóm tắt phim
       </ion-content>
@@ -44,7 +49,6 @@
       <ion-card-header>
         <ion-card-title>Tổng Tiền </ion-card-title>
           <ion-card-title><h1>{{seatMoneyString}}</h1></ion-card-title>
-          <ion-card-title><h4>Số ghế: {{listBookingSeatString}}</h4> </ion-card-title>
       </ion-card-header>
     </ion-card>
     </div>
