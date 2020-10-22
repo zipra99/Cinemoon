@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
 @Component({
   selector: 'app-movie-list',
@@ -9,16 +9,18 @@ import { MovieListService } from 'src/app/services/movie-list.service';
 export class MovieListPage implements OnInit {
   dates: any;
   currDate: Date;
-  movieslist: any;
+  listMovie: any;
   colorName: string;
+
   constructor(
-    private router:Router,
-    private db: MovieListService
+    public db: MovieListService,
+    private navCtrl: NavController
   ) { }
 
-  detail(id:String){
-    id = id.trim();
-    alert(id);
+  navMovieDetail(name: string){
+    name = name.trim();
+    this.db.keyName = name;
+    this.navCtrl.navigateForward('detail');
   }
 
   switchDate(date: any, index: number){
@@ -30,7 +32,7 @@ export class MovieListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.movieslist = this.db.getListMovie();
+    this.listMovie = this.db.listMovie;
     this.dates = this.db.generateDateArray();
     this.currDate = new Date();
   }

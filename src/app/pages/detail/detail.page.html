@@ -1,42 +1,27 @@
 <ion-content>
   <div class="header">
-    <img class="poster" src="/assets/mv1.png">
+    <img class="poster" src="{{ listMovie.posterImage }}" alt="Lỗi">
   </div>
   <div class="content">
     <ion-grid>
       <!-- Tiêu đề -->
       <ion-row style="padding-top: 20px">
-        <ion-label class="movietitle">Thang Máy</ion-label>
+        <ion-label class="movietitle">{{ listMovie.name }}</ion-label>
       </ion-row>
       <ion-row>
-        <ion-label>Thể loại: Horror, Crime, Drama</ion-label>
+        <ion-label>Thể loại: {{ listMovie.categories.join(', ') }}</ion-label>
       </ion-row>
       <!-- Thời gian chiếu -->
       <ion-row>
-        <!-- <ion-col size="3">
-          <ion-label class="time">09:00</ion-label>
-        </ion-col>
-        <ion-col size="3">
-          <ion-label class="time">12:00</ion-label>
-        </ion-col>
-        <ion-col size="3">
-          <ion-label class="time">16:00</ion-label>
-        </ion-col>
-        <ion-col size="3">
-          <ion-label class="time">20:00</ion-label>
-        </ion-col> -->
-          <ion-label class="time">09:00</ion-label>
-          <ion-label class="time">12:00</ion-label>
-          <ion-label class="time">16:00</ion-label>
-          <ion-label class="time">20:00</ion-label>
+        <div class="bookticket">
+          <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of listMovie.listTicket">{{ time }}</ion-button>
+        </div>
       </ion-row>
       <!-- Nội dung / Tóm tắt -->
       <ion-row>
         <ion-label class="title">Nội dung phim</ion-label>
         <ion-row>
-          <ion-label class="comment">
-            Thang Máy là câu chuyện kỳ bí xảy ra với những cô gái trẻ khi đi Thang Máy một mình. Mọi chuyện bắt đầu khi Jina đột nhiên mất tích sau khi livestream trong thang máy."
-          </ion-label>
+          <ion-label class="comment">{{ listMovie.summary }}</ion-label>
         </ion-row>
       </ion-row>
       <!-- Trailer -->
@@ -46,12 +31,17 @@
         </ion-row>
         <ion-col size="12">
           <ion-row>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/E_uJDsRff5s?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+            <iframe width="560" height="315" [src]="listMovie.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
           </ion-row>
           <ion-row>
             <div class="bookticket">
-              <ion-button class="ion-button-class" size="large" expand="block" (click)="Booking()">Đặt vé</ion-button>
-              </div>
+              <ion-button class="ion-button-class" size="large" expand="block" [disabled]="isDisableTicketButton" (click)="showTicketTime()">Đặt vé</ion-button>
+            </div>
+          </ion-row>
+          <ion-row [hidden]="isHiddenTicketTime">
+            <div class="bookticket">
+              <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of listMovie.listTicket">{{ time }}</ion-button>
+            </div>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -101,10 +91,10 @@
       <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="start">
-      <ion-fab-button color="red" (click)="test1()">
+      <ion-fab-button color="red" (click)="navigate('movie')">
         <ion-icon src="assets/icon/tickets.svg"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="red" (click)="test2()">
+      <ion-fab-button color="red" (click)="navigate('home')">
         <ion-icon src="assets/icon/home.svg"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="red" (click)="test3()">
