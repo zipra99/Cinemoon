@@ -42,7 +42,7 @@ export class SeatChoicePage implements OnInit {
   ngAfterViewInit() {
     if(this.bookedSeatList) {
       this.bookedSeatList.forEach(item => {
-        document.getElementById(item).setAttribute('color', 'dark');
+        document.getElementById(item).setAttribute('style', '--background:rgb(12 12 12 / 58%)');
       })
     }
   }
@@ -81,10 +81,10 @@ export class SeatChoicePage implements OnInit {
         maxToast.present();
         return;
       case 'added':
-        seat.setAttribute('color', 'danger');
+        seat.setAttribute('style', '--background:#ff4961');
         break;
       case 'removed':
-        seat.setAttribute('color', 'primary');
+        seat.setAttribute('style', '--background:rgb(128 67 67 / 38%)');
         break;
     }
     this.listBookingSeatString = this.bookingSeatListToString();
@@ -122,10 +122,17 @@ export class SeatChoicePage implements OnInit {
     this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
   }
 
-  btnNext(){
-    if(this.bookingSeatList) {
+  async btnNext(){
+    if(this.bookingSeatList.length) {
       this.ticketInfo.listSeatSoldName = this.bookedSeatList.concat(this.bookingSeatList);
+      this.navCtrl.navigateForward('food-choice');
+    } else {
+      const maxToast = await this.toastController.create({
+        message: 'Vui lòng chọn ghế để tiếp tục!',
+        duration: 1000,
+        position: 'middle'
+      });
+      maxToast.present();
     }
-    this.navCtrl.navigateForward('food-choice');
   }
 }

@@ -24,7 +24,7 @@ export class TicketInfoService {
     output.push(`Thể loại: ${this.movieDetail.categories.join(', ')}.`);
     output.push(`Suất ${this.time} - ${this.getDateFormatString(this.day)}.`);
     output.push(`Rạp Cinestar Đà Lạt`);
-    output.push(`Phòng chiếu: 0${Math.floor(Math.random() * 6) + 1} - Ghế:`);
+    output.push(`Phòng chiếu: 0${Math.floor(Math.random() * 6) + 1}`);
     return output;
   }
 
