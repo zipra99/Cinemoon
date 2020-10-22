@@ -1,12 +1,12 @@
 <ion-content>
   <div class="header">
-    <img class="poster" src="{{ listMovie.posterImage }}" alt="Lỗi">
+    <img class="poster" src="{{ movieDetail.posterImage }}" alt="Lỗi">
   </div>
   <div class="content">
     <ion-grid>
       <!-- Tiêu đề -->
       <ion-row style="padding-top: 20px">
-        <ion-label class="movietitle">{{ listMovie.name }}</ion-label>
+        <ion-label class="movietitle">{{ movieDetail.name }}</ion-label>
       </ion-row>
       <ion-row>
         <ion-label class="moviesmtl">Thể loại: {{ listMovie.categories.join(', ') }}</ion-label>
@@ -14,14 +14,14 @@
       <!-- Thời gian chiếu -->
       <ion-row>
         <div class="bookticket">
-          <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of listMovie.listTicket">{{ time }}</ion-button>
+          <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of movieDetail.listTicket">{{ time }}</ion-button>
         </div>
       </ion-row>
       <!-- Nội dung / Tóm tắt -->
       <ion-row>
         <ion-label class="title">Nội dung phim</ion-label>
         <ion-row>
-          <ion-label class="comment">{{ listMovie.summary }}</ion-label>
+          <ion-label class="comment">{{ movieDetail.summary }}</ion-label>
         </ion-row>
       </ion-row>
       <!-- Trailer -->
@@ -31,16 +31,16 @@
         </ion-row>
         <ion-col size="12">
           <ion-row>
-            <iframe width="560" height="315" [src]="listMovie.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+            <iframe width="560" height="315" [src]="movieDetail.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
           </ion-row>
           <ion-row>
             <div class="bookticket">
-              <ion-button class="ion-button-class" size="large" expand="block" [disabled]="isDisableTicketButton" (click)="showTicketTime()">Đặt vé</ion-button>
+              <ion-button class="ion-button-class" size="large" expand="block" [disabled]="isDisableTicketButton" (click)="showTicketTime()">{{ buttonValue }}</ion-button>
             </div>
           </ion-row>
           <ion-row [hidden]="isHiddenTicketTime">
             <div class="bookticket">
-              <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of listMovie.listTicket">{{ time }}</ion-button>
+              <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of movieDetail.listTicket">{{ time }}</ion-button>
             </div>
           </ion-row>
         </ion-col>

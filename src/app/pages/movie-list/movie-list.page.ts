@@ -9,7 +9,8 @@ import { MovieListService } from 'src/app/services/movie-list.service';
 export class MovieListPage implements OnInit {
   dates: any;
   currDate: Date;
-  listMovie: any;
+  listMovie: any[];
+  listHotMovie: any[];
   colorName: string;
 
   constructor(
@@ -34,6 +35,7 @@ export class MovieListPage implements OnInit {
 
   ngOnInit() {
     this.listMovie = this.db.listMovie;
+    this.listHotMovie = this.db.listHotMovie;
     this.dates = this.db.generateDateArray();
     this.currDate = new Date();
   }
