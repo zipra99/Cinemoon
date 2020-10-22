@@ -20,6 +20,7 @@ export class MovieListPage implements OnInit {
   navMovieDetail(name: string){
     name = name.trim();
     this.db.keyName = name;
+    this.db.chosenTime = this.currDate;
     this.navCtrl.navigateForward('detail');
   }
 
