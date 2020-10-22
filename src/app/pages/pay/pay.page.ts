@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pay',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PayPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
 
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
+  }
+
+  btnNext(){
+    this.navCtrl.navigateForward('ticket-information');
+  }
 }

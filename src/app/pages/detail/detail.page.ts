@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavController, NavParams } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
   selector: 'app-detail',
@@ -9,14 +10,16 @@ import { MovieListService } from 'src/app/services/movie-list.service';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  listMovie: any;
+  movieDetail: any;
   currDate: Date;
+  buttonValue: string;
   isHiddenTicketTime: boolean = true;
   isDisableTicketButton: boolean = false;
 
   constructor(
     public db: MovieListService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public ticketInfo: TicketInfoService
   ) { }
 
   test3(){
@@ -24,25 +27,38 @@ export class DetailPage implements OnInit {
   }
 
   ngOnInit() {
-    this.listMovie = this.db.getMovieDetail();
+    this.buttonValue = 'Đặt vé';
+    this.movieDetail = this.db.getMovieDetail();
     this.currDate = this.db.chosenTime;
-    if(!this.listMovie) {
+    if(!this.movieDetail) {
       this.navCtrl.navigateBack('movie-list');
     }
   }
 
   showTicketTime() {
-    this.isHiddenTicketTime = false;
-    this.isDisableTicketButton = true;
+    if(this.movieDetail.listTicket.length){
+      this.isHiddenTicketTime = false;
+      this.isDisableTicketButton = true;
+    } else {
+      this.buttonValue = 'Chưa được công chiếu';
+      this.isDisableTicketButton = true;
+    }
+  }
+
+  navSeatChoice(movieDetail: any, time: string){
+    this.ticketInfo.time = time;
+    this.ticketInfo.movieDetail = movieDetail;
+    this.ticketInfo.day = this.currDate;
+    this.navCtrl.navigateForward('seat-choice');
   }
 
   navigate(page){
     switch(page){
       case 'movie':
-        this.navCtrl.navigateForward('movie-list');
+        this.navCtrl.navigateBack('movie-list');
         break;
       case 'home':
-        this.navCtrl.navigateForward('home');
+        this.navCtrl.navigateBack('home');
         break;
       default:
         break;

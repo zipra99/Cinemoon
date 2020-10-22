@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +11,14 @@ export class MovieListService {
   public chosenTime: Date;
   public listMovie: any[];
   public listHotMovie: any[];
+  public listComingSoonMovie: any[];
 
   constructor(
     private afs: AngularFirestore
   ) {
     this.listMovie = this.getListMovie();
     this.listHotMovie = this.getListMovieByListName('hotMovies');
+    this.listComingSoonMovie = this.getListMovieByListName('comingSoonMovies');
   }
 
   getListMovie() {
@@ -44,6 +45,16 @@ export class MovieListService {
 
   getMovieDetail() {
     for(let movie of this.listMovie) {
+      if(movie.asciiName === this.keyName) {
+        return movie;
+      }
+    }
+    for(let movie of this.listHotMovie) {
+      if(movie.asciiName === this.keyName) {
+        return movie;
+      }
+    }
+    for(let movie of this.listComingSoonMovie) {
       if(movie.asciiName === this.keyName) {
         return movie;
       }
