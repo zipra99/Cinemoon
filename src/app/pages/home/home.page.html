@@ -244,13 +244,13 @@
 <ion-footer>
   <ion-toolbar>
     <div class="tabs">
-      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="onTabSelected('popular')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="navigate('movie')">
         <img class="icon-tab" src="../../../assets/images/tab-list.png" style= "height: 20px; "/>
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="onTabSelected('top')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
         <img class="icon-tab" src="../../../assets/images/tab-home.png" style= "height: 22px; "/>
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="onTabSelected('upcoming')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
         <img class="icon-tab" src="../../../assets/images/tab-review.png" style= "height: 24px; "/>
       </div>
     </div>

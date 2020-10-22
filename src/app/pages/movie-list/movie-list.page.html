@@ -6,31 +6,32 @@
 <ion-content>
 
   <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-    <ion-slide *ngFor="let date of dates,index as i" style="width: 105px; height: 100px;">
+    <ion-slide *ngFor="let item of dates,index as i" style="width: 105px; height: 100px;">
       <ion-col>
-        <ion-card button="true" style="height: 70px" (click)="switchdate(date)">
-          <ion-card-content>{{date}}</ion-card-content>
+        <ion-card id="date-{{i}}" button="true" style="height: 70px" (click)="switchDate(item, i)">
+          <ion-card-content>
+            {{item.dateStr}}<br>
+            {{item.dayOfWeek}}
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-slide>
   </ion-slides>
 
   <ion-grid>
-    <ion-row *ngFor="let item of movieslist; index as i">
+    <ion-row *ngFor="let item of listMovie;">
       <ion-col size="4">
-        <img src="{{ item.posterimg }}" class="movie-poster"/>
+        <img src="{{ item.posterImage }}" class="movie-poster" (click)="navMovieDetail(item.asciiName)"/>
       </ion-col>
       <ion-col size="8" class="ion-align-self-top">
-      <ion-card button="true" (click)="detail(item.ascii)">
-          <ion-card-header>
+        <ion-card button="true">
+          <ion-card-header (click)="navMovieDetail(item.asciiName)">
             <ion-card-title>{{ item.name }}</ion-card-title>
-            <ion-card-subtitle>Thể loại: {{ item.categories }}</ion-card-subtitle>
+            <ion-card-subtitle>Thể loại: {{ item.categories.join(', ') }}</ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content>{{ item.comment }}
-            <ion-row>
-              <ion-button color="primary">A</ion-button>
-              <ion-button color="primary">B</ion-button>
-            </ion-row>
+          <ion-card-content>
+            {{ item.summary }}<br>
+            <ion-button class='ticket-time-picker' *ngFor="let time of item.listTicket" size="small" color="primary" [disabled]="isPicked(time)">{{time}}</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
