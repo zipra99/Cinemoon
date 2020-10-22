@@ -30,19 +30,21 @@ export class SeatChoicePage implements OnInit {
     this.ticketPrice = 50000;
     this.maxBookingSeat = 8;
     this.bookingSeatList = new Array<string>();
-    this.bookedSeatList = new Array<string>('C4', 'D4', 'A7');
     this.seatMoney = 0;
     this.seatMoneyString = '0đ';
   }
 
   ngOnInit() {
     this.movieDetail = this.ticketInfo.getStringMovieInfo();
+    this.bookedSeatList = this.ticketInfo.getListSoldSeatName();
   }
 
   ngAfterViewInit() {
-    this.bookedSeatList.forEach(item => {
-      document.getElementById(item).setAttribute('color', 'dark');
-    })
+    if(this.bookedSeatList) {
+      this.bookedSeatList.forEach(item => {
+        document.getElementById(item).setAttribute('color', 'dark');
+      })
+    }
   }
 
   navigate(page){
@@ -121,6 +123,9 @@ export class SeatChoicePage implements OnInit {
   }
 
   btnNext(){
+    if(this.bookingSeatList) {
+      this.ticketInfo.listSeatSoldName = this.bookedSeatList.concat(this.bookingSeatList);
+    }
     this.navCtrl.navigateForward('food-choice');
   }
 }

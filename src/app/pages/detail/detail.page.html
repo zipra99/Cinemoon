@@ -31,7 +31,7 @@
         </ion-row>
         <ion-col size="12">
           <ion-row>
-            <iframe width="560" height="315" [src]="movieDetail.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+            <iframe id="video-trailer" [src]="movieDetail.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
           </ion-row>
           <ion-row>
             <div class="bookticket">
@@ -40,7 +40,6 @@
           </ion-row>
           <ion-row [hidden]="isHiddenTicketTime">
             <div class="bookticket">
-              <!-- <ion-button class="ion-button-class" [disabled]="isPicked(time)" *ngFor="let time of movieDetail.listTicket">{{ time }}</ion-button> -->
               <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
             </div>
           </ion-row>

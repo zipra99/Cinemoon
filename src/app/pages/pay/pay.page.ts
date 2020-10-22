@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
   selector: 'app-pay',
@@ -9,7 +10,8 @@ import { NavController } from '@ionic/angular';
 export class PayPage implements OnInit {
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public ticketInfo: TicketInfoService
   ) { }
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class PayPage implements OnInit {
   }
 
   btnNext(){
+    this.ticketInfo.updateListSoldSeat();
     this.navCtrl.navigateForward('ticket-information');
   }
 }

@@ -22,11 +22,8 @@ export class DetailPage implements OnInit {
     public ticketInfo: TicketInfoService
   ) { }
 
-  test3(){
-    alert("danh sach");
-  }
-
   ngOnInit() {
+    this.ticketInfo.refreshListSoldSeat();
     this.buttonValue = 'Đặt vé';
     this.movieDetail = this.db.getMovieDetail();
     this.currDate = this.db.chosenTime;

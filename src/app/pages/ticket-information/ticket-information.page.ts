@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
   selector: 'app-ticket-information',
@@ -9,7 +10,8 @@ import { NavController } from '@ionic/angular';
 export class TicketInformationPage implements OnInit {
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public ticketInfo: TicketInfoService
   ) { }
 
   ngOnInit() {
