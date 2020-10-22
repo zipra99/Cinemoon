@@ -15,13 +15,13 @@
             <img src="../../../assets/images/seat1.png" style="height: 50px;">
           </ion-col>
           <ion-col size="3">
-            <img src="../../../assets/images/popcorn2.png" style="height: 50px;">
+            <img src="../../../assets/images/popcorn1.png" style="height: 50px;">
           </ion-col>
           <ion-col size="3">
-            <img src="../../../assets/images/card1.png" style="height: 50px;">
+            <img src="../../../assets/images/card2.png" style="height: 65px;">
           </ion-col>
           <ion-col size="3">
-            <img src="../../../assets/images/ticket1.png" style="height: 65px;">
+            <img src="../../../assets/images/ticket1.png" style="height: 50px;">
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -29,7 +29,6 @@
     </div>
 
 <div class="movie-info">
-    <!-- <ion-card button="true" (click)="detail(item.ascii)"> -->
 <ion-card>
   <ion-card-header>
     <ion-card-title>Tên phim</ion-card-title>
@@ -41,41 +40,64 @@
 </div>
 </div>
 
-<div class="customer-info">
+<div class="food-bill">
+<ion-item lines="none">
   <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-item-divider color="white">
-          <ion-label>Thông tin khách hàng:</ion-label>
-        </ion-item-divider>
-        <ion-label><br>Họ và tên: </ion-label>
-        <ion-label><br>Email: </ion-label>
-        <ion-label><br>Số điện thoại: </ion-label>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="5" style="border-right: 1px solid;">
+        <ion-label>
+          <h4>Tổng đơn hàng </h4>
+          <h6>?????</h6>
+        </ion-label>
       </ion-col>
-      <ion-col size="6">
-        <img src="../../../assets/images/QR.png" style="width:160px;height:160px;float:right;padding: 10px;">
+      <ion-col size="7">
+        <ion-label style="padding-left: 30px;">
+          <h4>Thời gian giữ ghế</h4>
+          <h6>TICK TOCK</h6>
+        </ion-label>
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-card>
-          <ion-item-divider color="white">
-            <ion-card-subtitle>Một số lưu ý</ion-card-subtitle>
-          </ion-item-divider>
-          <ion-card-content>
-            <ion-label>1.<br></ion-label>
-            <ion-label>2.<br></ion-label>
-            <ion-label>3.<br></ion-label>
-            <ion-label>4.<br></ion-label>
-            <ion-label>5.<br></ion-label>
-          </ion-card-content>
-        </ion-card>
-    </ion-col>
     </ion-row>
   </ion-grid>
+</ion-item>
 </div>
 
+<div class= "food-choice">
+  <ion-item class="title" lines="none">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="5">
+          <p>COMBO</p>
+        </ion-col>
+        <ion-col size="4">
+         <p>SỐ LƯỢNG</p>
+        </ion-col>
+        <ion-col size="3" style="text-align:center;">
+          <p>THÀNH TIỀN</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
+  <ion-item lines="none" *ngFor='let name of foodNameList; let foodIndex = index'>
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="6">
+          <p>{{name}} <br> {{foodPriceListString[foodIndex]}} </p>
+        </ion-col>
+        <ion-col size="3" style="text-align:center;">
+          <p>{{foodNumberList[foodIndex]}}</p>
+        </ion-col>
+        <ion-col size="3">
+          <p>?????????</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
+
+<div class="next-btn">
+<ion-button class="ion-button-class" size="large" expand="block" (click)="Next()">Thanh toán</ion-button>
+</div>
 </ion-content>
 
 <ion-footer>

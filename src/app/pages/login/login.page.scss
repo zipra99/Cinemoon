@@ -16,9 +16,8 @@ ion-header {
 }
 
 [heading-column-lr] {
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
+    -ms-flex-align: left;
+    text-align: left;
 }
 
 [big-heading] {
@@ -46,10 +45,14 @@ ion-content{
 
 .center{
     background-color: #80808017;
-    padding: 5px 22px;
     border-radius: 15px;
-    margin: 8vh 10px 0px 10px;
+    margin: 15vh 0px 0px 0px;
 }
+
+.account{
+    margin: 10px 10px;
+}
+
 .no-scroll {
     --overflow: hidden;
 }
@@ -70,7 +73,7 @@ ion-input{
 }
 
 [icon-small]{
-    width: 27px;
+    width: 25px;
 }
 
 .forget-password{
@@ -94,7 +97,7 @@ ion-item{
 
 ion-label{
     color: rgb(255, 255, 255);
-    font-family: "Roboto-Regular";
+    font-family: "Roboto-Light";
     opacity: .8px;
     font-size: 15px;
     display: block;
@@ -114,6 +117,15 @@ ion-button{
 }
 
 .ion-text-center{
- padding-top: 10px;
  font-size: 15px;
+}
+
+.login-with{
+    ion-item{
+        --background: none;
+        padding-top: 5px;
+        ion-grid{
+            text-align: center;
+        }
+    }
 }
