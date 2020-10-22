@@ -1,59 +1,73 @@
 <ion-header>
   <div class="login-header">
-    <img class="logo-img" src="../../../assets/images/logo1.png" style="height : 70px; "/>
+    <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; "/>
     <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
   </div>
 </ion-header>
 
 <ion-content>
-  <div class = "background">
-    <div class = "list-page">
-      <ion-item lines = "none" background = "none">
-        <ion-grid>
-          <ion-row class = "ion-align-items-center">
-            <ion-col size="3">
-              <img src="../../../assets/images/seat1.png" style= "height: 65px; ">
-            </ion-col>
-            <ion-col size="3">
-              <img src="../../../assets/images/popcorn2.png" style = "height: 50px; ">
-            </ion-col>
-            <ion-col size="3">
-              <img src="../../../assets/images/card1.png" style = "height: 50px; ">
-            </ion-col>
-            <ion-col size="3">
-              <img src="../../../assets/images/ticket1.png" style = "height: 50px; ">
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-    </div>
-  </div>
-
-  <div class="movie-info">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Tên Phim</ion-card-title>
-        <ion-card-subtitle>Thể Loại</ion-card-subtitle>
-      </ion-card-header>
-      <ion-content>Đây là tóm tắt phim
-      </ion-content>
-    </ion-card>
-  </div>
-  <div class="seat-bill">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Tổng Tiền </ion-card-title>
-          <ion-card-title><h1>{{seatMoneyString}}</h1></ion-card-title>
-          <ion-card-title><h4>Số ghế: {{listBookingSeatString}}</h4> </ion-card-title>
-      </ion-card-header>
-    </ion-card>
+<div class="background">
+  <div class="list-page">
+    <ion-item lines="none" background="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <img src="../../../assets/images/seat1.png" style="height: 65px;">
+          </ion-col>
+          <ion-col size="3">
+            <img src="../../../assets/images/popcorn2.png" style="height: 50px;">
+          </ion-col>
+          <ion-col size="3">
+            <img src="../../../assets/images/card1.png" style="height: 50px;">
+          </ion-col>
+          <ion-col size="3">
+            <img src="../../../assets/images/ticket1.png" style="height: 50px;">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
     </div>
 
-  <div class="movie-screen">
-    <ion-card>
-      <ion-card-subtitle>Màn Hình</ion-card-subtitle>
-    </ion-card>
-  </div>
+<div class="movie-info">
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Tên phim</ion-card-title>
+    <ion-card-subtitle style="padding-top:5px;">Thể loại:</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>Nội dung ggg gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+  </ion-card-content>
+</ion-card>
+</div>
+</div>
+
+<div class="food-bill">
+<ion-item lines="none">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="5" style="border-right: 1px solid;">
+        <ion-label>
+          <h4>{{seatMoneyString}} </h4>
+          <h6>Số ghế: {{listBookingSeatString}}</h6>
+
+        </ion-label>
+      </ion-col>
+      <ion-col size="7">
+        <ion-label style="padding-left: 30px;">
+          <h4>Thời gian giữ ghế</h4>
+          <h6>5:00</h6>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+</div>
+
+<div class="movie-screen">
+  <ion-card>
+    <ion-card-subtitle>Màn Hình</ion-card-subtitle>
+  </ion-card>
+</div>
+
 <div class="seat-list">
   <ion-row *ngFor="let row of rowList">
     <ion-col class="col" *ngFor="let col of colList">
@@ -61,7 +75,10 @@
     </ion-col>
   </ion-row>
   </div>
-<div class="seat-situation"></div>
+
+  <div class="seat-situation">
+    
+  </div>
   <div class="next-btn">
     <ion-button class="ion-button-class" size="large" expand="block" (click)="Next()">Tiếp Tục</ion-button>
   </div>
