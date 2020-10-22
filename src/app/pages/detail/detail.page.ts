@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavController, NavParams } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
+import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +18,8 @@ export class DetailPage implements OnInit {
 
   constructor(
     public db: MovieListService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public ticketInfo: TicketInfoService
   ) { }
 
   test3(){
@@ -41,6 +43,13 @@ export class DetailPage implements OnInit {
       this.buttonValue = 'Chưa được công chiếu';
       this.isDisableTicketButton = true;
     }
+  }
+
+  navSeatChoice(movieDetail: any, time: string){
+    this.ticketInfo.time = time;
+    this.ticketInfo.movieDetail = movieDetail;
+    this.ticketInfo.day = this.currDate;
+    this.navCtrl.navigateForward('seat-choice');
   }
 
   navigate(page){

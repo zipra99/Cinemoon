@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { NavComponentWithProps, NavController, ToastController } from '@ionic/angular';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
@@ -20,8 +20,13 @@ export class SeatChoicePage implements OnInit {
   maxBookingSeat: number;
   seatMoney: number;
   seatMoneyString: string;
+  movieDetail: string[];
 
-  constructor(public ticketInfo: TicketInfoService, public toastController: ToastController) {
+  constructor(
+    public ticketInfo: TicketInfoService,
+    public toastController: ToastController,
+    private navCtrl: NavController
+    ) {
     this.ticketPrice = 50000;
     this.maxBookingSeat = 8;
     this.bookingSeatList = new Array<string>();
@@ -31,7 +36,7 @@ export class SeatChoicePage implements OnInit {
   }
 
   ngOnInit() {
-
+    this.movieDetail = this.ticketInfo.getStringMovieInfo();
   }
 
   ngAfterViewInit() {
@@ -40,13 +45,26 @@ export class SeatChoicePage implements OnInit {
     })
   }
 
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
+  }
+
   async press(row, col) {
     let result = await this.changeSeat(row + col);
     let seat = document.getElementById(row + col);
     switch (result) {
       case 'booked':
         const bookedToast = await this.toastController.create({
-          message: 'Ghế này đã có người đặt !!!',
+          message: 'Ghế này đã có người đặt.',
           duration: 1000,
           position: 'middle'
         });
@@ -100,5 +118,9 @@ export class SeatChoicePage implements OnInit {
     let money = this.bookingSeatList.length * this.ticketPrice;
     this.seatMoney = money;
     this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
+  }
+
+  btnNext(){
+    this.navCtrl.navigateForward('food-choice');
   }
 }

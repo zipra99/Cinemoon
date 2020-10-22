@@ -1,15 +1,88 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>seat-choice</ion-title>
-  </ion-toolbar>
+  <div class="login-header">
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height : 70px; "/>
+    <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
+  </div>
 </ion-header>
 
 <ion-content>
-  <h1>{{seatMoneyString}}</h1>
-  <h4>DS ghế: {{listBookingSeatString}}</h4>
+  <div class = "background">
+    <div class = "list-page">
+      <ion-item lines = "none" background = "none">
+        <ion-grid>
+          <ion-row class = "ion-align-items-center">
+            <ion-col size="3">
+              <img src="../../../assets/images/seat1.png" style= "height: 65px; ">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/popcorn2.png" style = "height: 50px; ">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/card1.png" style = "height: 50px; ">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/ticket1.png" style = "height: 50px; ">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="movie-info">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ ticketInfo.movieDetail.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <p style="margin: 2px 0px;">{{ movieDetail[0] }}</p>
+          <strong style="margin: 2px 0px;">{{ movieDetail[1] }}</strong>
+          <p style="margin: 2px 0px;">{{ movieDetail[2] }}</p>
+          <strong style="margin: 2px 0px;">{{ movieDetail[3] }} {{ listBookingSeatString }}</strong>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-content>Đây là tóm tắt phim
+      </ion-content>
+    </ion-card>
+  </div>
+  <div class="seat-bill">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Tổng Tiền </ion-card-title>
+          <ion-card-title><h1>{{seatMoneyString}}</h1></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </div>
+
+  <div class="movie-screen">
+    <ion-card>
+      <ion-card-subtitle>Màn Hình</ion-card-subtitle>
+    </ion-card>
+  </div>
+<div class="seat-list">
   <ion-row *ngFor="let row of rowList">
     <ion-col class="col" *ngFor="let col of colList">
       <ion-button id="{{row}}{{col}}" class="seat" color="primary" (click)="press(row,col)">{{row}}{{col}}</ion-button>
     </ion-col>
   </ion-row>
+  </div>
+<div class="seat-situation"></div>
+  <div class="next-btn">
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp Tục</ion-button>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="tabs">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="navigate('movie')">
+        <img class="icon-tab" src="../../../assets/images/tab-list.png" style="height: 20px; " />
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
+        <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
+        <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>
