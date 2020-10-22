@@ -39,7 +39,7 @@ export class MovieListPage implements OnInit {
     for(let i = 0; i < 7; i++){
       (document.getElementById(`date-${i}`) as HTMLScriptElement).style.backgroundColor = this.colorName;
     }
-    (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'aliceblue';
+    (document.getElementById(`date-${index}`) as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
   }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class MovieListPage implements OnInit {
 
   ngAfterViewInit(){
     this.colorName = (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor;
-    (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'aliceblue';
+    (document.getElementById('date-0') as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
   }
 
   isPicked(time: string){
