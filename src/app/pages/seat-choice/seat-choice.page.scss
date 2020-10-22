@@ -29,6 +29,18 @@
     right: 3%;
   }
 
+  .movie-info {
+  display: block;
+  margin: auto;
+  padding-top: 2px;   
+  ion-card {
+    background: rgb(16 16 16 / 95%);
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-family: "Roboto-Light";
+    }
+  }
+
 .background{
     background: url(../../../assets/images/MaskGroup.png);
     background-size: 100% 260px;
@@ -37,25 +49,19 @@
   .seat-bill{
     padding: 2px 17px;
 
-    ion-item {
-        --background: rgb(16 16 16 / 95%);
-        margin: 14px 0;
-        --border-radius: 8px;
-        color: #FFFFFF;
-
-      ion-label {
-        padding: 6px 0;
-        text-align: center;
-        h4 {
+    ion-card {
+      text-align: center;
+      text-decoration-color: gray;
+    }
+    h1 {
             font-family: "Roboto-Light";
-          font-size: 15px;
+          font-size: 20px;
+          text-align: center;
         }
-        h6 {
+        h4 {
             font-family: "Roboto-Light";
           font-size: 20px;
         }
-    }
-  }
 }
 .next-btn {
     padding: 0px 16px 11px 15px;
@@ -80,23 +86,13 @@ ion-toolbar{
     }
   }
 }
-.movie-info{
-
-    ion-card {
-      background: rgb(16 16 16 / 95%);
-      margin-top: 6px;
-      margin-bottom: 6px;
-      font-family: "Roboto-Light";
-    }
-  }
-  .list-page{
-
-    ion-item{
-        --background: none;
-        img{
-            background: #101010;
-            border-radius: 15px;
-            border: 2px solid #ff2222bf;
-        }
-    }
+.movie-screen{
+  text-align: center;
+  ion-card{
+    --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
+        --border-radius: 8px;
+        --background-activated: -webkit-linear-gradient(30deg,#94182d,#e43926);
+        --background-focused: -webkit-linear-gradient(30deg,#94182d,#e43926);
+        font-family: "Roboto-Light";
+   }
 }
