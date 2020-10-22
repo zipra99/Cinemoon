@@ -122,10 +122,17 @@ export class SeatChoicePage implements OnInit {
     this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
   }
 
-  btnNext(){
-    if(this.bookingSeatList) {
+  async btnNext(){
+    if(this.bookingSeatList.length) {
       this.ticketInfo.listSeatSoldName = this.bookedSeatList.concat(this.bookingSeatList);
+      this.navCtrl.navigateForward('food-choice');
+    } else {
+      const maxToast = await this.toastController.create({
+        message: 'Vui lòng chọn ghế để tiếp tục!',
+        duration: 1000,
+        position: 'middle'
+      });
+      maxToast.present();
     }
-    this.navCtrl.navigateForward('food-choice');
   }
 }
