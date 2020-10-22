@@ -1,4 +1,10 @@
-ion-header { }
+ion-header{
+    --background: #000;
+  }
+  
+  ion-content{
+    --background: #000;
+  }
 
 .login-header {
     position: relative;
