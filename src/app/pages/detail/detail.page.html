@@ -9,7 +9,7 @@
         <ion-label class="movietitle">{{ listMovie.name }}</ion-label>
       </ion-row>
       <ion-row>
-        <ion-label>Thể loại: {{ listMovie.categories.join(', ') }}</ion-label>
+        <ion-label class="moviesmtl">Thể loại: {{ listMovie.categories.join(', ') }}</ion-label>
       </ion-row>
       <!-- Thời gian chiếu -->
       <ion-row>
@@ -50,7 +50,7 @@
         <ion-label class="title">Đánh giá</ion-label>
       </ion-row>
       <!-- Comment 1 -->
-      <ion-row>
+      <ion-row style="padding-top:10px;">
         <ion-col size="3">
           <!-- <span class="dot"></span> -->
           <img class="avatar" src="../../../assets/images/avatar.png">
@@ -67,7 +67,7 @@
         </ion-col>
       </ion-row>
       <!-- Comment 2 -->
-      <ion-row>
+      <ion-row style="padding-top:10px;">
         <ion-col size="3">
           <!-- <span class="dot"></span> -->
           <img class="avatar" src="../../../assets/images/avatar.png">

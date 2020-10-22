@@ -28,15 +28,16 @@ ion-header{
     .movietitle {
         margin-top: 10px;
         font-size: 40px;
-        font-family: 'Roboto';
-        font-weight: bold;
+        font-family: "Roboto-Bold";
+    }
+    .moviesmtl{
+        font-family: "Roboto-Thin";
     }
 
     .title {
         margin-top: 15px;
-        font-size: 20px;
-        font-family: 'Roboto';
-        font-weight: bold;
+        font-size: 25px;
+        font-family: "Roboto-Thin";
     }
 
     .time {
@@ -49,18 +50,20 @@ ion-header{
     }
 
     .comment {
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 15px;
+        line-height: 21px;
+        font-family: 'Roboto-Light';
     }
 
     .overview {
         font-size: 18px;
-        font-weight: bold;
+        font-family: "Roboto-bold";
     }
 
     .rating {
-        line-height: 25px;
         font-size: 15px;
+        line-height: 21px;
+        font-family: 'Roboto-Light';
     }
 
     .dot {
@@ -90,10 +93,11 @@ ion-header{
 
     ion-button {
         --background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
-        --border-radius: 8px;
+        --border-radius: 20px;
         --background-activated: -webkit-linear-gradient(30deg, #94182d, #e43926);
         --background-focused: -webkit-linear-gradient(30deg, #94182d, #e43926);
         font-family: "Roboto-Light";
+        margin: 3px;
     }
 }
 
