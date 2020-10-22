@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { NavComponentWithProps, NavController, ToastController } from '@ionic/angular';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
@@ -22,7 +22,11 @@ export class SeatChoicePage implements OnInit {
   seatMoneyString: string;
   movieDetail: string[];
 
-  constructor(public ticketInfo: TicketInfoService, public toastController: ToastController) {
+  constructor(
+    public ticketInfo: TicketInfoService,
+    public toastController: ToastController,
+    private navCtrl: NavController
+    ) {
     this.ticketPrice = 50000;
     this.maxBookingSeat = 8;
     this.bookingSeatList = new Array<string>();
@@ -39,6 +43,19 @@ export class SeatChoicePage implements OnInit {
     this.bookedSeatList.forEach(item => {
       document.getElementById(item).setAttribute('color', 'dark');
     })
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
   }
 
   async press(row, col) {
@@ -101,5 +118,9 @@ export class SeatChoicePage implements OnInit {
     let money = this.bookingSeatList.length * this.ticketPrice;
     this.seatMoney = money;
     this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
+  }
+
+  btnNext(){
+    this.navCtrl.navigateForward('food-choice');
   }
 }

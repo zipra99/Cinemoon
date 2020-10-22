@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-food-choice',
@@ -13,7 +14,9 @@ export class FoodChoicePage implements OnInit {
   foodMoney: number;
   foodMoneyString: string;
 
-  constructor() {
+  constructor(
+    private navCtrl: NavController
+  ) {
     this.foodNameList = new Array<string>('Bắp', 'Nước', 'Kẹo', 'Gấu');
     this.foodPriceList = new Array<number>(5000, 2000, 3000, 500000);
     this.foodNumberList = new Array<number>();
@@ -51,5 +54,22 @@ export class FoodChoicePage implements OnInit {
     }
     this.foodMoney = money;
     this.foodMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
+  }
+
+  btnNext(){
+    this.navCtrl.navigateForward('pay');
   }
 }

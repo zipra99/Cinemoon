@@ -34,6 +34,19 @@ export class MovieListPage implements OnInit {
     this.navCtrl.navigateForward('seat-choice');
   }
 
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      default:
+        break;
+    }
+  }
+
   switchDate(date: any, index: number){
     this.currDate = date.date;
     for(let i = 0; i < 7; i++){
