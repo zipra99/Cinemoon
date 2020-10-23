@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/services/shared/authentication.se
   styleUrls: ['./registration.page.scss'],
 })
 export class RegistrationPage implements OnInit {
-  username: string;
+  fullName: string;
   email: string;
   password: string;
 
@@ -31,7 +31,7 @@ export class RegistrationPage implements OnInit {
   }
 
   signUp() {
-    this.authService.RegisterUser(this.email, this.password)
+    this.authService.RegisterUser(this.email, this.password, this.fullName)
       .then((res) => {
         this.authService.SendVerificationMail();
       }).catch((error) => {
