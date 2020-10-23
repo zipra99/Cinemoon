@@ -97,6 +97,18 @@
   </ion-item>
 </div>
 
+<div class="method">
+  <ion-row>
+    <ion-col size="4" *ngFor="let item of method,index as i" style="height: 100px;">
+      <ion-card id="method-{{i}}" button="true" (click)="switchMethod(i)">
+        <ion-card-content>
+          {{item}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</div>
+
 <div class="next-btn">
 <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Thanh toán</ion-button>
 </div>
