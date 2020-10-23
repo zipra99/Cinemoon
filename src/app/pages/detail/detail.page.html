@@ -11,10 +11,16 @@
       <ion-row>
         <ion-label class="moviesmtl">Thể loại: {{ movieDetail.categories.join(', ') }}</ion-label>
       </ion-row>
+      <ion-row>
+        <ion-label class="moviesmtl">Giới hạn độ tuổi: {{ formatAgeLimit(movieDetail.ageLimit) }}</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label class="moviesmtl">Đánh giá: {{ movieDetail.rate }}⭐</ion-label>
+      </ion-row>
       <!-- Thời gian chiếu -->
       <ion-row>
         <div class="bookticket">
-          <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
+          <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)" style="width: '18%';">{{ time }}</ion-button>
         </div>
       </ion-row>
       <!-- Nội dung / Tóm tắt -->
@@ -40,7 +46,7 @@
           </ion-row>
           <ion-row [hidden]="isHiddenTicketTime">
             <div class="bookticket">
-              <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
+              <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)" style="width: '18%';">{{ time }}</ion-button>
             </div>
           </ion-row>
         </ion-col>
@@ -49,38 +55,31 @@
       <ion-row>
         <ion-label class="title">Đánh giá</ion-label>
       </ion-row>
-      <!-- Comment 1 -->
-      <ion-row style="padding-top:10px;">
+      <ion-row *ngIf="reviewData.listComment.length === 0">
+        <ion-label class="rating">Chưa có đánh giá nào</ion-label>
+      </ion-row>
+      <ion-row style="padding-top:10px;" *ngFor="let comment of reviewData.listComment">
         <ion-col size="3">
           <!-- <span class="dot"></span> -->
-          <img class="avatar" src="../../../assets/images/avatar.png">
+          <img class="avatar" src="{{ comment.photoURL }}">
         </ion-col>
         <ion-col size="9">
           <ion-row>
-            <ion-label class="overview">Overview</ion-label>
+            <ion-label class="overview">{{ comment.displayName }}</ion-label>
           </ion-row>
           <ion-row>
-            <ion-label class="rating">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, eveniet sunt maiores sapiente quos id. Debitis dolorum sequi, nesciunt velit eum est beatae, id ex provident sit reiciendis eaque optio.
-            </ion-label>
+            <ion-label class="rating">{{ comment.comment }}</ion-label>
           </ion-row>
         </ion-col>
       </ion-row>
-      <!-- Comment 2 -->
-      <ion-row style="padding-top:10px;">
-        <ion-col size="3">
-          <!-- <span class="dot"></span> -->
-          <img class="avatar" src="../../../assets/images/avatar.png">
-        </ion-col>
+      <ion-row>
         <ion-col size="9">
-          <ion-row>
-            <ion-label class="overview">Overview</ion-label>
-          </ion-row>
-          <ion-row>
-            <ion-label class="rating">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, eveniet sunt maiores sapiente quos id. Debitis dolorum sequi, nesciunt velit eum est beatae, id ex provident sit reiciendis eaque optio.
-            </ion-label>
-          </ion-row>
+          <ion-input type="text" placeholder="Bình luận mới" value="" [(ngModel)]="newComment"></ion-input>
+        </ion-col>
+        <ion-col size="3">
+          <div class="bookticket">
+            <ion-button style="display: flex; margin: auto;" (click)="pushNewCommnet()">Đăng</ion-button>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>

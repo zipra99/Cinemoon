@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,24 @@ export class MovieListService {
       })
     })
     return output;
+  }
+
+  getReviewByMovieName(movieName: string): Observable<any> {
+    return this.afs.collection<any>('review', ref => ref.where('movieName', '==', movieName)).valueChanges();
+  }
+
+  getReviewById(id: string) {
+    return this.afs.doc<any>(`review/${id}`);
+  }
+
+  addNewReview(movieName: string, listComment: any[]) {
+    let newId = this.afs.createId();
+    let reviewDoc = this.afs.doc<any>(`review/${newId}`);
+    reviewDoc.set({
+      id: newId,
+      movieName: movieName,
+      listComment: listComment
+    })
   }
 
   getListMovieByListName(listName: string) {
