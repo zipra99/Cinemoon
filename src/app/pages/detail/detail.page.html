@@ -1,0 +1,104 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img class="poster" src="{{ movieDetail.posterImage }}" alt="Lỗi">
+  </div>
+  <div class="content">
+    <ion-grid>
+      <!-- Tiêu đề -->
+      <ion-row style="padding-top: 20px">
+        <ion-label class="movietitle">{{ movieDetail.name }}</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label class="moviesmtl">Thể loại: {{ movieDetail.categories.join(', ') }}</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label class="moviesmtl">Giới hạn độ tuổi: {{ formatAgeLimit(movieDetail.ageLimit) }}</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label class="moviesmtl">Đánh giá: {{ movieDetail.rate }}⭐</ion-label>
+      </ion-row>
+      <!-- Thời gian chiếu -->
+      <ion-row>
+        <div class="bookticket">
+          <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
+        </div>
+      </ion-row>
+      <!-- Nội dung / Tóm tắt -->
+      <ion-row>
+        <ion-label class="title">Nội dung phim</ion-label>
+        <ion-row>
+          <ion-label class="comment">{{ movieDetail.summary }}</ion-label>
+        </ion-row>
+      </ion-row>
+      <!-- Trailer -->
+      <ion-row>
+        <ion-row>
+          <ion-label class="title">Trailer</ion-label>
+        </ion-row>
+        <ion-col size="12">
+          <ion-row>
+            <iframe id="video-trailer" [src]="movieDetail.videoTrailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+          </ion-row>
+          <ion-row>
+            <div class="bookticket">
+              <ion-button class="ion-button-class" size="large" expand="block" [disabled]="isDisableTicketButton" (click)="showTicketTime()">{{ buttonValue }}</ion-button>
+            </div>
+          </ion-row>
+          <ion-row [hidden]="isHiddenTicketTime">
+            <div class="bookticket">
+              <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
+            </div>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <!-- Đánh giá -->
+      <ion-row>
+        <ion-label class="title">Đánh giá</ion-label>
+      </ion-row>
+      <ion-row *ngIf="reviewData.listComment.length === 0">
+        <ion-label class="rating">Chưa có đánh giá nào</ion-label>
+      </ion-row>
+      <ion-row style="padding-top:10px;" *ngFor="let comment of reviewData.listComment">
+        <ion-col size="3">
+          <!-- <span class="dot"></span> -->
+          <img class="avatar" src="{{ comment.photoURL }}">
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-label class="overview">{{ comment.displayName }}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="rating">{{ comment.comment }}</ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="9">
+          <ion-input type="text" placeholder="Bình luận mới" value="" [(ngModel)]="newComment"></ion-input>
+        </ion-col>
+        <ion-col size="3">
+          <div class="bookticket">
+            <ion-button style="display: flex; margin: auto;" (click)="pushNewCommnet()">Đăng</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- Nút nổi -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="red">
+      <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="red" (click)="navigate('movie')">
+        <ion-icon src="assets/icon/tickets.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="navigate('home')">
+        <ion-icon src="assets/icon/home.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="navigate('account')">
+        <ion-icon src="assets/icon/account.svg"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

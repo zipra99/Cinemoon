@@ -1,6 +1,6 @@
 <ion-header>
-  <div class="login-header ion-padding">
-    <img class="logo-img" src="assets/images/logo.png" style="width:185px; height: 100px; " />
+  <div class="login-header ion-padding" (click)="navigate('home')">
+    <img class="logo-img" src="assets/images/logo.png" style="height: 120px;" />
   </div>
 </ion-header>
 
@@ -23,10 +23,21 @@
         </ion-label>
 
         <div linespace></div>
-        <ion-button class="ion-button-class" size="large" expand="block" (click)="logIn(email, password)">Đăng nhập
-        </ion-button>
-        <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.GoogleAuth()">Đăng nhập bằng Google</ion-button>
-        <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignInWithFacebook()">Đăng nhập bằng Facebook</ion-button>
+        <ion-button class="ion-button-class" size="large" expand="block" (click)="logIn(email, password)">Đăng nhập</ion-button>
+        <div class="login-with">
+          <ion-item lines="none" background="none">
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col >
+                  <img src="../../../assets/images/fb.png" (click)="authService.SignInWithFacebook()" style="height: 45px;">
+                </ion-col>
+                <ion-col>
+                  <img src="../../../assets/images/google.png" (click)="authService.GoogleAuth()" style="height: 50px;">
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          </div>
         <ion-label class="ion-text-center">Bạn chưa có tài khoản?<br> <span class="link-button"
           (click)="navRegistrationPage()"> Đăng kí</span> tài khoản CineMoon</ion-label>
       </div>

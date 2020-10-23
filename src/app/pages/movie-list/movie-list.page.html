@@ -1,0 +1,89 @@
+<ion-header>
+  <div class="login-header">
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px; " />
+  </div>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  <div class="background">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let item of dates,index as i" style="width: 125px; height: 100px;">
+        <ion-col>
+          <ion-card id="date-{{i}}" button="true" style="height: 70px" (click)="switchDate(item, i)">
+            <ion-card-content>
+              {{item.dateStr}}<br>
+              {{item.dayOfWeek}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+
+
+    <ion-grid>
+      <ion-row class="container" *ngFor="let item of listHotMovie;">
+        <ion-row (click)="navMovieDetail(item.asciiName)">
+          <ion-col size="5">
+            <img src="{{ item.posterImage }}" class="movie-poster" />
+          </ion-col>
+          <ion-col size="7" class="ion-align-self-top">
+            <ion-card button="true">
+              <ion-card-header>
+                <ion-card-title>{{ item.name }}</ion-card-title>
+                <ion-card-subtitle>Thể loại: {{ item.categories.join(', ') }}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-card-content>
+            <p (click)="navMovieDetail(item.asciiName)">{{ item.summary }}</p>
+            <div class="bookticket">
+              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)" style="width: '18.5%';">{{time}}</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-row>
+      </ion-row>
+
+      <ion-row class="container" *ngFor="let item of listMovie;">
+        <ion-row (click)="navMovieDetail(item.asciiName)">
+          <ion-col size="5">
+            <img src="{{ item.posterImage }}" class="movie-poster" />
+          </ion-col>
+          <ion-col size="7" class="ion-align-self-top">
+            <ion-card button="true">
+              <ion-card-header>
+                <ion-card-title>{{ item.name }}</ion-card-title>
+                <ion-card-subtitle>Thể loại: {{ item.categories.join(', ') }}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-card-content>
+            <p (click)="navMovieDetail(item.asciiName)">{{ item.summary }}</p>
+            <div class="bookticket">
+              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)" style="width: '18.5%';">{{time}}</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-row>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="tabs">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="navigate('movie')">
+        <img class="icon-tab" src="../../../assets/images/tab-list.png" style="height: 20px; " />
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
+        <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
+      </div>
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('account')">
+        <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

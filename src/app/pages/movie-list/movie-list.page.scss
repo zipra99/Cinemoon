@@ -1,0 +1,142 @@
+ion-header{
+    --background: #000;
+  }
+  
+  ion-content{
+    --background: #000;
+    --color: #fff;
+  }
+
+.login-header {
+    position: relative;
+    border-radius: 0em;
+    background: #000000;
+    border-radius: 0 0 14px 14px;
+}
+
+.logo-img {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.icon-header {
+    position: absolute;
+    top: 40%;
+    right: 3%;
+}
+
+.background{
+    background: url(../../../assets/images/MaskGroup.png);
+    background-size: 100% 260px;
+    background-repeat: no-repeat;
+  }
+
+
+  ion-slides{
+      ion-slide{
+    margin-top: 25px;
+    ion-card{
+        --background: rgb(136 38 53 / 64%);
+        border: 2px solid #ff0000db;
+        border-radius: 15px;
+    }
+    ion-card-content{
+        margin-top: -5px;
+        font-size: 14px;
+        font-family: "Roboto-Bold";
+        color: #fff;
+    }
+}
+      }
+
+:root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+}
+
+ion-item{
+    --padding:2px auto;
+}
+
+.container{
+    background: rgb(16 16 16 / 95%);
+    margin: 20px 10px;
+    border-radius: 15px;
+}
+.movie-poster{
+    margin-top: 17px;
+    margin-left: 14px;
+    border-radius: 3%;
+/*     height: 200px; */
+    width: 240px;
+}
+
+ion-grid{
+    ion-card{
+        height: 202px;
+        margin: 16px 10px 0px 16px;
+        background: none;
+        border: none;
+        ion-card-header{
+            margin-left: -15px;
+   
+        ion-card-title{
+            color: #fff;
+            font-size: 27px;
+    font-family: 'Roboto-Bold';
+        }
+        ion-card-subtitle{
+            margin-top: 8px;
+            font-size: 14px;
+            font-family: 'Roboto-Light';
+            color: #fff;
+            line-height: 17px;
+        }
+        }
+    }
+    ion-card-content{
+        font-size: 17px;
+        font-family: 'Roboto-Thin';
+        color: #fff;
+        line-height: 22px;
+    }
+}
+
+.bookticket{
+    align-items: center;
+    margin-top: 10px;
+
+    ion-button {
+        --background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
+        --border-radius: 15px;
+        --background-activated: -webkit-linear-gradient(30deg, #94182d, #e43926);
+        --background-focused: -webkit-linear-gradient(30deg, #94182d, #e43926);
+        font-family: "Roboto-Light";
+    }
+}
+
+.ion-color-red {
+    --ion-color-base: #d82e35;
+    --ion-color-base-rgb: 216, 46, 53;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255, 255, 255;
+    --ion-color-shade: #d82e35;
+    --ion-color-tint: #d82e35;
+}
+
+
+ion-toolbar{
+    --background: #000000;
+    .tabs {
+    display: flex;
+    justify-content: center;
+    .tab {
+      margin-top: 3px;
+      text-align: center;
+      width: calc(100% / 3);
+    }
+  }
+}

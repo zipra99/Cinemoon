@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { MovieListService } from 'src/app/services/movie-list.service';
 import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
 @Component({
@@ -7,17 +9,52 @@ import { AuthenticationService } from 'src/app/services/shared/authentication.se
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  public listMovie: any[];
+  public listHotMovie: any[];
+  public listComingSoonMovie: any[];
 
   constructor(
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    private navCtrl: NavController,
+    public db: MovieListService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.listMovie = this.db.listMovie;
+    this.listHotMovie = this.db.listHotMovie;
+    this.listComingSoonMovie = this.db.listComingSoonMovie;
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateForward('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateForward('home');
+        break;
+      case 'account':
+        this.navCtrl.navigateForward('account-information');
+        break;
+      default:
+        break;
+    }
+  }
+
+  navMovieDetail(name: string){
+    name = name.trim();
+    this.db.keyName = name;
+    this.db.chosenTime = new Date();
+    this.navCtrl.navigateForward('detail');
+  }
 
   options = {
     centeredSlides: true,
     loop: true,
-    spaceBetween: -100,
+    spaceBetween: -140,
   };
 
+  options1 = {
+    slidesPerView: 2
+  };
 }
