@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/shared/authentication.service';
 
@@ -25,6 +24,7 @@ export class LoginPage implements OnInit {
     this.authService.SignIn(email.value.trim(), password.value.trim())
       .then((res) => {
         if (res.user.emailVerified) {
+          console.log(res.user);
           this.navCtrl.navigateBack(['home']);
         } else {
           window.alert('Email chưa được chứng thực')
