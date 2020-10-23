@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>account-information</ion-title>
-  </ion-toolbar>
+  <div class="login-header">
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px;" (click)="navigate('home')"/>
+  </div>
 </ion-header>
 
 <ion-content>
@@ -13,7 +13,6 @@
 
 <ion-footer>
   <div class="logout-btn">
-    <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignOut()">Đăng xuất
-    </ion-button>
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignOut()">Đăng xuất</ion-button>
   </div>
 </ion-footer>
