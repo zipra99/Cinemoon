@@ -48,6 +48,7 @@ export class DetailPage implements OnInit {
 
   pushNewCommnet() {
     let newComment = this.newComment;
+    let newReviewData = this.reviewData;
     if (newComment) {
       let userDoc = this.authService.getCurrentUserInfo();
 
@@ -56,27 +57,28 @@ export class DetailPage implements OnInit {
           if (!user) {
             this.navCtrl.navigateBack('login');
           } else {
-            if(!this.reviewData.listComment.length) {
-              this.reviewData.listComment.push({
+            if(!newReviewData.listComment.length) {
+              newReviewData.listComment.push({
                 comment: newComment,
                 displayName: user.displayName,
                 photoURL: user.photoURL
               });
-              this.db.addNewReview(this.movieDetail.asciiName, this.reviewData.listComment);
+              this.db.addNewReview(this.movieDetail.asciiName, newReviewData.listComment);
             } else {
-              let review = this.db.getReviewById(this.reviewData.id);
-              this.reviewData.listComment.push({
+              let review = this.db.getReviewById(newReviewData.id);
+              newReviewData.listComment.push({
                 comment: newComment,
                 displayName: user.displayName,
                 photoURL: user.photoURL
               });
-              review.set(this.reviewData);
+              review.set(newReviewData);
             }
           }
         })
       } else {
         this.navCtrl.navigateBack('login');
       }
+      this.getListComment();
       this.newComment = '';
     }
   }
