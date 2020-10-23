@@ -20,13 +20,12 @@ export class AuthenticationService {
     public router: Router,
     public ngZone: NgZone,
     public navCtrl: NavController
-    ) {
+  ) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
-        router.navigate(['home']);
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -48,12 +47,37 @@ export class AuthenticationService {
   checkUserEmailVerify(fieldName: string, lookingValue: string) {
     this.getUserInfomation(fieldName, lookingValue).subscribe(data => {
       let userInfo = data[0];
-      if(userInfo.emailVerified === false) {
+      if (userInfo.emailVerified === false) {
         this.afs.doc<any>(`users/${userInfo.uid}`).update({
           emailVerified: true
         })
       }
     })
+  }
+
+  checkIsLogin(isNavigate: boolean) {
+    this.ngFireAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
+        if (isNavigate) {
+          this.navCtrl.navigateBack('home');
+        }
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+      }
+    })
+  }
+
+  getCurrentUserInfo(): Observable<any> {
+    let userData = JSON.parse(localStorage.getItem('user'));
+    if(userData) {
+      return this.afs.doc<any>(`users/${userData.uid}`).valueChanges();
+    } else {
+      return null;
+    }
   }
 
   getUserInfomation(fieldName: string, lookingValue: string): Observable<User[]> {
@@ -151,7 +175,7 @@ export class AuthenticationService {
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.navCtrl.navigateBack(['home']);
     })
   }
 }

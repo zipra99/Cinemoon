@@ -14,7 +14,9 @@ export class LoginPage implements OnInit {
     public authService: AuthenticationService
     ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.authService.checkIsLogin(true);
+  }
 
   navRegistrationPage(){
     this.navCtrl.navigateForward('/registration');
