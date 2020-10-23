@@ -21,16 +21,7 @@ export class AuthenticationService {
     public ngZone: NgZone,
     public navCtrl: NavController
   ) {
-    this.ngFireAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    })
+    this.checkIsLogin(false);
   }
 
   createNewUser(userInfo: any, fullName: string) {
