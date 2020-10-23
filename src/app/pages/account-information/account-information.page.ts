@@ -26,4 +26,20 @@ export class AccountInformationPage implements OnInit {
       this.navCtrl.navigateBack('login');
     }
   }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateBack('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateBack('home');
+        break;
+      case 'account':
+        this.navCtrl.navigateForward('account-information');
+        break;
+      default:
+        break;
+    }
+  }
 }

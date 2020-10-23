@@ -55,6 +55,9 @@ export class SeatChoicePage implements OnInit {
       case 'home':
         this.navCtrl.navigateBack('home');
         break;
+      case 'account':
+        this.navCtrl.navigateForward('account-information');
+        break;
       default:
         break;
     }

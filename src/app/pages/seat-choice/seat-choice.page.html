@@ -1,11 +1,10 @@
-<ion-header>
+<ion-header >
   <div class="login-header">
     <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; " (click)="navigate('home')"/>
-    <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 <div class="background">
   <div class="list-page">
     <ion-item lines="none" background="none">
@@ -57,8 +56,8 @@
       <ion-col size="7">
         <ion-label style="padding-left: 30px;">
           <h4>{{ movieDetail[3] }}</h4>
-          <h4>Ds ghế</h4>
-          <h4 style="padding-top: 2px;">{{listBookingSeatString}}</h4>
+          <h4>Danh sách ghế</h4>
+          <h6 style="padding-top: 2px;">{{listBookingSeatString}}</h6>
         </ion-label>
       </ion-col>
     </ion-row>
@@ -85,11 +84,11 @@
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col >
-              <img src="../../../assets/images/free.png" style="height: 17px;">
+              <img src="../../../assets/images/free.png" style="height: 15px;">
               <p class="situation" >Trống</p>
             </ion-col>
             <ion-col>
-              <img src="../../../assets/images/full.png"  style="height: 17px;">
+              <img src="../../../assets/images/full.png"  style="height: 15px;">
               <p class="situation">Đã đặt</p>
             </ion-col>
           </ion-row>
@@ -114,7 +113,7 @@
       <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
         <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('account')">
         <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
       </div>
     </div>

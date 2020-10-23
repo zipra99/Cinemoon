@@ -4,6 +4,7 @@ ion-header{
 
 ion-content{
   --background: #000;
+  --color: #fff;
 }
 
 .login-header {
@@ -44,17 +45,32 @@ ion-content{
     }
 }
 
-.movie-info{
-
+.movie-info {
+  display: block;
+  margin: auto;
+  padding-top: 18px;
+} 
   ion-card {
-    background: rgb(16 16 16 / 95%);
-    margin-top: 6px;
-    margin-bottom: 6px;
+    background: rgba(16, 16, 16, 0.6);
+    margin: 10px 16px;
     font-family: "Roboto-Light";
-  }
-}
+    border-radius: 8px;
+    color: #fff;
+    ion-card-title{
+      color: #fff;
+      font-family: 'Roboto-Bold';
+      font-size: 30px;
+    }
+    ion-card-subtitle{
+      color: #fff;
+      font-family: 'Roboto-Light';
+      line-height: 15px;
+      font-size: 14px;
+    }
+    }
 
-.food-bill{
+
+.bill{
     padding: 2px 17px;
 
     ion-item {
@@ -78,23 +94,24 @@ ion-content{
   }
 }
 
-.food-choice{
-    --ion-grid-column-padding: 2px;
-    margin: 2px -4px 16px -3px;
-    padding: 4px 8px 16px -3px;
+.list-bill{
+  --ion-grid-column-padding: 2px;
+  margin: 2px -4px 16px -3px;
+  --background: #000;
+  padding-left: 1px;
+  ion-item{
+    font-size: 12px;
     padding-right: 11px;
-    
-    ion-item{
-        font-size: 15px;
-        font-family: "Roboto-Light";
+    font-family: "Roboto-Thin";
+    --background: #000;
+    color: #fff;
 
-        ion-grid{
-            background: rgb(16 16 16 / 95%);
-            border-bottom: 2px solid #f22;
-        }
-    }
+      ion-grid{
+          background: rgb(16 16 16 / 95%);
+          border-bottom: 2px solid #f22;
+      }
+  }
 }
-
 .title p{
     font-size: 18px;
 }
