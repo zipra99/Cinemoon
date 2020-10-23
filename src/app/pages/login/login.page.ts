@@ -14,7 +14,9 @@ export class LoginPage implements OnInit {
     public authService: AuthenticationService
     ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.authService.checkIsLogin(true);
+  }
 
   navRegistrationPage(){
     this.navCtrl.navigateForward('/registration');
@@ -24,7 +26,7 @@ export class LoginPage implements OnInit {
     this.authService.SignIn(email.value.trim(), password.value.trim())
       .then((res) => {
         if (res.user.emailVerified) {
-          console.log(res.user);
+          this.authService.checkUserEmailVerify('email', res.user.email);
           this.navCtrl.navigateBack(['home']);
         } else {
           window.alert('Email chưa được chứng thực')
@@ -33,5 +35,18 @@ export class LoginPage implements OnInit {
       }).catch((error) => {
         window.alert(error.message)
       })
+  }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateForward('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateForward('home');
+        break;
+      default:
+        break;
+    }
   }
 }

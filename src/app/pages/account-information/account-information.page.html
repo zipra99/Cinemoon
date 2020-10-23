@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>account-information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img alt="Loading . . ." src="{{ userInfo.photoURL }}">
+  <h1>Họ và tên: {{ userInfo.displayName }}</h1>
+  <h1>Email: {{ userInfo.email }}</h1>
+
+</ion-content>
+
+<ion-footer>
+  <div class="logout-btn">
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignOut()">Đăng xuất
+    </ion-button>
+  </div>
+</ion-footer>
