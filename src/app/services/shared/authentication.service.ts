@@ -6,6 +6,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +15,64 @@ export class AuthenticationService {
   userData: any;
 
   constructor(
-    public afStore: AngularFirestore,
+    public afs: AngularFirestore,
     public ngFireAuth: AngularFireAuth,
     public router: Router,
     public ngZone: NgZone,
     public navCtrl: NavController
-    ) {
+  ) {
+    this.checkIsLogin(false);
+  }
+
+  createNewUser(userInfo: any, fullName: string) {
+    let userDoc = this.afs.doc<any>(`users/${userInfo.uid}`);
+    userDoc.set({
+      uid: userInfo.uid,
+      displayName: fullName,
+      email: userInfo.email,
+      emailVerified: userInfo.emailVerified,
+      photoURL: 'https://picsum.photos/200'
+    })
+  }
+
+  checkUserEmailVerify(fieldName: string, lookingValue: string) {
+    this.getUserInfomation(fieldName, lookingValue).subscribe(data => {
+      let userInfo = data[0];
+      if (userInfo.emailVerified === false) {
+        this.afs.doc<any>(`users/${userInfo.uid}`).update({
+          emailVerified: true
+        })
+      }
+    })
+  }
+
+  checkIsLogin(isNavigate: boolean) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
-        router.navigate(['home']);
+        if (isNavigate) {
+          this.navCtrl.navigateBack('home');
+        }
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
     })
+  }
+
+  getCurrentUserInfo(): Observable<any> {
+    let userData = JSON.parse(localStorage.getItem('user'));
+    if(userData) {
+      return this.afs.doc<any>(`users/${userData.uid}`).valueChanges();
+    } else {
+      return null;
+    }
+  }
+
+  getUserInfomation(fieldName: string, lookingValue: string): Observable<User[]> {
+    return this.afs.collection<any>('users', ref => ref.where(fieldName, '==', lookingValue)).valueChanges();
   }
 
   // Login in with email/password
@@ -107,7 +149,7 @@ export class AuthenticationService {
 
   // Store user in localStorage
   SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -124,7 +166,7 @@ export class AuthenticationService {
   SignOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.navCtrl.navigateBack(['home']);
     })
   }
 }

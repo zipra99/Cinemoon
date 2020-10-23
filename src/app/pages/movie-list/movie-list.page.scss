@@ -1,31 +1,32 @@
-
 ion-header{
     --background: #000;
   }
-
+  
   ion-content{
     --background: #000;
-}
+    --color: #fff;
+  }
 
 .login-header {
     position: relative;
+    border-radius: 0em;
     background: #000000;
     border-radius: 0 0 14px 14px;
-  }
-  
-  .logo-img {
+}
+
+.logo-img {
     display: block;
     margin: auto;
     padding-top: 10px;
     padding-bottom: 3px;
     text-align: center;
-  }
-  
-  .icon-header {
+}
+
+.icon-header {
     position: absolute;
     top: 40%;
     right: 3%;
-  }
+}
 
 .background{
     background: url(../../../assets/images/MaskGroup.png);
@@ -44,7 +45,7 @@ ion-header{
     }
     ion-card-content{
         margin-top: -5px;
-        font-size: 15px;
+        font-size: 14px;
         font-family: "Roboto-Bold";
         color: #fff;
     }
@@ -83,6 +84,7 @@ ion-grid{
             margin-left: -15px;
    
         ion-card-title{
+            color: #fff;
             font-size: 27px;
     font-family: 'Roboto-Bold';
         }
@@ -90,7 +92,7 @@ ion-grid{
             margin-top: 8px;
             font-size: 14px;
             font-family: 'Roboto-Light';
-            color: white;
+            color: #fff;
             line-height: 17px;
         }
         }
@@ -104,6 +106,7 @@ ion-grid{
 }
 
 .bookticket{
+    align-items: center;
     margin-top: 10px;
 
     ion-button {

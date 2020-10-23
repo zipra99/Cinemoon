@@ -1,0 +1,18 @@
+<ion-header>
+  <div class="login-header">
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px;" (click)="navigate('home')"/>
+  </div>
+</ion-header>
+
+<ion-content>
+  <img alt="Loading . . ." src="{{ userInfo.photoURL }}">
+  <h1>Họ và tên: {{ userInfo.displayName }}</h1>
+  <h1>Email: {{ userInfo.email }}</h1>
+
+</ion-content>
+
+<ion-footer>
+  <div class="logout-btn">
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignOut()">Đăng xuất</ion-button>
+  </div>
+</ion-footer>

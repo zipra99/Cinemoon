@@ -4,7 +4,7 @@ ion-header{
 
 ion-content{
   --background: #000;
-  --text-color: #fff;
+  --color: #fff;
 }
 
 .col{
@@ -49,6 +49,18 @@ ion-content{
     margin: 10px 16px;
     font-family: "Roboto-Light";
     border-radius: 8px;
+    color: #fff;
+    ion-card-title{
+      color: #fff;
+      font-family: 'Roboto-Bold';
+      font-size: 30px;
+    }
+    ion-card-subtitle{
+      color: #fff;
+      font-family: 'Roboto-Light';
+      line-height: 15px;
+      font-size: 14px;
+    }
     }
 
   
@@ -95,10 +107,12 @@ ion-content{
       padding: 6px 0;
       text-align: center;
       h4 {
+        color: #fff;
         font-family: "Roboto-Light";
         font-size: 15px;
       }
       h6 {
+        color: #fff;
         font-family: "Roboto-Light";
         font-size: 20px;
       }
@@ -119,26 +133,13 @@ ion-content{
     }
 }
 
-
-ion-toolbar{
-    --background: #000000;
-    .tabs {
-    display: flex;
-    justify-content: center;
-    .tab {
-      margin-top: 3px;
-      text-align: center;
-      width: calc(100% / 3);
-    }
-  }
-}
-
 .movie-screen{
   text-align: center;
   ion-card{
         ion-card-subtitle{
-          height: 20px;
-          font-size: 17px;
+          height: 22px;
+          font-size: 16px;
+          padding-top: 3px;
           margin: auto;
           background: -webkit-linear-gradient(30deg, #bb1a34ad, #ff49369e);
         }
@@ -166,11 +167,11 @@ ion-toolbar{
   height: 30px;
   ion-col{
   img{
-    height: 17px;
     display: inline;
     margin-bottom: -1px;
   }
   p{
+    color: #fff;
     display: inline;
     padding-top: 7px;
     margin-left: 10px;
@@ -182,3 +183,17 @@ ion-toolbar{
           }
       }
   }
+
+  
+ion-toolbar{
+  --background: #000000;
+  .tabs {
+  display: flex;
+  justify-content: center;
+  .tab {
+    margin-top: 3px;
+    text-align: center;
+    width: calc(100% / 3);
+  }
+}
+}

@@ -1,14 +1,13 @@
 <ion-header>
   <div class="login-header">
     <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px; " />
-    <img class="icon-header" src="../../../assets/images/acc1.png" style="height: 30px; " />
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content  [fullscreen]="true">
   <div class="background">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let item of dates,index as i" style="width: 120px; height: 100px;">
+      <ion-slide *ngFor="let item of dates,index as i" style="width: 125px; height: 100px;">
         <ion-col>
           <ion-card id="date-{{i}}" button="true" style="height: 70px" (click)="switchDate(item, i)">
             <ion-card-content>
@@ -40,7 +39,7 @@
           <ion-card-content>
             <p (click)="navMovieDetail(item.asciiName)">{{ item.summary }}</p>
             <div class="bookticket">
-              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)">{{time}}</ion-button>
+              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)" style="width: '18.5%';">{{time}}</ion-button>
             </div>
           </ion-card-content>
         </ion-row>
@@ -64,8 +63,7 @@
           <ion-card-content>
             <p (click)="navMovieDetail(item.asciiName)">{{ item.summary }}</p>
             <div class="bookticket">
-              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)"
-                (click)="navSeatChoice(item, time)">{{time}}</ion-button>
+              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)" style="width: '18.5%';">{{time}}</ion-button>
             </div>
           </ion-card-content>
         </ion-row>
@@ -83,7 +81,7 @@
       <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
         <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('account')">
         <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
       </div>
     </div>

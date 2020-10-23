@@ -1,11 +1,10 @@
 <ion-header>
   <div class="login-header">
     <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; " (click)="navigate('home')"/>
-    <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 <div class="background">
   <div class="list-page">
     <ion-item lines="none" background="none">
@@ -28,16 +27,19 @@
     </ion-item>
     </div>
 
-<div class="movie-info">
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Tên phim</ion-card-title>
-    <ion-card-subtitle style="padding-top:5px;">Thể loại:</ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>Nội dungggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-  </ion-card-content>
-</ion-card>
-</div>
+    <div class="movie-info">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>PHIM HEO</ion-card-title>
+          <ion-card-subtitle style="padding-top:5px;">
+            <p style="margin: 2px 0px;">ÉC ÉC</p>
+            <strong style="margin: 2px 0px;">ÉC ÉC</strong>
+            <p style="margin: 2px 0px;">ÉC ÉC</p>
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>Chúc các bạn xem phim vui vẻ 💕</ion-card-content>
+      </ion-card>
+      </div>
 </div>
 
 <div class="customer-info">
@@ -85,7 +87,7 @@
       <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
         <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('account')">
         <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
       </div>
     </div>

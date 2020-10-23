@@ -1,7 +1,6 @@
 <ion-header>
   <div class="login-header">
     <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px;" (click)="navigate('home')"/>
-    <img class="icon-header" src="../../../assets/images/acc1.png" style="height: 30px;" />
   </div>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -99,7 +98,7 @@
       <div class="tab" [ngClass]="{ 'active' : segment == 'top' }" (click)="navigate('home')">
         <img class="icon-tab" src="../../../assets/images/tab-home.png" style="height: 22px; " />
       </div>
-      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('home')">
+      <div class="tab" [ngClass]="{ 'active' : segment == 'upcoming' }" (click)="navigate('account')">
         <img class="icon-tab" src="../../../assets/images/tab-review.png" style="height: 24px; " />
       </div>
     </div>
