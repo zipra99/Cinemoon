@@ -6,6 +6,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthenticationService {
   userData: any;
 
   constructor(
-    public afStore: AngularFirestore,
+    public afs: AngularFirestore,
     public ngFireAuth: AngularFireAuth,
     public router: Router,
     public ngZone: NgZone,
@@ -25,12 +26,39 @@ export class AuthenticationService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
-        router.navigate(['home']);
+        // router.navigate(['home']);
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
     })
+  }
+
+  createNewUser(email: string, fullName: string) {
+    let docId = this.afs.createId();
+    let userDoc = this.afs.doc<any>(`users/${docId}`);
+    userDoc.set({
+      uid: docId,
+      displayName: fullName,
+      email: email,
+      emailVerified: false,
+      photoURL: 'https://picsum.photos/200'
+    })
+  }
+
+  checkUserEmailVerify(fieldName: string, lookingValue: string) {
+    this.getUserInfomation(fieldName, lookingValue).subscribe(data => {
+      let userInfo = data[0];
+      if(userInfo.emailVerified === false) {
+        this.afs.doc<any>(`users/${userInfo.uid}`).update({
+          emailVerified: true
+        })
+      }
+    })
+  }
+
+  getUserInfomation(fieldName: string, lookingValue: string): Observable<User[]> {
+    return this.afs.collection<any>('users', ref => ref.where(fieldName, '==', lookingValue)).valueChanges();
   }
 
   // Login in with email/password
@@ -39,7 +67,8 @@ export class AuthenticationService {
   }
 
   // Register user with email/password
-  RegisterUser(email, password) {
+  RegisterUser(email, password, fullName: string) {
+    this.createNewUser(email, fullName);
     return this.ngFireAuth.createUserWithEmailAndPassword(email, password);
   }
 

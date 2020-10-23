@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
     this.authService.SignIn(email.value.trim(), password.value.trim())
       .then((res) => {
         if (res.user.emailVerified) {
-          console.log(res.user);
+          this.authService.checkUserEmailVerify('email', res.user.email);
           this.navCtrl.navigateBack(['home']);
         } else {
           window.alert('Email chưa được chứng thực')
