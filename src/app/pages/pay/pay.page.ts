@@ -8,7 +8,7 @@ import { TicketInfoService } from 'src/app/services/ticket-info.service';
   styleUrls: ['./pay.page.scss'],
 })
 export class PayPage implements OnInit {
-  method:Array<string> = ['Visa & Mastercard','Nội địa','MoMo','Trực tiếp'];
+  method:Array<string> = ['Visa & Mastercard','Thẻ ATM','MoMo','Trực tiếp'];
   colorName: string;
   constructor(
     private navCtrl: NavController,

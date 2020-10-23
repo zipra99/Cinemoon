@@ -63,6 +63,9 @@
   </ion-item>
   </div>
 
+  <div class="bill-title">
+    <p class="st-sm">Chi tiết hoá đơn</p>
+  </div>
 <div class= "list-bill">
   <ion-item class="title" lines="none">
     <ion-grid>
@@ -97,16 +100,22 @@
   </ion-item>
 </div>
 
+<div class="bill-title">
+  <p class="st-sm">Phương thức thanh toán</p>
+</div>
+
 <div class="method">
-  <ion-row>
-    <ion-col size="4" *ngFor="let item of method,index as i" style="height: 100px;">
+  <ion-row *ngFor="let item of method,index as i">
       <ion-card id="method-{{i}}" button="true" (click)="switchMethod(i)">
         <ion-card-content>
-          {{item}}
+           {{item}}
         </ion-card-content>
       </ion-card>
-    </ion-col>
   </ion-row>
+</div>
+
+<div class="bill-title">
+  <p class="st-sm">Thông tin người dùng</p>
 </div>
 
 <div class="next-btn">
