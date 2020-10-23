@@ -33,6 +33,9 @@ export class HomePage implements OnInit {
       case 'home':
         this.navCtrl.navigateForward('home');
         break;
+      case 'account':
+        this.navCtrl.navigateForward('account-information');
+        break;
       default:
         break;
     }
@@ -54,6 +57,4 @@ export class HomePage implements OnInit {
   options1 = {
     slidesPerView: 2
   };
-
-
 }

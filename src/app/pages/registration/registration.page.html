@@ -1,5 +1,5 @@
 <ion-header>
-  <div class="login-header ion-padding">
+  <div class="login-header ion-padding" (click)="navigate('home')">
     <img class="logo-img" src="../../../assets/images/logo.png" style="height: 120px;" />
   </div>
 </ion-header>
@@ -13,7 +13,7 @@
         </div>
         <ion-item transparent>
           <img icon-small src="../../../assets/images/user.png" style="margin-top: 5px;" />
-          <ion-input id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text"
+          <ion-input id="fullName" [(ngModel)]="fullName" [ngModelOptions]="{standalone: true}" type="text"
             placeholder="Tên người dùng" value=""></ion-input>
         </ion-item>
         <ion-item transparent>
@@ -25,6 +25,11 @@
           <img icon-small src="../../../assets/images/pass.png" style="margin-top: 5px;" />
           <ion-input id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password"
             placeholder="Mật khẩu" value=""></ion-input>
+        </ion-item>
+        <ion-item transparent>
+          <img icon-small src="../../../assets/images/pass.png" style="margin-top: 5px;" />
+          <ion-input id="passwordRepeat" [(ngModel)]="passwordRepeat" [ngModelOptions]="{standalone: true}" type="password"
+            placeholder="Nhập lại mật khẩu" value=""></ion-input>
         </ion-item>
 
         <div linespace></div>
