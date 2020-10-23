@@ -1,111 +1,112 @@
 <ion-header>
   <div class="login-header">
-    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px; " (click)="navigate('home')" />
-    <img class="icon-header" src="../../../assets/images/acc1.png" style="height: 30px; " />
+    <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; " (click)="navigate('home')"/>
+    <img class="icon-header" src="../../../assets/images/acc1.png" style= "height: 30px; "/>
   </div>
 </ion-header>
 
-<ion-content>
-  <div class="background">
-    <div class="list-page">
-      <ion-item lines="none" background="none">
-        <ion-grid>
-          <ion-row class="ion-align-items-center">
-            <ion-col size="3">
-              <img src="../../../assets/images/seat1.png" style="height: 50px; display: flex; margin: 0 auto;">
-            </ion-col>
-            <ion-col size="3">
-              <img src="../../../assets/images/popcorn2.png" style="height: 65px; display: flex; margin: 0 auto;">
-            </ion-col>
-            <ion-col size="3">
-              <img src="../../../assets/images/card1.png" style="height: 50px; display: flex; margin: 0 auto;">
-            </ion-col>
-            <ion-col size="3">
-              <img src="../../../assets/images/ticket1.png" style="height: 50px; display: flex; margin: 0 auto;">
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
+<ion-content [fullscreen]="true">
+<div class="background">
+  <div class="list-page">
+    <ion-item lines="none" background="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <img src="../../../assets/images/seat1.png" style="height: 50px; display: flex; margin: 0 auto;">
+          </ion-col>
+          <ion-col size="3">
+            <img src="../../../assets/images/popcorn2.png" style="height: 65px; display: flex; margin: 0 auto;">
+          </ion-col>
+          <ion-col size="3">
+            <img src="../../../assets/images/card1.png" style="height: 50px; display: flex; margin: 0 auto;">
+          </ion-col>
+          <ion-col size="3">
+            <img src="../../../assets/images/ticket1.png" style="height: 50px; display: flex; margin: 0 auto;">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
     </div>
 
     <div class="movie-info">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Tên phim</ion-card-title>
-          <ion-card-subtitle style="padding-top:5px;">Thể loại:</ion-card-subtitle>
+          <ion-card-title>PHIM HEO</ion-card-title>
+          <ion-card-subtitle style="padding-top:5px;">
+            <p style="margin: 2px 0px;">ÉC ÉC</p>
+            <strong style="margin: 2px 0px;">ÉC ÉC</strong>
+            <p style="margin: 2px 0px;">ÉC ÉC</p>
+          </ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content>Nội dung ggg gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-        </ion-card-content>
+        <ion-card-content>Chúc các bạn xem phim vui vẻ 💕</ion-card-content>
       </ion-card>
-    </div>
-  </div>
+      </div>
+</div>
 
-  <div class="food-bill">
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="5" style="border-right: 1px solid;">
-            <ion-label>
-              <h4>Tổng đơn hàng </h4>
-              <h6>{{foodMoneyString}}</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label style="padding-left: 30px;">
-              <h4>Thời gian giữ ghế</h4>
-              <h6>TICK TOCK</h6>
-            </ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </div>
+<div class="food-bill">
+<ion-item lines="none">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="5" style="border-right: 1px solid;">
+        <ion-label>
+          <h4>Tổng đơn hàng </h4>
+          <h6>{{foodMoneyString}}</h6>
+        </ion-label>
+      </ion-col>
+      <ion-col size="7">
+        <ion-label style="padding-left: 30px;">
+          <h4>Danh sách ghế</h4>
+          <h6>Ghế của tao????</h6>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+</div>
 
-  <div class="food-choice">
-    <ion-item class="title" lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="5">
-            <p>COMBO</p>
-          </ion-col>
-          <ion-col size="4">
-            <p>GIÁ TIỀN</p>
-          </ion-col>
-          <ion-col size="3" style="text-align:center;">
-            <p>SỐ LƯỢNG</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
+<div class= "food-choice">
+  <ion-item class="title" lines="none">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="5">
+          <p>COMBO</p>
+        </ion-col>
+        <ion-col size="4">
+         <p>GIÁ TIỀN</p>
+        </ion-col>
+        <ion-col size="3" style="text-align:center;">
+          <p>SỐ LƯỢNG</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
-    <ion-item lines="none" *ngFor='let name of foodNameList; let foodIndex = index'>
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="5">
-            <p>{{name}}</p>
-          </ion-col>
-          <ion-col size="4">
-            <p>{{foodPriceListString[foodIndex]}}</p>
-          </ion-col>
+  <ion-item lines="none" *ngFor='let name of foodNameList; let foodIndex = index'>
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="5">
+          <p>{{name}}</p>
+        </ion-col>
+        <ion-col size="4">
+          <p>{{foodPriceListString[foodIndex]}}</p> 
+        </ion-col>
+        <ion-col size="1">
+          <img  id="minus{{foodIndex}}" (click)="minus(foodIndex)" src="../../../assets/images/minus.png" style="height: 25px;"/>
+        </ion-col>
+        <ion-col size="1" style="text-align:center;">
+          <p>{{foodNumberList[foodIndex]}}</p>
+        </ion-col>
           <ion-col size="1">
-            <img id="minus{{foodIndex}}" (click)="minus(foodIndex)" src="../../../assets/images/minus.png"
-              style="height: 25px;" />
-          </ion-col>
-          <ion-col size="1" style="text-align:center;">
-            <p>{{foodNumberList[foodIndex]}}</p>
-          </ion-col>
-          <ion-col size="1">
-            <img id="plus{{foodIndex}}" (click)="plus(foodIndex)" src="../../../assets/images/plus.png"
-              style="height: 25px;" />
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </div>
+            <img  id="plus{{foodIndex}}" (click)="plus(foodIndex)" src="../../../assets/images/plus.png" style="height: 25px;"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
 
-  <div class="next-btn">
-    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp tục</ion-button>
-  </div>
+<div class="next-btn">
+<ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp tục</ion-button>
+</div>
 </ion-content>
 
 <ion-footer>

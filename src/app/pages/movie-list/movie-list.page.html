@@ -5,10 +5,10 @@
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content  [fullscreen]="true">
   <div class="background">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let item of dates,index as i" style="width: 120px; height: 100px;">
+      <ion-slide *ngFor="let item of dates,index as i" style="width: 125px; height: 100px;">
         <ion-col>
           <ion-card id="date-{{i}}" button="true" style="height: 70px" (click)="switchDate(item, i)">
             <ion-card-content>
