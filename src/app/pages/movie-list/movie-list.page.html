@@ -40,7 +40,7 @@
           <ion-card-content>
             <p (click)="navMovieDetail(item.asciiName)">{{ item.summary }}</p>
             <div class="bookticket">
-              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)">{{time}}</ion-button>
+              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)" style="width: '18.5%';">{{time}}</ion-button>
             </div>
           </ion-card-content>
         </ion-row>
@@ -64,8 +64,7 @@
           <ion-card-content>
             <p (click)="navMovieDetail(item.asciiName)">{{ item.summary }}</p>
             <div class="bookticket">
-              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)"
-                (click)="navSeatChoice(item, time)">{{time}}</ion-button>
+              <ion-button *ngFor="let time of item.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(item, time)" style="width: '18.5%';">{{time}}</ion-button>
             </div>
           </ion-card-content>
         </ion-row>
