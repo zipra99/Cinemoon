@@ -34,14 +34,13 @@ export class AuthenticationService {
     })
   }
 
-  createNewUser(email: string, fullName: string) {
-    let docId = this.afs.createId();
-    let userDoc = this.afs.doc<any>(`users/${docId}`);
+  createNewUser(userInfo: any, fullName: string) {
+    let userDoc = this.afs.doc<any>(`users/${userInfo.uid}`);
     userDoc.set({
-      uid: docId,
+      uid: userInfo.uid,
       displayName: fullName,
-      email: email,
-      emailVerified: false,
+      email: userInfo.email,
+      emailVerified: userInfo.emailVerified,
       photoURL: 'https://picsum.photos/200'
     })
   }
@@ -67,8 +66,7 @@ export class AuthenticationService {
   }
 
   // Register user with email/password
-  RegisterUser(email, password, fullName: string) {
-    this.createNewUser(email, fullName);
+  RegisterUser(email, password) {
     return this.ngFireAuth.createUserWithEmailAndPassword(email, password);
   }
 

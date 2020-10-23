@@ -34,4 +34,17 @@ export class LoginPage implements OnInit {
         window.alert(error.message)
       })
   }
+
+  navigate(page){
+    switch(page){
+      case 'movie':
+        this.navCtrl.navigateForward('movie-list');
+        break;
+      case 'home':
+        this.navCtrl.navigateForward('home');
+        break;
+      default:
+        break;
+    }
+  }
 }
