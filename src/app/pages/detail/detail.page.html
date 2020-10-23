@@ -20,7 +20,7 @@
       <!-- Thời gian chiếu -->
       <ion-row>
         <div class="bookticket">
-          <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
+          <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)" style="width: '18%';">{{ time }}</ion-button>
         </div>
       </ion-row>
       <!-- Nội dung / Tóm tắt -->
@@ -46,7 +46,7 @@
           </ion-row>
           <ion-row [hidden]="isHiddenTicketTime">
             <div class="bookticket">
-              <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)">{{ time }}</ion-button>
+              <ion-button *ngFor="let time of movieDetail.listTicket" size="small" [disabled]="isPicked(time)" (click)="navSeatChoice(movieDetail, time)" style="width: '18%';">{{ time }}</ion-button>
             </div>
           </ion-row>
         </ion-col>
