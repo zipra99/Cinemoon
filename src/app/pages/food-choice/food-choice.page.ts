@@ -22,8 +22,8 @@ export class FoodChoicePage implements OnInit {
     public ticketInfo: TicketInfoService
   ) {
     this.listBookingSeatString = ticketInfo.getBookingSeatString();
-    this.foodNameList = new Array<string>('Bắp', 'Nước', 'Kẹo');
-    this.foodPriceList = new Array<number>(5000, 2000, 3000);
+    this.foodNameList = ticketInfo.foodData.listName;
+    this.foodPriceList = ticketInfo.foodData.listPrice;
     this.foodNumberList = new Array<number>();
     this.foodNameList.forEach(item => {
       this.foodNumberList.push(0);

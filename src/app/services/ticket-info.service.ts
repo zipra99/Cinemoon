@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +18,30 @@ export class TicketInfoService {
   bookingFoodMoney: number;
   userInfo: any = {};
   urlQRCode: string;
+  foodData: any = {};
 
   constructor(public afs: AngularFirestore) {
     this.bookingSeatList = [];
     this.bookingFoodList = [];
     this.refreshListSoldSeat();
     this.ticketPrice = 45000;
+    this.getListFoodFromFirebase();
+  }
+
+  getListFoodFromFirebase() {
+    this.foodData = {
+      listName: [],
+      listPrice: []
+    };
+    let foodDoc = this.afs.doc<any>('foods/4820d1zy7KK4XL4OGcqp').valueChanges();
+    if(foodDoc) {
+      foodDoc.subscribe(data => {
+        for(let item of data.listFood) {
+          this.foodData.listName.push(item.split('|')[0]);
+          this.foodData.listPrice.push(item.split('|')[1]);
+        }
+      })
+    }
   }
 
   getStringMovieInfo() {

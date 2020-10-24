@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/shared/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
@@ -12,14 +13,20 @@ export class PayPage implements OnInit {
   listBookingSeatString: string;
   bookingSeat: any = {};
   listBookingFood: any[] = [];
-  method: Array<string> = ['Visa & Mastercard', 'Nội địa', 'MoMo', 'Trực tiếp'];
-  colorName: string;
+  icon: Array<string> = [
+    '../../../assets/icon/payment/visa.png', 
+    '../../../assets/icon/payment/noidia.png', 
+    '../../../assets/icon/payment/momo.png', 
+    '../../../assets/icon/payment/tructiep.png'];
+  backgroundColor: string;
+  borderColor: string;
   movieDetail: string[];
   userInfo: any = {};
 
   constructor(
     private navCtrl: NavController,
     public toastController: ToastController,
+    public authService: AuthenticationService,
     public ticketInfo: TicketInfoService) {
     this.totalMoneyString = ticketInfo.getTotalMoneyString();
     this.listBookingSeatString = ticketInfo.getBookingSeatString();
@@ -30,9 +37,11 @@ export class PayPage implements OnInit {
 
   switchMethod(index: number) {
     for (let i = 0; i < 4; i++) {
-      (document.getElementById(`method-${i}`) as HTMLScriptElement).style.backgroundColor = this.colorName;
+      (document.getElementById(`method-${i}`) as HTMLScriptElement).style.borderColor = this.borderColor;
+      (document.getElementById(`method-${i}`) as HTMLScriptElement).style.backgroundColor = this.backgroundColor;
     }
-    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
+    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.borderColor = '#ff0000db';
+    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = '#fb463659';
   }
 
   ngOnInit() {
@@ -40,8 +49,10 @@ export class PayPage implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.colorName = (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor;
-    (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
+    this.borderColor = (document.getElementById('method-0') as HTMLScriptElement).style.borderColor;
+    this.backgroundColor = (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor;
+    (document.getElementById('method-0') as HTMLScriptElement).style.borderColor = '#ff0000db';
+    (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor = '#fb463659';
   }
 
   navigate(page) {
@@ -65,12 +76,14 @@ export class PayPage implements OnInit {
       userFullName: '',
       userEmail: '',
     }
-    let userInfo = JSON.parse(localStorage.getItem('user'));
-    if(userInfo) {
-      this.userInfo = {
-        userFullName: userInfo.displayName,
-        userEmail: userInfo.email
-      }
+    let userDoc = this.authService.getCurrentUserInfo();
+    if(userDoc) {
+      userDoc.subscribe(data => {
+        this.userInfo = {
+          userFullName: data.displayName,
+          userEmail: data.email
+        }
+      })
     }
   }
 

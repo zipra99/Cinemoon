@@ -1,11 +1,38 @@
-.logout-btn {
-    padding: 0px 16px 11px 15px;
+ion-content{
+    --background: url(../../../assets/images/acc-background.png) center/cover fixed;
+    --color: #fff;
+}
 
-    ion-button {
-        --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
-        --border-radius: 8px;
-        --background-activated: -webkit-linear-gradient(30deg,#94182d,#e43926);
-        --background-focused: -webkit-linear-gradient(30deg,#94182d,#e43926);
-        font-family: "Roboto-Light";
+.name{
+    margin: 10px 10px;
+   .welcome{
+    font-size: 30px;
+    font-family: 'Roboto-Bold';
     }
+    .email{
+        font-size: 16px;
+        margin-top: -25px;
+        font-family: 'Roboto-Thin';
+    }
+}
+
+img{
+    max-width: 100%;
+    /* width: 235vh; */
+    border: 0;
+    border-radius: 100px;
+    position: absolute;
+    padding: 10p;
+    /* margin: 2vh 0px 0px 150px; */
+    top: 115px;
+    left: 140px;
+}
+
+.ion-color-red {
+    --ion-color-base: #d82e35;
+    --ion-color-base-rgb: 216, 46, 53;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255, 255, 255;
+    --ion-color-shade: #d82e35;
+    --ion-color-tint: #d82e35;
 }
