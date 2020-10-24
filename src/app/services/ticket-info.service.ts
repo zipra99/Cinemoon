@@ -24,7 +24,7 @@ export class TicketInfoService {
     this.bookingSeatList = [];
     this.bookingFoodList = [];
     this.refreshListSoldSeat();
-    this.ticketPrice = 45000;
+    this.ticketPrice = 75000;
     this.getListFoodFromFirebase();
   }
 
