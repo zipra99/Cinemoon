@@ -2,6 +2,12 @@ ion-header {
     --background: transparent;
     --ion-color-base: transparent !important;
 }
+  
+  ion-content{
+    --background: #000;
+    --color: #fff;
+  }
+
 
 .login-header {
     position: relative;

@@ -1,30 +1,30 @@
 <ion-header>
   <div class="login-header">
-    <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; " (click)="navigate('home')"/>
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px; " (click)="navigate('home')" />
   </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<div class="background">
-  <div class="list-page">
-    <ion-item lines="none" background="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <img src="../../../assets/images/seat1.png" style="height: 50px; display: flex; margin: 0 auto;">
-          </ion-col>
-          <ion-col size="3">
-            <img src="../../../assets/images/popcorn1.png" style="height: 50px; display: flex; margin: 0 auto;">
-          </ion-col>
-          <ion-col size="3">
-            <img src="../../../assets/images/card1.png" style="height: 50px; display: flex; margin: 0 auto;">
-          </ion-col>
-          <ion-col size="3">
-            <img src="../../../assets/images/ticket2.png" style="height: 65px; display: flex; margin: 0 auto;">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
+  <div class="background">
+    <div class="list-page">
+      <ion-item lines="none" background="none">
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <img src="../../../assets/images/seat1.png" style="height: 50px; display: flex; margin: 0 auto;">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/popcorn1.png" style="height: 50px; display: flex; margin: 0 auto;">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/card1.png" style="height: 50px; display: flex; margin: 0 auto;">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/ticket2.png" style="height: 65px; display: flex; margin: 0 auto;">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
     </div>
 
     <div class="movie-info">
@@ -42,41 +42,74 @@
         </ion-card-header>
         <ion-card-content>Chúc các bạn xem phim vui vẻ 💕</ion-card-content>
       </ion-card>
-      </div>
-</div>
+    </div>
+  </div>
 
-<div class="customer-info">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="8">
-        <ion-item-divider color="white">
-          <ion-label>Thông tin khách hàng</ion-label>
-        </ion-item-divider>
-        <ion-label>Họ và tên: {{ userInfo.userFullName }}</ion-label>
-        <ion-label>Email: {{ userInfo.userEmail }}</ion-label>
-      </ion-col>
-      <ion-col size="4" style="padding-top: 17px;">
-        <img src="{{ urlQRCode }}" style="width: 100px;">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
+  <div class="customer-info">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">
+          <ion-item-divider color="white">
+            <ion-label>Thông tin khách hàng</ion-label>
+          </ion-item-divider>
+          <ion-label>Họ và tên: {{ userInfo.userFullName }}</ion-label>
+          <ion-label>Email: {{ userInfo.userEmail }}</ion-label>
+        </ion-col>
+        <ion-col size="4" style="padding-top: 17px;">
+          <img src="{{ urlQRCode }}" style="width: 100px;">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
-<div class="noted">
-  <ion-card>
-    <ion-item-divider>
-      <ion-label>Một số lưu ý: </ion-label>
-    </ion-item-divider>
-    <ion-card-content>
-      <ion-label>1. Khách xem phim khi đến rạp phim xuất trình thông tin vé này ra cho nhân viên soát vé của rạp phim. Sau khi quét mã QR hoàn tất, nhân viên rạp phim sẽ hướng dẫn quý khách về vị trí phòng chiếu phim và vị trí ghế xem phim.</ion-label>
-      <ion-label>2. Xin quý khách lưu ý độ tuổi giới hạn khi đặt vé xem phim. Nhân viên soát vé sẽ có trách nhiệm ngăn cản trẻ em chưa đủ tuổi quy định và phòng chiếu phim. Quý khách sẽ phải hoàn toàn chịu mọi trách nhiệm trước pháp luật nếu vi phạm quy định về giới hạn độ tuổi của phim. Đồng thời rạp phim Cinestar sẽ không chấp nhận bất cứ trường hợp hoàn trả vé nào vì lý do này.</ion-label>
-      <ion-label>3. Quý khách đến quầy bắp nước để nhận đồ ăn và thức uống (nếu có đặt mua kèm theo trong vé này).</ion-label>
-      <ion-label>4. Rạp Cinestar không cho phép mang đồ ăn bên ngoài vào phòng chiếu phim. Quý khách vui lòng mua đồ ăn và thức uống ở quầy bắp nước. Xin lỗi về sự bất tiện này.</ion-label>
-      <ion-label>5. Chúc quý khách có những phút giây thoải mái với Cinestar 💕</ion-label>
-    </ion-card-content>
-  </ion-card>
-</div>
-<ion-button class="next-btn" size="large" expand="block" (click)="btnNext()">Hoàn tất</ion-button>
+  <div class="noted">
+    <ion-card>
+      <ion-item-divider>
+        <ion-label style="color: white;">Thông tin vé</ion-label>
+      </ion-item-divider>
+      <ion-item-divider style="padding: 0px;">
+        <ion-grid>
+          <ion-row style="color: white; font-size: 15px;">
+            <ion-col size="5" style="text-align: left;">Mô tả</ion-col>
+            <ion-col size="3" style="text-align: right;">Số lượng</ion-col>
+            <ion-col size="4" style="text-align: right;">Thành tiền</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item-divider>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="5" style="text-align: left;">Mô tả</ion-col>
+            <ion-col size="3" style="text-align: right;">Số lượng</ion-col>
+            <ion-col size="4" style="text-align: right;">Thành tiền</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="noted">
+    <ion-card>
+      <ion-item-divider>
+        <ion-label>Một số lưu ý: </ion-label>
+      </ion-item-divider>
+      <ion-card-content>
+        <ion-label>1. Khách xem phim khi đến rạp phim xuất trình thông tin vé này ra cho nhân viên soát vé của rạp phim.
+          Sau khi quét mã QR hoàn tất, nhân viên rạp phim sẽ hướng dẫn quý khách về vị trí phòng chiếu phim và vị trí
+          ghế xem phim.</ion-label>
+        <ion-label>2. Xin quý khách lưu ý độ tuổi giới hạn khi đặt vé xem phim. Nhân viên soát vé sẽ có trách nhiệm ngăn
+          cản trẻ em chưa đủ tuổi quy định và phòng chiếu phim. Quý khách sẽ phải hoàn toàn chịu mọi trách nhiệm trước
+          pháp luật nếu vi phạm quy định về giới hạn độ tuổi của phim. Đồng thời rạp phim Cinestar sẽ không chấp nhận
+          bất cứ trường hợp hoàn trả vé nào vì lý do này.</ion-label>
+        <ion-label>3. Quý khách đến quầy bắp nước để nhận đồ ăn và thức uống (nếu có đặt mua kèm theo trong vé này).
+        </ion-label>
+        <ion-label>4. Rạp Cinestar không cho phép mang đồ ăn bên ngoài vào phòng chiếu phim. Quý khách vui lòng mua đồ
+          ăn và thức uống ở quầy bắp nước. Xin lỗi về sự bất tiện này.</ion-label>
+        <ion-label>5. Chúc quý khách có những phút giây thoải mái với Cinestar 💕</ion-label>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-button class="next-btn" size="large" expand="block" (click)="btnNext()">Hoàn tất</ion-button>
 
 </ion-content>
 
