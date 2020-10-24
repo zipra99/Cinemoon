@@ -64,10 +64,6 @@
     </ion-item>
   </div>
 
-  <div class="next-btn">
-    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp tục</ion-button>
-  </div>
-
   <div class="food-choice">
     <ion-item class="title" lines="none">
       <ion-grid>
@@ -109,35 +105,13 @@
       </ion-grid>
     </ion-item>
   </div>
-
-  <div class="food-bill">
-    <ion-item lines="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="5" style="border-right: 1px solid;">
-            <ion-label>
-              <h4>Tổng đơn hàng </h4>
-              <h6>{{ moneyString }}</h6>
-            </ion-label>
-          </ion-col>
-          <ion-col size="7">
-            <ion-label style="padding-left: 30px;">
-              <h4>Danh sách ghế</h4>
-              <h6>{{ listBookingSeatString }}</h6>
-            </ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </div>
-
-  <div class="next-btn">
-    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp tục</ion-button>
-  </div>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
+    <div class="next-btn">
+      <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp tục</ion-button>
+    </div>
     <div class="tabs">
       <div class="tab" [ngClass]="{ 'active' : segment == 'popular' }" (click)="navigate('movie')">
         <img class="icon-tab" src="../../../assets/images/tab-list.png" style="height: 20px; " />
