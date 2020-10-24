@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/shared/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
@@ -24,6 +25,7 @@ export class PayPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     public toastController: ToastController,
+    public authService: AuthenticationService,
     public ticketInfo: TicketInfoService) {
     this.totalMoneyString = ticketInfo.getTotalMoneyString();
     this.listBookingSeatString = ticketInfo.getBookingSeatString();
@@ -69,12 +71,14 @@ export class PayPage implements OnInit {
       userFullName: '',
       userEmail: '',
     }
-    let userInfo = JSON.parse(localStorage.getItem('user'));
-    if(userInfo) {
-      this.userInfo = {
-        userFullName: userInfo.displayName,
-        userEmail: userInfo.email
-      }
+    let userDoc = this.authService.getCurrentUserInfo();
+    if(userDoc) {
+      userDoc.subscribe(data => {
+        this.userInfo = {
+          userFullName: data.displayName,
+          userEmail: data.email
+        }
+      })
     }
   }
 
