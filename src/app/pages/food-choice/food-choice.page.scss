@@ -126,11 +126,13 @@ ion-content{
       --background-activated: -webkit-linear-gradient(30deg,#94182d,#e43926);
       --background-focused: -webkit-linear-gradient(30deg,#94182d,#e43926);
       font-family: "Roboto-Light";
+      color:#fff !important;
     }
 }
 
 ion-toolbar{
     --background: #000000;
+    --color: #fff !important;
     .tabs {
     display: flex;
     justify-content: center;
