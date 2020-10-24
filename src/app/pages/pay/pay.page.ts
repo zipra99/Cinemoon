@@ -38,7 +38,7 @@ export class PayPage implements OnInit {
       (document.getElementById(`method-${i}`) as HTMLScriptElement).style.backgroundColor = this.backgroundColor;
     }
     (document.getElementById(`method-${index}`) as HTMLScriptElement).style.borderColor = '#ff0000db';
-    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = '#fb463659';
+    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = 'rgba(255, 0, 0, 0.86)';
   }
 
   getListMethod() {
@@ -58,7 +58,7 @@ export class PayPage implements OnInit {
     this.borderColor = (document.getElementById('method-0') as HTMLScriptElement).style.borderColor;
     this.backgroundColor = (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor;
     (document.getElementById('method-0') as HTMLScriptElement).style.borderColor = '#ff0000db';
-    (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor = '#fb463659';
+    (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor = 'rgba(255, 0, 0, 0.86)';
   }
 
   navigate(page) {
