@@ -118,14 +118,14 @@ ion-content{
 }
 
 .next-btn {
-    padding: 0px 16px 11px 15px;
+    padding: 5px 16px 11px 15px;
 
     ion-button {
-        --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
-        --border-radius: 8px;
-        --background-activated: -webkit-linear-gradient(30deg,#94182d,#e43926);
-        --background-focused: -webkit-linear-gradient(30deg,#94182d,#e43926);
-        font-family: "Roboto-Light";
+      --background: -webkit-linear-gradient(30deg,#BB1A34,#FF4936);
+      --border-radius: 8px;
+      --background-activated: -webkit-linear-gradient(30deg,#94182d,#e43926);
+      --background-focused: -webkit-linear-gradient(30deg,#94182d,#e43926);
+      font-family: "Roboto-Light";
     }
 }
 
