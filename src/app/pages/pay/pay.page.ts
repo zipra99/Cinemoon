@@ -12,7 +12,11 @@ export class PayPage implements OnInit {
   listBookingSeatString: string;
   bookingSeat: any = {};
   listBookingFood: any[] = [];
-  method: Array<string> = ['Visa & Mastercard', 'Nội địa', 'MoMo', 'Trực tiếp'];
+  icon: Array<string> = [
+    '../../../assets/icon/payment/visa.png', 
+    '../../../assets/icon/payment/noidia.png', 
+    '../../../assets/icon/payment/momo.png', 
+    '../../../assets/icon/payment/tructiep.png'];
   colorName: string;
   movieDetail: string[];
   userInfo: any = {};
@@ -74,6 +78,9 @@ export class PayPage implements OnInit {
     }
   }
 
+  test(i: Number) {
+    alert(i);
+  }
   async btnNext() {
     if(this.userInfo.userFullName && this.userInfo.userEmail) {
       this.ticketInfo.userInfo = this.userInfo;
