@@ -139,7 +139,8 @@ ion-card {
 .bill-title{
   display: block;
   height: 30px;
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-bottom: -10px;
   margin-left: 5px;
 }
 
@@ -182,6 +183,11 @@ ion-input{
     font-size: 23px;
     color: #fff;
 }
+}
+
+
+.ion-color-light {
+  --ion-color-base: #fff  !important;
 }
 
 .next-btn {
