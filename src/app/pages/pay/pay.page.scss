@@ -121,7 +121,19 @@ ion-card {
 }
 
 .title p {
+  color: #fff;
   font-size: 18px;
+}
+
+.bill-content p {
+  color: #fff;
+  font-size: 13.5px;
+}
+
+.bill-total p {
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: bold;
 }
 
 .method {

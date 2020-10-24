@@ -8,13 +8,22 @@ import { TicketInfoService } from 'src/app/services/ticket-info.service';
   styleUrls: ['./ticket-information.page.scss'],
 })
 export class TicketInformationPage implements OnInit {
+  movieDetail: string[] = [];
+  totalMoneyString: string;
+  userInfo: any = {};
+  urlQRCode: string;
 
   constructor(
     private navCtrl: NavController,
     public ticketInfo: TicketInfoService
-  ) { }
+  ) {
+    this.totalMoneyString = ticketInfo.getTotalMoneyString();
+    this.userInfo = ticketInfo.userInfo;
+    this.urlQRCode = ticketInfo.urlQRCode;
+  }
 
   ngOnInit() {
+    this.movieDetail = this.ticketInfo.getStringMovieInfo();
   }
 
   navigate(page){
