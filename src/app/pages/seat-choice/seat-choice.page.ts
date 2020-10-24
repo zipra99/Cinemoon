@@ -38,7 +38,7 @@ export class SeatChoicePage implements OnInit {
   ngAfterViewInit() {
     if (this.bookedSeatList) {
       this.bookedSeatList.forEach(item => {
-        document.getElementById(item).setAttribute('style', '--background:rgb(12 12 12 / 58%)');
+        document.getElementById(item).setAttribute('style', '--background:#100e0e');
       })
     }
   }

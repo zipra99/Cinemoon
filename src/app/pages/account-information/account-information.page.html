@@ -1,18 +1,30 @@
-<ion-header>
-  <div class="login-header">
-    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px;" (click)="navigate('home')"/>
-  </div>
-</ion-header>
-
-<ion-content>
+<ion-content class="no-scroll" fullscreen="true">
+  <div class="name">
+  <p class="welcome">Xin chào! {{ userInfo.displayName }}<p>
+  <p class="email">Email: {{ userInfo.email }}<p>
+</div>
   <img alt="Loading . . ." src="{{ userInfo.photoURL }}">
-  <h1>Họ và tên: {{ userInfo.displayName }}</h1>
-  <h1>Email: {{ userInfo.email }}</h1>
 
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="red">
+      <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="red" (click)="authService.SignOut()">
+        <ion-icon src="assets/icon/logout.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="navigate('account')">
+        <ion-icon src="assets/icon/account.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="navigate('home')">
+        <ion-icon src="assets/icon/home.svg"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="red" (click)="navigate('movie')">
+        <ion-icon src="assets/icon/tickets.svg"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
 
-<ion-footer>
-  <div class="logout-btn">
-    <ion-button class="ion-button-class" size="large" expand="block" (click)="authService.SignOut()">Đăng xuất</ion-button>
-  </div>
-</ion-footer>
+
