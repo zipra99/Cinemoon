@@ -12,6 +12,8 @@ export class TicketInformationPage implements OnInit {
   totalMoneyString: string;
   userInfo: any = {};
   urlQRCode: string;
+  bookingSeat: any = {};
+  listBookingFood: any[] = [];
 
   constructor(
     private navCtrl: NavController,
@@ -20,6 +22,8 @@ export class TicketInformationPage implements OnInit {
     this.totalMoneyString = ticketInfo.getTotalMoneyString();
     this.userInfo = ticketInfo.userInfo;
     this.urlQRCode = ticketInfo.urlQRCode;
+    this.bookingSeat = ticketInfo.getBookingSeatInfo();
+    this.listBookingFood = ticketInfo.bookingFoodList;
   }
 
   ngOnInit() {
