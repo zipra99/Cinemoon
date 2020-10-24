@@ -30,11 +30,14 @@
     <div class="movie-info">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>PHIM HEO</ion-card-title>
+          <ion-card-title>{{ ticketInfo.movieDetail.name }}</ion-card-title>
           <ion-card-subtitle style="padding-top:5px;">
-            <p style="margin: 2px 0px;">ÉC ÉC</p>
-            <strong style="margin: 2px 0px;">ÉC ÉC</strong>
-            <p style="margin: 2px 0px;">ÉC ÉC</p>
+            <p style="margin: 2px 0px;">{{ movieDetail[0] }}</p>
+            <strong style="margin: 2px 0px;">{{ movieDetail[1] }}</strong>
+            <p style="margin: 2px 0px;">{{ movieDetail[2] }}</p>
+            <strong style="margin: 2px 0px;">{{ movieDetail[3] }}</strong>
+            <p style="margin: 2px 0px;">{{ movieDetail[4] }}</p>
+            <strong style="margin: 2px 0px;">{{ movieDetail[5] }}</strong>
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>Chúc các bạn xem phim vui vẻ 💕</ion-card-content>
@@ -47,14 +50,13 @@
     <ion-row>
       <ion-col size="8">
         <ion-item-divider color="white">
-          <ion-label>Thông tin khách hàng:</ion-label>
+          <ion-label>Thông tin khách hàng</ion-label>
         </ion-item-divider>
-        <ion-label>Họ và tên: </ion-label>
-        <ion-label>Email: </ion-label>
-        <ion-label>Số điện thoại: </ion-label>
+        <ion-label>Họ và tên: {{ userInfo.userFullName }}</ion-label>
+        <ion-label>Email: {{ userInfo.userEmail }}</ion-label>
       </ion-col>
       <ion-col size="4" style="padding-top: 17px;">
-        <img src="../../../assets/images/QR.png" style="width: 100px;">
+        <img src="{{ urlQRCode }}" style="width: 100px;">
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -66,11 +68,11 @@
       <ion-label>Một số lưu ý: </ion-label>
     </ion-item-divider>
     <ion-card-content>
-      <ion-label>1.Bla bla</ion-label>
-      <ion-label>2.Bla bla</ion-label>
-      <ion-label>3.Bla bla</ion-label>
-      <ion-label>4.Bla bla</ion-label>
-      <ion-label>5.Bla bla</ion-label>
+      <ion-label>1. Khách hàng khi đến rạp phim xuất trình thông tin vé này ra cho nhân viên soát vé của rạp phim. Sau khi quét mã QR hoàn tất, nhân viên rạp phim sẽ hướng dẫn quý khách về vị trí phòng chiếu phim và vị trí ghế xem phim.</ion-label>
+      <ion-label>2. Xin quý khách lưu ý độ tuổi giới hạn khi đặt vé xem phim. Nếu nhân viên soát vé sẽ có trách nhiệm ngăn cản trẻ em chưa đủ tuổi quy định và phòng chiếu phim. Quý khách sẽ phải hoàn toàn tự chịu mọi trách nhiệm trước pháp luật nếu vi phạm quy định về giới hạn độ tuổi của phim. Đồng thời rạp phim Cinestar sẽ không chấp nhận bất cứ trường hợp hoàn trả vé nào vì lý do này.</ion-label>
+      <ion-label>3. Quý khách đến quầy bắp nước để nhận đồ ăn và thức uống (nếu có đặt mua)</ion-label>
+      <ion-label>4. Rạp Cinestar không cho phép mang đồ ăn bên ngoài vào phòng chiếu phim. Quý khách vui lòng mua đồ ăn và thức uống ở quầy bắp nước. Xin lỗi về sự bất tiện này.</ion-label>
+      <ion-label>5. Chúc quý khách có những phút giây thoải mái với Cinestar 💕</ion-label>
     </ion-card-content>
   </ion-card>
 </div>
