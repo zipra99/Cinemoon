@@ -13,12 +13,14 @@ export class FoodChoicePage implements OnInit {
   foodNumberList: Array<number>;
   foodPriceList: Array<number>;
   foodPriceListString: Array<string>;
-  foodMoney: number;
-  foodMoneyString: string;
+  totalMoney: number;
+  moneyString: string;
+  movieDetail: string[];
 
   constructor(
     private navCtrl: NavController,
-    public ticketInfo: TicketInfoService) {
+    public ticketInfo: TicketInfoService
+  ) {
     this.listBookingSeatString = ticketInfo.getBookingSeatString();
     this.foodNameList = new Array<string>('Bắp', 'Nước', 'Kẹo');
     this.foodPriceList = new Array<number>(5000, 2000, 3000);
@@ -30,11 +32,12 @@ export class FoodChoicePage implements OnInit {
     this.foodPriceList.forEach(item => {
       this.foodPriceListString.push(item.toLocaleString('en').split(',').join('.') + 'đ');
     });
-    this.foodMoney = 0;
-    this.foodMoneyString = '0đ';
+    this.totalMoney = ticketInfo.totalMoney;
+    this.moneyString = ticketInfo.getTotalMoneyString();
   }
 
   ngOnInit() {
+    this.movieDetail = this.ticketInfo.getStringMovieInfo();
   }
   plus(foodIndex) {
     if (this.foodNumberList[foodIndex] == 0)
@@ -51,12 +54,12 @@ export class FoodChoicePage implements OnInit {
       document.getElementById("minus" + foodIndex).setAttribute('color', 'dark');
   }
   calculateFoodMoney() {
-    let money = 0;
+    let money = this.ticketInfo.totalMoney;
     for (let index = 0; index < this.foodNameList.length; index++) {
       money += this.foodNumberList[index] * this.foodPriceList[index];
     }
-    this.foodMoney = money;
-    this.foodMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
+    this.totalMoney = money;
+    this.moneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
   }
 
   navigate(page) {
@@ -76,12 +79,18 @@ export class FoodChoicePage implements OnInit {
   }
 
   btnNext() {
-    var bookingFoodList = new Array<string>();
+    let bookingFoodList: any[] = [];
     for (let i = 0; i < this.foodNameList.length; i++) {
-      if (this.foodNumberList[i] > 0)
-        bookingFoodList.push(this.foodNameList[i] + '|' + this.foodNumberList[i] + '|' + this.foodPriceList[i] * this.foodNumberList[i])
+      if (this.foodNumberList[i] > 0) {
+        bookingFoodList.push({
+          name: this.foodNameList[i],
+          number: this.foodNumberList[i],
+          price: (this.foodPriceList[i] * this.foodNumberList[i]).toLocaleString('en').split(',').join('.') + 'đ'
+        });
+      }
     }
-    this.ticketInfo.setBookingFoodInfo(bookingFoodList, this.foodMoney);
+    this.ticketInfo.totalMoney = this.totalMoney;
+    this.ticketInfo.bookingFoodList = bookingFoodList;
     this.navCtrl.navigateForward('pay');
   }
 }

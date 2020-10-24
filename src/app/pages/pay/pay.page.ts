@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
@@ -10,13 +10,22 @@ import { TicketInfoService } from 'src/app/services/ticket-info.service';
 export class PayPage implements OnInit {
   totalMoneyString: string;
   listBookingSeatString: string;
+  bookingSeat: any = {};
+  listBookingFood: any[] = [];
   method: Array<string> = ['Visa & Mastercard', 'Nội địa', 'MoMo', 'Trực tiếp'];
   colorName: string;
+  movieDetail: string[];
+  userInfo: any = {};
+
   constructor(
     private navCtrl: NavController,
+    public toastController: ToastController,
     public ticketInfo: TicketInfoService) {
     this.totalMoneyString = ticketInfo.getTotalMoneyString();
     this.listBookingSeatString = ticketInfo.getBookingSeatString();
+    this.listBookingFood = ticketInfo.bookingFoodList;
+    this.bookingSeat = ticketInfo.getBookingSeatInfo();
+    this.checkCurrentUserInfo();
   }
 
   switchMethod(index: number) {
@@ -27,6 +36,7 @@ export class PayPage implements OnInit {
   }
 
   ngOnInit() {
+    this.movieDetail = this.ticketInfo.getStringMovieInfo();
   }
 
   ngAfterViewInit() {
@@ -50,8 +60,33 @@ export class PayPage implements OnInit {
     }
   }
 
-  btnNext() {
-    this.ticketInfo.updateListSoldSeat();
-    this.navCtrl.navigateForward('ticket-information');
+  checkCurrentUserInfo() {
+    this.userInfo = {
+      userFullName: '',
+      userEmail: '',
+    }
+    let userInfo = JSON.parse(localStorage.getItem('user'));
+    if(userInfo) {
+      this.userInfo = {
+        userFullName: userInfo.displayName,
+        userEmail: userInfo.email
+      }
+    }
+  }
+
+  async btnNext() {
+    if(this.userInfo.userFullName && this.userInfo.userEmail) {
+      this.ticketInfo.userInfo = this.userInfo;
+      this.ticketInfo.updateListSoldSeat();
+      this.ticketInfo.urlQRCode = this.ticketInfo.randomQRCodeUrl(16);
+      this.navCtrl.navigateForward('ticket-information');
+    } else {
+      const toast = await this.toastController.create({
+        message: 'Nhập đầy đủ thông tin để mua vé',
+        duration: 1000,
+        position: 'middle'
+      });
+      toast.present();
+    }
   }
 }

@@ -1,117 +1,157 @@
 <ion-header>
   <div class="login-header">
-    <img class="logo-img" src="../../../assets/images/logo1.png" style= "height: 70px; " (click)="navigate('home')"/>
+    <img class="logo-img" src="../../../assets/images/logo1.png" style="height: 70px; " (click)="navigate('home')" />
   </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<div class="background">
-  <div class="list-page">
-    <ion-item lines="none" background="none">
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="3">
-            <img src="../../../assets/images/seat1.png" style="height: 50px; display: flex; margin: 0 auto;">
-          </ion-col>
-          <ion-col size="3">
-            <img src="../../../assets/images/popcorn1.png" style="height: 50px; display: flex; margin: 0 auto;">
-          </ion-col>
-          <ion-col size="3">
-            <img src="../../../assets/images/card2.png" style="height: 65px;">
-          </ion-col>
-          <ion-col size="3">
-            <img src="../../../assets/images/ticket1.png" style="height: 50px; display: flex; margin: 0 auto;">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
+  <div class="background">
+    <div class="list-page">
+      <ion-item lines="none" background="none">
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <img src="../../../assets/images/seat1.png" style="height: 50px; display: flex; margin: 0 auto;">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/popcorn1.png" style="height: 50px; display: flex; margin: 0 auto;">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/card2.png" style="height: 65px;">
+            </ion-col>
+            <ion-col size="3">
+              <img src="../../../assets/images/ticket1.png" style="height: 50px; display: flex; margin: 0 auto;">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
     </div>
 
     <div class="movie-info">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>PHIM HEO</ion-card-title>
+          <ion-card-title>{{ ticketInfo.movieDetail.name }}</ion-card-title>
           <ion-card-subtitle style="padding-top:5px;">
-            <p style="margin: 2px 0px;">ÉC ÉC</p>
-            <strong style="margin: 2px 0px;">ÉC ÉC</strong>
-            <p style="margin: 2px 0px;">ÉC ÉC</p>
+            <p style="margin: 2px 0px;">{{ movieDetail[0] }}</p>
+            <strong style="margin: 2px 0px;">{{ movieDetail[1] }}</strong>
+            <p style="margin: 2px 0px;">{{ movieDetail[2] }}</p>
+            <strong style="margin: 2px 0px;">{{ movieDetail[3] }}</strong>
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>Chúc các bạn xem phim vui vẻ 💕</ion-card-content>
       </ion-card>
-      </div>
-</div>
-
-<div class="bill">
-  <ion-item lines="none">
-    <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="5" style="border-right: 1px solid;">
-          <ion-label>
-            <h4>Tổng đơn hàng </h4>
-            <h6>{{totalMoneyString}}</h6>
-          </ion-label>
-        </ion-col>
-        <ion-col size="7">
-          <ion-label style="padding-left: 30px;">
-            <h4>Danh sách ghế</h4>
-            <h6>{{listBookingSeatString}}</h6>
-          </ion-label>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+    </div>
   </div>
 
-<div class= "list-bill">
-  <ion-item class="title" lines="none">
-    <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="5">
-          <p>COMBO</p>
-        </ion-col>
-        <ion-col size="4">
-         <p>SỐ LƯỢNG</p>
-        </ion-col>
-        <ion-col size="3" style="text-align:center;">
-          <p>THÀNH TIỀN</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+  <div class="bill">
+    <ion-item lines="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="5" style="border-right: 1px solid;">
+            <ion-label>
+              <h4>Tổng đơn hàng </h4>
+              <h6>{{ totalMoneyString }}</h6>
+            </ion-label>
+          </ion-col>
+          <ion-col size="7">
+            <ion-label style="padding-left: 30px;">
+              <h4>Danh sách ghế</h4>
+              <h6>{{ listBookingSeatString }}</h6>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </div>
 
-  <ion-item lines="none" *ngFor='let name of foodNameList; let foodIndex = index'>
-    <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="6">
-          <p>{{name}} <br> {{foodPriceListString[foodIndex]}} </p>
-        </ion-col>
-        <ion-col size="3" style="text-align:center;">
-          <p>{{foodNumberList[foodIndex]}}</p>
-        </ion-col>
-        <ion-col size="3">
-          <p>?????????</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
-</div>
+  <div class="list-bill">
+    <ion-item class="title" lines="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="4">
+            <p>Mô tả</p>
+          </ion-col>
+          <ion-col size="4">
+            <p>Số lượng</p>
+          </ion-col>
+          <ion-col size="4" style="text-align:center;">
+            <p>Thành tiền</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
 
-<div class="method">
-  <ion-row>
-    <ion-col size="4" *ngFor="let item of method,index as i" style="height: 100px;">
-      <ion-card id="method-{{i}}" button="true" (click)="switchMethod(i)">
-        <ion-card-content>
-          {{item}}
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</div>
+    <ion-item class="bill-content" lines="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="6">
+            <p>{{ bookingSeat.name }}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p>x{{ bookingSeat.number }}</p>
+          </ion-col>
+          <ion-col size="4" style="text-align:center;">
+            <p>{{ bookingSeat.price }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
 
-<div class="next-btn">
-<ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Thanh toán</ion-button>
-</div>
+    <ion-item class="bill-content" lines="none" *ngFor="let food of listBookingFood">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="6">
+            <p>{{ food.name }}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p>x{{ food.number }}</p>
+          </ion-col>
+          <ion-col size="4" style="text-align:center;">
+            <p>{{ food.price }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item class="bill-total" lines="none">
+      <ion-grid style="padding: 5px 0px;">
+        <ion-row class="ion-align-items-center"  style="background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);">
+          <ion-col size="8">
+            <p style="padding-left: 5px;">Tổng</p>
+          </ion-col>
+          <ion-col size="4" style="text-align:center;">
+            <p>{{ totalMoneyString }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </div>
+
+  <div class="method">
+    <ion-row>
+      <ion-col size="4" *ngFor="let item of method,index as i" style="height: 100px;">
+        <ion-card id="method-{{i}}" button="true" (click)="switchMethod(i)">
+          <ion-card-content>
+            {{item}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="user-info">
+    <ion-row>
+      <ion-input id="full-name" type="text" placeholder="Họ và Tên" value="" [(ngModel)]='userInfo.userFullName'></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-input id="email" type="text" placeholder="Địa chỉ email" value="" [(ngModel)]='userInfo.userEmail'></ion-input>
+    </ion-row>
+  </div>
+
+  <div class="next-btn">
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Thanh toán</ion-button>
+  </div>
 </ion-content>
 
 <ion-footer>

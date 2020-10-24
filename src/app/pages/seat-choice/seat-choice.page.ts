@@ -11,26 +11,23 @@ export class SeatChoicePage implements OnInit {
   rowList = ['A', 'B', 'C', 'D', 'E', 'F'];
   colList = ['1', '2', '3', '4', '5', '6', '7', '8'];
   listBookingSeatString = '...';
-  bookingSeatList: Array<string>;
+  bookingSeatList: any[];
   bookedSeatList: Array<string>;
   ticketPrice: number;
-  foodNameList: Array<string>;
-  foodNumberList: Array<number>;
-  foodPriceList: Array<number>;
   maxBookingSeat: number;
-  seatMoney: number;
-  seatMoneyString: string;
+  totalMoney: number;
+  moneyString: string;
   movieDetail: string[];
 
   constructor(
     public ticketInfo: TicketInfoService,
     public toastController: ToastController,
     private navCtrl: NavController) {
-    this.ticketPrice = 50000;
+    this.ticketPrice = ticketInfo.ticketPrice;
     this.maxBookingSeat = 8;
-    this.bookingSeatList = new Array<string>();
-    this.seatMoney = 0;
-    this.seatMoneyString = '0đ';
+    this.bookingSeatList = [];
+    this.totalMoney = 0;
+    this.moneyString = '0đ';
   }
 
   ngOnInit() {
@@ -120,13 +117,14 @@ export class SeatChoicePage implements OnInit {
   }
   calculateSeatMoney() {
     let money = this.bookingSeatList.length * this.ticketPrice;
-    this.seatMoney = money;
-    this.seatMoneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
+    this.totalMoney = money;
+    this.moneyString = money.toLocaleString('en').split(',').join('.') + 'đ';
   }
 
   async btnNext() {
     if (this.bookingSeatList.length) {
-      this.ticketInfo.setBookingSeatInfo(this.bookingSeatList, this.listBookingSeatString, this.seatMoney);
+      this.ticketInfo.totalMoney = this.totalMoney;
+      this.ticketInfo.bookingSeatList = this.bookingSeatList;
       this.ticketInfo.listSeatSoldName = this.bookedSeatList.concat(this.bookingSeatList);
       this.navCtrl.navigateForward('food-choice');
     } else {

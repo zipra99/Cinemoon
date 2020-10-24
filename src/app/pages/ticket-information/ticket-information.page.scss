@@ -87,29 +87,28 @@ ion-header{
 
 
 .noted{
-
     ion-card {
-      background: rgb(16 16 16 / 95%);
-      margin-top: 6px;
-      margin-bottom: 6px;
-      font-family: "Roboto-Light";
+        background: rgb(16 16 16 / 95%);
+        margin-top: 6px;
+        margin-bottom: 6px;
+        font-family: "Roboto-Light";
 
-      ion-item-divider{
-font-size: 20px;
-    padding-left: 12px;
-    margin-top: 14px;
-    color: #ed3d36;
-    }
+        ion-item-divider{
+            font-size: 20px;
+            padding-left: 12px;
+            margin-top: 14px;
+            color: #ed3d36;
+        }
 
-      ion-label{
-        line-height:30px;
-        padding-left: 9px;
+        ion-label{
+            padding: 5px 9px;
+            text-align: justify;
+        }
+        ion-card-content{
+            padding: 10px;
+        }
     }
-    ion-card-content{
-        padding: 10px;
-    }
-    }
-  }
+}
 
 ion-label{
     color: rgb(255, 255, 255);
