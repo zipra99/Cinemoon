@@ -162,6 +162,17 @@ ion-card {
     margin-bottom: 5px;
   }
 }
+
+.user-info{
+  margin: 10px 25px 10px 15px;
+
+  ion-item {
+    --background: rgba(0,0,0,0);
+    --border-color: rgba(0,0,0,0);
+    --highlight-background: transparent;
+}
+}
+
 .next-btn {
   padding: 10px 16px 11px 15px;
 
