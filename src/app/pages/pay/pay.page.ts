@@ -13,11 +13,6 @@ export class PayPage implements OnInit {
   listBookingSeatString: string;
   bookingSeat: any = {};
   listBookingFood: any[] = [];
-  icon: Array<string> = [
-    '../../../assets/icon/payment/visa.png',
-    '../../../assets/icon/payment/noidia.png',
-    '../../../assets/icon/payment/momo.png',
-    '../../../assets/icon/payment/tructiep.png'];
   backgroundColor: string;
   borderColor: string;
   movieDetail: string[];
