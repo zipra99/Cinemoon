@@ -64,18 +64,22 @@
     </ion-item>
   </div>
 
+  <div class="next-btn">
+    <ion-button class="ion-button-class" size="large" expand="block" (click)="btnNext()">Tiếp tục</ion-button>
+  </div>
+
   <div class="food-choice">
     <ion-item class="title" lines="none">
       <ion-grid>
         <ion-row class="ion-align-items-center">
           <ion-col size="5">
-            <p>COMBO</p>
+            <p>Mô tả</p>
           </ion-col>
           <ion-col size="4">
-            <p>GIÁ TIỀN</p>
+            <p>Giá tiền</p>
           </ion-col>
           <ion-col size="3" style="text-align:center;">
-            <p>SỐ LƯỢNG</p>
+            <p>Số lượng</p>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -100,6 +104,27 @@
           <ion-col size="1">
             <img id="plus{{foodIndex}}" (click)="plus(foodIndex)" src="../../../assets/images/plus.png"
               style="height: 25px;" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </div>
+
+  <div class="food-bill">
+    <ion-item lines="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="5" style="border-right: 1px solid;">
+            <ion-label>
+              <h4>Tổng đơn hàng </h4>
+              <h6>{{ moneyString }}</h6>
+            </ion-label>
+          </ion-col>
+          <ion-col size="7">
+            <ion-label style="padding-left: 30px;">
+              <h4>Danh sách ghế</h4>
+              <h6>{{ listBookingSeatString }}</h6>
+            </ion-label>
           </ion-col>
         </ion-row>
       </ion-grid>
