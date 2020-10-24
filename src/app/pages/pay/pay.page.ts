@@ -13,8 +13,13 @@ export class PayPage implements OnInit {
   listBookingSeatString: string;
   bookingSeat: any = {};
   listBookingFood: any[] = [];
-  method: Array<string> = ['Visa & Mastercard', 'Nội địa', 'MoMo', 'Trực tiếp'];
-  colorName: string;
+  icon: Array<string> = [
+    '../../../assets/icon/payment/visa.png', 
+    '../../../assets/icon/payment/noidia.png', 
+    '../../../assets/icon/payment/momo.png', 
+    '../../../assets/icon/payment/tructiep.png'];
+  backgroundColor: string;
+  borderColor: string;
   movieDetail: string[];
   userInfo: any = {};
 
@@ -32,9 +37,11 @@ export class PayPage implements OnInit {
 
   switchMethod(index: number) {
     for (let i = 0; i < 4; i++) {
-      (document.getElementById(`method-${i}`) as HTMLScriptElement).style.backgroundColor = this.colorName;
+      (document.getElementById(`method-${i}`) as HTMLScriptElement).style.borderColor = this.borderColor;
+      (document.getElementById(`method-${i}`) as HTMLScriptElement).style.backgroundColor = this.backgroundColor;
     }
-    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
+    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.borderColor = '#ff0000db';
+    (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = '#fb463659';
   }
 
   ngOnInit() {
@@ -42,8 +49,10 @@ export class PayPage implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.colorName = (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor;
-    (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor = 'rgb(230 34 64 / 82%)';
+    this.borderColor = (document.getElementById('method-0') as HTMLScriptElement).style.borderColor;
+    this.backgroundColor = (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor;
+    (document.getElementById('method-0') as HTMLScriptElement).style.borderColor = '#ff0000db';
+    (document.getElementById('method-0') as HTMLScriptElement).style.backgroundColor = '#fb463659';
   }
 
   navigate(page) {
