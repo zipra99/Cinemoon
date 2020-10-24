@@ -137,25 +137,45 @@ ion-card {
 }
 
 .method {
-  margin-top: 25px;
+  margin-top: -10px;
+  ion-row{
+    margin-bottom: -15px;
+  
 
   ion-card {
+    width: 100%;
+    height: 50%;
     --background: rgb(136 38 53 / 64%);
     border: 2px solid #ff0000db;
     border-radius: 15px;
   }
 
   ion-card-content {
-    margin-top: -5px;
-    font-size: 14px;
-    font-family: "Roboto-Bold";
+    margin: -10px;
+    font-size: 19px;
+    font-family: "Roboto-Thin";
     color: #fff;
-    text-align: center;
+    text-align: left;
+  }
+
   }
 }
 
+.bill-title{
+  display: block;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.st-sm{
+  font-size: 17px;
+  font-family: "Roboto-Thin";
+  margin: -18px 0px 0px 13px;
+}
+
 .next-btn {
-  padding: 0px 16px 11px 15px;
+  padding: 10px 16px 11px 15px;
 
   ion-button {
     --background: -webkit-linear-gradient(30deg, #BB1A34, #FF4936);
