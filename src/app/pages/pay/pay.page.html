@@ -129,7 +129,7 @@
   </div>
 
   <div class="method">
-    <ion-row *ngFor="let item of icon,index as i" class="ion-align-items-center" button="true" (click)="test(i)">
+    <ion-row id="method-{{i}}" *ngFor="let item of icon; index as i" class="ion-align-items-center" button="true" (click)="switchMethod(i)">
       <ion-col size="2">
         <img src="{{item}}">
       </ion-col>
