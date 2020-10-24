@@ -14,26 +14,28 @@ export class PayPage implements OnInit {
   bookingSeat: any = {};
   listBookingFood: any[] = [];
   icon: Array<string> = [
-    '../../../assets/icon/payment/visa.png', 
-    '../../../assets/icon/payment/noidia.png', 
-    '../../../assets/icon/payment/momo.png', 
+    '../../../assets/icon/payment/visa.png',
+    '../../../assets/icon/payment/noidia.png',
+    '../../../assets/icon/payment/momo.png',
     '../../../assets/icon/payment/tructiep.png'];
   backgroundColor: string;
   borderColor: string;
   movieDetail: string[];
   userInfo: any = {};
+  method: any[] = [];
 
   constructor(
     private navCtrl: NavController,
     public toastController: ToastController,
     public authService: AuthenticationService,
     public ticketInfo: TicketInfoService) {
-    this.totalMoneyString = ticketInfo.getTotalMoneyString();
-    this.listBookingSeatString = ticketInfo.getBookingSeatString();
-    this.listBookingFood = ticketInfo.bookingFoodList;
-    this.bookingSeat = ticketInfo.getBookingSeatInfo();
-    this.checkCurrentUserInfo();
-  }
+      this.method = this.getListMethod();
+      this.totalMoneyString = ticketInfo.getTotalMoneyString();
+      this.listBookingSeatString = ticketInfo.getBookingSeatString();
+      this.listBookingFood = ticketInfo.bookingFoodList;
+      this.bookingSeat = ticketInfo.getBookingSeatInfo();
+      this.checkCurrentUserInfo();
+    }
 
   switchMethod(index: number) {
     for (let i = 0; i < 4; i++) {
@@ -42,6 +44,15 @@ export class PayPage implements OnInit {
     }
     (document.getElementById(`method-${index}`) as HTMLScriptElement).style.borderColor = '#ff0000db';
     (document.getElementById(`method-${index}`) as HTMLScriptElement).style.backgroundColor = '#fb463659';
+  }
+
+  getListMethod() {
+    let output: any[] = [];
+    output.push({ name: 'Thẻ Visa, MasterCard, JCB', icon: '../../../assets/icon/payment/visa.png'});
+    output.push({ name: 'Thẻ ATM nội địa', icon: '../../../assets/icon/payment/noidia.png'});
+    output.push({ name: 'Ví điện tử MOMO', icon: '../../../assets/icon/payment/momo.png'});
+    output.push({ name: 'Thanh toán trực tiếp', icon: '../../../assets/icon/payment/tructiep.png'});
+    return output;
   }
 
   ngOnInit() {
