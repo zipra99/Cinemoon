@@ -16,23 +16,32 @@ import { environment } from 'src/environments/environment';
 import { SafePipeModule } from './pipes/safe-pipe.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    AngularFirestoreModule,
-    SafePipeModule
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    entryComponents: [],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
+        AngularFireModule.initializeApp({
+            apiKey: 'AIzaSyCnPgIM26VLnds2d1bnOKHwMXVTcOlCYHU',
+            authDomain: 'cinemoon-movie.firebaseapp.com',
+            databaseURL: 'https://cinemoon-movie.firebaseio.com',
+            projectId: 'cinemoon-movie',
+            storageBucket: 'cinemoon-movie.appspot.com',
+            messagingSenderId: '358211555686',
+            appId: '1:358211555686:web:3afbf1ff512d78e71a38a7',
+            measurementId: 'G-KQCVZ4W8J8'
+        }),
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
+        AngularFirestoreModule,
+        SafePipeModule
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

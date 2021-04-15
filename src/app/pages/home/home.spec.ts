@@ -1,28 +1,23 @@
-import { DetailPage } from './detail.page';
+import { HomePage } from './home.page';
 import { NavController } from '@ionic/angular';
 import { MovieListService } from 'src/app/services/movie-list.service';
 import { AuthenticationService } from 'src/app/services/shared/authentication.service';
-import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
-describe('Component: Details', () => {
+describe('Component: HomePage', () => {
 
-    let component: DetailPage;
+    let component: HomePage;
     let authService: AuthenticationService;
     let movieService: MovieListService;
-    let ticketService: TicketInfoService;
-
     let nav: NavController;
 
 
     beforeEach(() => {
-        component = new DetailPage(movieService, nav, ticketService, authService);
+        component = new HomePage(authService, nav, movieService);
     });
 
-    // clear
     afterEach(() => {
         authService = null;
         movieService = null;
-        ticketService = null;
         nav = null;
         component = null;
     });
