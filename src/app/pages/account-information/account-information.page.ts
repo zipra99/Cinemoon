@@ -3,43 +3,43 @@ import { AuthenticationService } from 'src/app/services/shared/authentication.se
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-account-information',
-  templateUrl: './account-information.page.html',
-  styleUrls: ['./account-information.page.scss'],
+    selector: 'app-account-information',
+    templateUrl: './account-information.page.html',
+    styleUrls: ['./account-information.page.scss'],
 })
 export class AccountInformationPage implements OnInit {
-  userInfo: any = {};
+    userInfo: any = {};
 
-  constructor(
-    public authService: AuthenticationService,
-    private navCtrl: NavController
-  ) { }
+    constructor(
+        public authService: AuthenticationService,
+        private navCtrl: NavController
+    ) { }
 
-  ngOnInit() {
-    this.authService.checkIsLogin(false);
-    let userDoc = this.authService.getCurrentUserInfo();
-    if(userDoc) {
-      userDoc.subscribe(data => {
-        this.userInfo = data;
-      });
-    } else {
-      this.navCtrl.navigateBack('login');
+    ngOnInit() {
+        this.authService.checkIsLogin(false);
+        const userDoc = this.authService.getCurrentUserInfo();
+        if (userDoc) {
+            userDoc.subscribe(data => {
+                this.userInfo = data;
+            });
+        } else {
+            this.navCtrl.navigateBack('login');
+        }
     }
-  }
 
-  navigate(page){
-    switch(page){
-      case 'movie':
-        this.navCtrl.navigateBack('movie-list');
-        break;
-      case 'home':
-        this.navCtrl.navigateBack('home');
-        break;
-      case 'account':
-        this.navCtrl.navigateForward('account-information');
-        break;
-      default:
-        break;
+    navigate(page) {
+        switch (page) {
+            case 'movie':
+                this.navCtrl.navigateBack('movie-list');
+                break;
+            case 'home':
+                this.navCtrl.navigateBack('home');
+                break;
+            case 'account':
+                this.navCtrl.navigateForward('account-information');
+                break;
+            default:
+                break;
+        }
     }
-  }
 }

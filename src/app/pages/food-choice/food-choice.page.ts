@@ -40,8 +40,9 @@ export class FoodChoicePage implements OnInit {
         this.movieDetail = this.ticketInfo.getStringMovieInfo();
     }
     plus(foodIndex) {
-        if (this.foodNumberList[foodIndex] == 0)
-            document.getElementById("minus" + foodIndex).setAttribute('color', 'primary');
+        if (this.foodNumberList[foodIndex] === 0) {
+            document.getElementById('minus' + foodIndex).setAttribute('color', 'primary');
+        }
         this.foodNumberList[foodIndex]++;
         this.calculateFoodMoney();
     }
@@ -50,8 +51,9 @@ export class FoodChoicePage implements OnInit {
             this.foodNumberList[foodIndex]--;
             this.calculateFoodMoney();
         }
-        if (this.foodNumberList[foodIndex] == 0)
-            document.getElementById("minus" + foodIndex).setAttribute('color', 'dark');
+        if (this.foodNumberList[foodIndex] === 0) {
+            document.getElementById('minus' + foodIndex).setAttribute('color', 'dark');
+        }
     }
     calculateFoodMoney() {
         let money = this.ticketInfo.totalMoney;
